@@ -1,0 +1,70 @@
+,importance
+PSH Flag Count,0.12868606
+service_HTTP,0.09465846
+Packet Length Variance,0.08194863
+Flow Bytes/s,0.07474232
+Total Length of Fwd Packets,0.07245406
+Fwd IAT Std,0.053247474
+Min Packet Length,0.051945735
+act_data_pkt_fwd,0.051238716
+service_FTP,0.050154753
+Bwd Packets/s,0.03156716
+Bwd Packet Length Max,0.02393307
+Flow Packets/s,0.023197625
+service_SSH,0.020942222
+Packet Length Mean,0.020841964
+port_category_registered,0.020774981
+Total Fwd Packets,0.020207308
+Destination Port,0.018524086
+duration_bucket_medium,0.016959487
+Flow IAT Std,0.01297364
+Active Mean,0.0111665325
+Bwd Packet Length Min,0.009446002
+Init_Win_bytes_forward,0.009302006
+Init_Win_bytes_backward,0.008819714
+Fwd Packet Length Mean,0.008425244
+Fwd PSH Flags,0.0074595707
+Bwd IAT Mean,0.0073577953
+Flow IAT Mean,0.0066932696
+Active Std,0.006046763
+Fwd Header Length,0.005671532
+Flow IAT Max,0.0048377113
+service_HTTP-Alt,0.004627203
+min_seg_size_forward,0.004342658
+Flow IAT Min,0.004090552
+Fwd Packet Length Max,0.0040514614
+Fwd Packet Length Min,0.0038931258
+FIN Flag Count,0.0033028454
+Bwd IAT Std,0.003238666
+Bwd Header Length,0.0027471026
+Fwd IAT Min,0.0019862757
+Bwd IAT Total,0.0016205836
+Active Max,0.0014891651
+Max Packet Length,0.0014736836
+Idle Std,0.0013626913
+Down/Up Ratio,0.0011405819
+Flow Duration,0.0010430408
+Fwd IAT Mean,0.0009967587
+duration_bucket_short,0.00085916626
+ACK Flag Count,0.0008299097
+Bwd IAT Min,0.0005781624
+duration_bucket_long,0.00052345445
+Bwd IAT Max,0.00045086836
+Active Min,0.00040023107
+service_HTTPS,0.0003258191
+URG Flag Count,0.00026806272
+service_Other,9.4919254e-05
+Fwd URG Flags,2.0386147e-05
+service_DNS,1.1466586e-05
+duration_bucket_micro,7.254866e-06
+port_category_well_known,0.0
+port_category_ephemeral,0.0
+service_IMAP,0.0
+service_IMAPS,0.0
+service_MySQL,0.0
+service_POP3,0.0
+service_PostgreSQL,0.0
+service_RDP,0.0
+service_SMTP,0.0
+RST Flag Count,0.0
+service_Telnet,0.0

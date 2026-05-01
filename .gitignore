@@ -20,7 +20,7 @@ build/
 data/
 models/
 knowledge_base/
-results/
+
 
 # ===== Jupyter =====
 .ipynb_checkpoints/
