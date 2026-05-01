@@ -1,0 +1,200 @@
+# =============================================================================
+# SOC-Agent Configuration
+# =============================================================================
+
+# ---- Quick Mode ----
+# Set to true for fast test runs (samples data, fewer epochs, fewer agents)
+quick_mode: false
+
+# ---- Random Seed (for reproducibility) ----
+random_seed: 42
+
+# =============================================================================
+# Paths
+# =============================================================================
+paths:
+  data_raw: "data/raw"
+  data_cleaned: "data/cleaned"
+  data_processed: "data/processed"
+  data_splits: "data/splits"
+  models: "models"
+  knowledge_base: "knowledge_base"
+  results_figures: "results/figures"
+  results_tables: "results/tables"
+  results_logs: "results/logs"
+
+# =============================================================================
+# Dataset Configuration
+# =============================================================================
+datasets:
+  # Which datasets to use: "cicids2017", "cicids2018", or both
+  use: ["cicids2017"]  # Start with 2017 only — smaller, faster
+
+  cicids2017:
+    kaggle_slug: "cicdataset/cicids2017"
+    subfolder: "cic-ids-2017"
+
+  cicids2018:
+    kaggle_slug: "solarmainframe/ids-intrusion-csv"
+    subfolder: "cic-ids-2018"
+
+  # Sampling (for quick mode or memory-limited systems)
+  sample_fraction: 1.0  # 1.0 = use all, 0.1 = 10% sample
+
+# =============================================================================
+# Preprocessing (Phase 1)
+# =============================================================================
+preprocessing:
+  # Features to drop (non-generalizable + known bugs)
+  drop_always_null:
+    - "Bwd PSH Flags"
+    - "Bwd URG Flags"
+    - "Fwd Avg Bytes/Bulk"
+    - "Fwd Avg Packets/Bulk"
+    - "Fwd Avg Bulk Rate"
+    - "Bwd Avg Bytes/Bulk"
+    - "Bwd Avg Packets/Bulk"
+    - "Bwd Avg Bulk Rate"
+
+  drop_leaky:
+    - "Flow ID"
+    - "Source IP"
+    - "Src IP"
+    - "Destination IP"
+    - "Dst IP"
+    - "Timestamp"
+    - "Source Port"
+    - "Src Port"
+
+  # Correlation threshold for redundancy pruning
+  correlation_threshold: 0.95
+
+# =============================================================================
+# Feature Engineering & Selection (Phase 2)
+# =============================================================================
+features:
+  # Feature selection
+  mi_top_k: 30           # Top-K from Mutual Information
+  xgb_top_k: 25          # Top-K from XGBoost importance
+  # Final set = intersection of the two
+
+  # Port → service mapping (for engineered features)
+  port_service_map:
+    21: "FTP"
+    22: "SSH"
+    23: "Telnet"
+    25: "SMTP"
+    53: "DNS"
+    80: "HTTP"
+    110: "POP3"
+    143: "IMAP"
+    443: "HTTPS"
+    993: "IMAPS"
+    3306: "MySQL"
+    3389: "RDP"
+    5432: "PostgreSQL"
+    8080: "HTTP-Alt"
+
+# =============================================================================
+# Train/Test Split & Resampling
+# =============================================================================
+split:
+  test_size: 0.2
+  stratify: true
+
+resampling:
+  # Cap Benign class to this many samples (undersample)
+  benign_cap: 500000
+  smote_k_neighbors: 5
+
+# =============================================================================
+# Model Training (Phase 3)
+# =============================================================================
+models:
+  # Which models to train
+  train_xgboost: true
+  train_random_forest: true
+  train_dnn: true
+
+  xgboost:
+    n_estimators: 300
+    max_depth: 8
+    learning_rate: 0.05
+    subsample: 0.8
+    colsample_bytree: 0.8
+    min_child_weight: 5
+    use_gpu: true   # Set false if no GPU
+
+  random_forest:
+    n_estimators: 200
+    max_depth: 20
+    class_weight: "balanced"
+    n_jobs: -1
+
+  dnn:
+    hidden_layers: [256, 128, 64]
+    dropout: [0.3, 0.2, 0.0]
+    learning_rate: 0.001
+    weight_decay: 0.00001
+    batch_size: 2048
+    epochs: 30
+    use_gpu: true
+
+  # Cross-validation
+  cv_folds: 5
+
+# =============================================================================
+# SHAP Explainability
+# =============================================================================
+shap:
+  sample_size: 5000   # SHAP on a sample (full data too slow)
+
+# =============================================================================
+# Knowledge Base / RAG (Phase 4)
+# =============================================================================
+rag:
+  mitre_attck_url: "https://raw.githubusercontent.com/mitre/cti/master/enterprise-attack/enterprise-attack.json"
+  embedding_model: "all-MiniLM-L6-v2"
+  top_k_retrieval: 5
+
+# =============================================================================
+# Agents (Phase 4 continued)
+# =============================================================================
+agents:
+  # --- Backend selector ---
+  # "ollama"     → free, runs locally (needs: ollama serve + model pulled)
+  # "anthropic"  → production quality (needs ANTHROPIC_API_KEY in .env)
+  backend: "ollama"
+
+  # Ollama settings (used when backend = "ollama")
+  # Recommended models under 4 GB VRAM:
+  #   phi3.5        ~2.3 GB  — fast JSON, good reasoning
+  #   llama3.2:3b   ~2.0 GB  — compact, good instruction following
+  ollama_model: "phi3.5"
+
+  # Anthropic settings (used when backend = "anthropic")
+  llm_model: "claude-sonnet-4-5-20250929"
+
+  temperature: 0.0
+  max_tokens: 2000
+
+  # How many alerts to run through the full agent pipeline
+  # (Ollama = free; Anthropic ~$0.03 per alert with Claude Sonnet)
+  n_eval_alerts: 100
+
+# =============================================================================
+# Evaluation (Phase 5)
+# =============================================================================
+evaluation:
+  dpi: 600    # Figure resolution
+  figure_format: "png"   # png or pdf
+
+# =============================================================================
+# Quick mode overrides (applied when quick_mode: true)
+# =============================================================================
+quick_mode_overrides:
+  sample_fraction: 0.05
+  dnn_epochs: 5
+  n_eval_alerts: 10
+  benign_cap: 50000
+  shap_sample_size: 500

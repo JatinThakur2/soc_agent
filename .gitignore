@@ -1,0 +1,36 @@
+# ===== Secrets =====
+.env
+*.key
+kaggle.json
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# ===== Data & Models (too large for git) =====
+data/
+models/
+knowledge_base/
+results/
+
+# ===== Jupyter =====
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ===== IDE =====
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# ===== Logs =====
+*.log
