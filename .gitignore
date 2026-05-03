@@ -19,7 +19,7 @@ build/
 # ===== Data & Models (too large for git) =====
 data/
 models/
-knowledge_base/
+
 
 
 # ===== Jupyter =====
