@@ -1,0 +1,28 @@
+{
+  "total_alerts_processed": 100,
+  "completed_agent_runs": 80,
+  "skipped_benign": 20,
+  "errors": 0,
+  "ml_accuracy_on_sample": 1.0,
+  "escalated_count": 57,
+  "action_required_count": 80,
+  "severity_distribution": {
+    "Critical": 25,
+    "Medium": 22,
+    "Low": 19,
+    "High": 8,
+    "Unknown": 6
+  },
+  "top_mitre_techniques": {
+    "T1498": 23,
+    "T1499.002": 19,
+    "T1498.001": 14,
+    "T1499.003": 10,
+    "T1205": 8,
+    "T1571": 6,
+    "T1498.002": 6,
+    "T1205 (Traffic Signaling)": 6,
+    "T1205.001": 5,
+    "T1571 (Non-Standard Port)": 5
+  }
+}
