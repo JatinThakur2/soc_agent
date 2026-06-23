@@ -1,23 +1,21 @@
 feature
-Bwd Packet Length Max
-Bwd Packet Length Min
+Average Packet Size
+Bwd Packet Length Mean
 Bwd Packets/s
-Destination Port
 Flow Bytes/s
-Flow IAT Std
-Flow Packets/s
-Fwd IAT Std
-Fwd Packet Length Mean
-Init_Win_bytes_backward
-Init_Win_bytes_forward
-Packet Length Mean
-Packet Length Variance
-Total Fwd Packets
+Fwd Packet Length Max
+Max Packet Length
 Total Length of Fwd Packets
 duration_bucket_long
 duration_bucket_medium
 duration_bucket_micro
 duration_bucket_short
+fwd_bwd_ratio
+payload_category_empty
+payload_category_large
+payload_category_medium
+payload_category_small
+payload_category_tiny
 port_category_ephemeral
 port_category_registered
 port_category_well_known
@@ -36,3 +34,4 @@ service_RDP
 service_SMTP
 service_SSH
 service_Telnet
+syn_no_ack

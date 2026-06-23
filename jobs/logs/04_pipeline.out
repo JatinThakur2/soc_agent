@@ -1,0 +1,687 @@
+=== Agent Pipeline ===
+Node: jiit-gpu01
+Start: Tue May  5 16:46:43 CEST 2026
+Ollama PID: 2095711
+Waiting for Ollama to start...
+time=2026-05-05T16:46:43.972+02:00 level=INFO source=routes.go:1782 msg="server config" env="map[CUDA_VISIBLE_DEVICES: GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://0.0.0.0:11435 OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MODELS:/home/deepak.g/.ollama/models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NEW_ENGINE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:false ROCR_VISIBLE_DEVICES: http_proxy: https_proxy: no_proxy:]"
+time=2026-05-05T16:46:43.973+02:00 level=INFO source=routes.go:1784 msg="Ollama cloud disabled: false"
+time=2026-05-05T16:46:43.975+02:00 level=INFO source=images.go:517 msg="total blobs: 3"
+time=2026-05-05T16:46:43.976+02:00 level=INFO source=images.go:524 msg="total unused blobs removed: 0"
+time=2026-05-05T16:46:43.977+02:00 level=INFO source=routes.go:1847 msg="Listening on [::]:11435 (version 0.22.1)"
+time=2026-05-05T16:46:43.978+02:00 level=INFO source=runner.go:67 msg="discovering available GPUs..."
+time=2026-05-05T16:46:43.979+02:00 level=INFO source=server.go:444 msg="starting runner" cmd="/home/deepak.g/.local/bin/ollama runner --ollama-engine --port 33007"
+time=2026-05-05T16:46:44.049+02:00 level=INFO source=types.go:60 msg="inference compute" id=cpu library=cpu compute="" name=cpu description=cpu libdirs=ollama driver="" pci_id="" type="" total="2014.9 GiB" available="1822.9 GiB"
+time=2026-05-05T16:46:44.049+02:00 level=INFO source=routes.go:1897 msg="vram-based default context" total_vram="0 B" default_num_ctx=4096
+time=2026-05-05T16:46:44.329+02:00 level=INFO source=model_recommendations.go:179 msg="model recommendations cache sleep scheduled" wait=3h22m2.754246479s consecutive_failures=0
+[GIN] 2026/05/05 - 16:46:45 | 200 |    3.356755ms |       127.0.0.1 | GET      "/api/tags"
+Ollama ready after 2s
+16:46:51 | INFO    | __main__ | Backend: Ollama (local). Make sure 'ollama serve' is running.
+16:46:51 | INFO    | __main__ | Test set: (674189, 36), 15 classes
+16:46:51 | INFO    | __main__ | LLM backend: ollama
+16:46:52 | INFO    | src.models.alert_generator | AlertGenerator: loaded XGBoost model from /home/deepak.g/Downloads/soc_agent/models/xgboost_model.pkl
+16:46:52 | INFO    | src.models.alert_generator | AlertGenerator: loaded scaler from /home/deepak.g/Downloads/soc_agent/data/processed/scaler.pkl
+16:46:52 | INFO    | src.models.alert_generator | AlertGenerator: 15 label classes
+16:46:52 | INFO    | src.models.alert_generator | AlertGenerator: 36 features
+16:46:52 | INFO    | __main__ | Running agent pipeline on 100 alerts (80 attacks, 20 benign)...
+16:46:52 | INFO    | __main__ | Checkpoint found — resuming from 100 completed alerts.
+Processing alerts:   0%|          | 0/100 [00:00<?, ?it/s]llama_model_loader: loaded meta data with 40 key-value pairs and 197 tensors from /home/deepak.g/.ollama/models/blobs/sha256-e4165e3a71af97f1b4820da61079826d8752a2088e313af0c7d346796c38eff5 (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = phi3
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Phi 3.5 Mini Instruct
+llama_model_loader: - kv   3:                           general.finetune str              = instruct
+llama_model_loader: - kv   4:                           general.basename str              = Phi-3.5
+llama_model_loader: - kv   5:                         general.size_label str              = mini
+llama_model_loader: - kv   6:                            general.license str              = mit
+llama_model_loader: - kv   7:                       general.license.link str              = https://huggingface.co/microsoft/Phi-...
+llama_model_loader: - kv   8:                               general.tags arr[str,3]       = ["nlp", "code", "text-generation"]
+llama_model_loader: - kv   9:                          general.languages arr[str,1]       = ["multilingual"]
+llama_model_loader: - kv  10:                        phi3.context_length u32              = 131072
+llama_model_loader: - kv  11:  phi3.rope.scaling.original_context_length u32              = 4096
+llama_model_loader: - kv  12:                      phi3.embedding_length u32              = 3072
+llama_model_loader: - kv  13:                   phi3.feed_forward_length u32              = 8192
+llama_model_loader: - kv  14:                           phi3.block_count u32              = 32
+llama_model_loader: - kv  15:                  phi3.attention.head_count u32              = 32
+llama_model_loader: - kv  16:               phi3.attention.head_count_kv u32              = 32
+llama_model_loader: - kv  17:      phi3.attention.layer_norm_rms_epsilon f32              = 0.000010
+llama_model_loader: - kv  18:                  phi3.rope.dimension_count u32              = 96
+llama_model_loader: - kv  19:                        phi3.rope.freq_base f32              = 10000.000000
+llama_model_loader: - kv  20:                          general.file_type u32              = 15
+llama_model_loader: - kv  21:              phi3.attention.sliding_window u32              = 262144
+llama_model_loader: - kv  22:              phi3.rope.scaling.attn_factor f32              = 1.190238
+llama_model_loader: - kv  23:                       tokenizer.ggml.model str              = llama
+llama_model_loader: - kv  24:                         tokenizer.ggml.pre str              = default
+llama_model_loader: - kv  25:                      tokenizer.ggml.tokens arr[str,32064]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+llama_model_loader: - kv  26:                      tokenizer.ggml.scores arr[f32,32064]   = [-1000.000000, -1000.000000, -1000.00...
+llama_model_loader: - kv  27:                  tokenizer.ggml.token_type arr[i32,32064]   = [3, 3, 4, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+llama_model_loader: - kv  28:                tokenizer.ggml.bos_token_id u32              = 1
+llama_model_loader: - kv  29:                tokenizer.ggml.eos_token_id u32              = 32000
+llama_model_loader: - kv  30:            tokenizer.ggml.unknown_token_id u32              = 0
+llama_model_loader: - kv  31:            tokenizer.ggml.padding_token_id u32              = 32000
+llama_model_loader: - kv  32:               tokenizer.ggml.add_bos_token bool             = false
+llama_model_loader: - kv  33:               tokenizer.ggml.add_eos_token bool             = false
+llama_model_loader: - kv  34:                    tokenizer.chat_template str              = {% for message in messages %}{% if me...
+llama_model_loader: - kv  35:               general.quantization_version u32              = 2
+llama_model_loader: - kv  36:                      quantize.imatrix.file str              = /models_out/Phi-3.5-mini-instruct-GGU...
+llama_model_loader: - kv  37:                   quantize.imatrix.dataset str              = /training_dir/calibration_datav3.txt
+llama_model_loader: - kv  38:             quantize.imatrix.entries_count i32              = 128
+llama_model_loader: - kv  39:              quantize.imatrix.chunks_count i32              = 151
+llama_model_loader: - type  f32:   67 tensors
+llama_model_loader: - type q4_K:   81 tensors
+llama_model_loader: - type q5_K:   32 tensors
+llama_model_loader: - type q6_K:   17 tensors
+print_info: file format = GGUF V3 (latest)
+print_info: file type   = Q4_K - Medium
+print_info: file size   = 2.23 GiB (5.01 BPW) 
+load: printing all EOG tokens:
+load:   - 32000 ('<|endoftext|>')
+load:   - 32007 ('<|end|>')
+load: special tokens cache size = 14
+load: token to piece cache size = 0.1685 MB
+print_info: arch             = phi3
+print_info: vocab_only       = 1
+print_info: no_alloc         = 0
+print_info: model type       = ?B
+print_info: model params     = 3.82 B
+print_info: general.name     = Phi 3.5 Mini Instruct
+print_info: vocab type       = SPM
+print_info: n_vocab          = 32064
+print_info: n_merges         = 0
+print_info: BOS token        = 1 '<s>'
+print_info: EOS token        = 32000 '<|endoftext|>'
+print_info: EOT token        = 32007 '<|end|>'
+print_info: UNK token        = 0 '<unk>'
+print_info: PAD token        = 32000 '<|endoftext|>'
+print_info: LF token         = 13 '<0x0A>'
+print_info: EOG token        = 32000 '<|endoftext|>'
+print_info: EOG token        = 32007 '<|end|>'
+print_info: max token length = 48
+llama_model_load: vocab only - skipping tensors
+time=2026-05-05T16:46:53.163+02:00 level=INFO source=server.go:444 msg="starting runner" cmd="/home/deepak.g/.local/bin/ollama runner --model /home/deepak.g/.ollama/models/blobs/sha256-e4165e3a71af97f1b4820da61079826d8752a2088e313af0c7d346796c38eff5 --port 36415"
+time=2026-05-05T16:46:53.169+02:00 level=INFO source=sched.go:484 msg="system memory" total="2014.9 GiB" free="1821.8 GiB" free_swap="16.0 GiB"
+time=2026-05-05T16:46:53.170+02:00 level=INFO source=server.go:511 msg="loading model" "model layers"=33 requested=-1
+time=2026-05-05T16:46:53.171+02:00 level=INFO source=device.go:245 msg="model weights" device=CPU size="2.2 GiB"
+time=2026-05-05T16:46:53.171+02:00 level=INFO source=device.go:256 msg="kv cache" device=CPU size="1.5 GiB"
+time=2026-05-05T16:46:53.171+02:00 level=INFO source=device.go:272 msg="total memory" size="3.7 GiB"
+time=2026-05-05T16:46:53.207+02:00 level=INFO source=runner.go:965 msg="starting go runner"
+time=2026-05-05T16:46:53.214+02:00 level=INFO source=ggml.go:104 msg=system CPU.0.LLAMAFILE=1 compiler=cgo(gcc)
+time=2026-05-05T16:46:53.231+02:00 level=INFO source=runner.go:1001 msg="Server listening on 127.0.0.1:36415"
+time=2026-05-05T16:46:53.233+02:00 level=INFO source=runner.go:895 msg=load request="{Operation:commit LoraPath:[] Parallel:1 BatchSize:512 FlashAttention:Auto KvSize:4096 KvCacheType: NumThreads:96 GPULayers:[] MultiUserCache:false ProjectorPath: MainGPU:0 UseMmap:false}"
+time=2026-05-05T16:46:53.233+02:00 level=INFO source=server.go:1364 msg="waiting for llama runner to start responding"
+time=2026-05-05T16:46:53.233+02:00 level=INFO source=server.go:1398 msg="waiting for server to become available" status="llm server loading model"
+llama_model_loader: loaded meta data with 40 key-value pairs and 197 tensors from /home/deepak.g/.ollama/models/blobs/sha256-e4165e3a71af97f1b4820da61079826d8752a2088e313af0c7d346796c38eff5 (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = phi3
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Phi 3.5 Mini Instruct
+llama_model_loader: - kv   3:                           general.finetune str              = instruct
+llama_model_loader: - kv   4:                           general.basename str              = Phi-3.5
+llama_model_loader: - kv   5:                         general.size_label str              = mini
+llama_model_loader: - kv   6:                            general.license str              = mit
+llama_model_loader: - kv   7:                       general.license.link str              = https://huggingface.co/microsoft/Phi-...
+llama_model_loader: - kv   8:                               general.tags arr[str,3]       = ["nlp", "code", "text-generation"]
+llama_model_loader: - kv   9:                          general.languages arr[str,1]       = ["multilingual"]
+llama_model_loader: - kv  10:                        phi3.context_length u32              = 131072
+llama_model_loader: - kv  11:  phi3.rope.scaling.original_context_length u32              = 4096
+llama_model_loader: - kv  12:                      phi3.embedding_length u32              = 3072
+llama_model_loader: - kv  13:                   phi3.feed_forward_length u32              = 8192
+llama_model_loader: - kv  14:                           phi3.block_count u32              = 32
+llama_model_loader: - kv  15:                  phi3.attention.head_count u32              = 32
+llama_model_loader: - kv  16:               phi3.attention.head_count_kv u32              = 32
+llama_model_loader: - kv  17:      phi3.attention.layer_norm_rms_epsilon f32              = 0.000010
+llama_model_loader: - kv  18:                  phi3.rope.dimension_count u32              = 96
+llama_model_loader: - kv  19:                        phi3.rope.freq_base f32              = 10000.000000
+llama_model_loader: - kv  20:                          general.file_type u32              = 15
+llama_model_loader: - kv  21:              phi3.attention.sliding_window u32              = 262144
+llama_model_loader: - kv  22:              phi3.rope.scaling.attn_factor f32              = 1.190238
+llama_model_loader: - kv  23:                       tokenizer.ggml.model str              = llama
+llama_model_loader: - kv  24:                         tokenizer.ggml.pre str              = default
+llama_model_loader: - kv  25:                      tokenizer.ggml.tokens arr[str,32064]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+llama_model_loader: - kv  26:                      tokenizer.ggml.scores arr[f32,32064]   = [-1000.000000, -1000.000000, -1000.00...
+llama_model_loader: - kv  27:                  tokenizer.ggml.token_type arr[i32,32064]   = [3, 3, 4, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+llama_model_loader: - kv  28:                tokenizer.ggml.bos_token_id u32              = 1
+llama_model_loader: - kv  29:                tokenizer.ggml.eos_token_id u32              = 32000
+llama_model_loader: - kv  30:            tokenizer.ggml.unknown_token_id u32              = 0
+llama_model_loader: - kv  31:            tokenizer.ggml.padding_token_id u32              = 32000
+llama_model_loader: - kv  32:               tokenizer.ggml.add_bos_token bool             = false
+llama_model_loader: - kv  33:               tokenizer.ggml.add_eos_token bool             = false
+llama_model_loader: - kv  34:                    tokenizer.chat_template str              = {% for message in messages %}{% if me...
+llama_model_loader: - kv  35:               general.quantization_version u32              = 2
+llama_model_loader: - kv  36:                      quantize.imatrix.file str              = /models_out/Phi-3.5-mini-instruct-GGU...
+llama_model_loader: - kv  37:                   quantize.imatrix.dataset str              = /training_dir/calibration_datav3.txt
+llama_model_loader: - kv  38:             quantize.imatrix.entries_count i32              = 128
+llama_model_loader: - kv  39:              quantize.imatrix.chunks_count i32              = 151
+llama_model_loader: - type  f32:   67 tensors
+llama_model_loader: - type q4_K:   81 tensors
+llama_model_loader: - type q5_K:   32 tensors
+llama_model_loader: - type q6_K:   17 tensors
+print_info: file format = GGUF V3 (latest)
+print_info: file type   = Q4_K - Medium
+print_info: file size   = 2.23 GiB (5.01 BPW) 
+load_hparams: Phi SWA is currently disabled - results might be suboptimal for some models (see https://github.com/ggml-org/llama.cpp/pull/13676)
+load: printing all EOG tokens:
+load:   - 32000 ('<|endoftext|>')
+load:   - 32007 ('<|end|>')
+load: special tokens cache size = 14
+load: token to piece cache size = 0.1685 MB
+print_info: arch             = phi3
+print_info: vocab_only       = 0
+print_info: no_alloc         = 0
+print_info: n_ctx_train      = 131072
+print_info: n_embd           = 3072
+print_info: n_embd_inp       = 3072
+print_info: n_layer          = 32
+print_info: n_head           = 32
+print_info: n_head_kv        = 32
+print_info: n_rot            = 96
+print_info: n_swa            = 0
+print_info: is_swa_any       = 0
+print_info: n_embd_head_k    = 96
+print_info: n_embd_head_v    = 96
+print_info: n_gqa            = 1
+print_info: n_embd_k_gqa     = 3072
+print_info: n_embd_v_gqa     = 3072
+print_info: f_norm_eps       = 0.0e+00
+print_info: f_norm_rms_eps   = 1.0e-05
+print_info: f_clamp_kqv      = 0.0e+00
+print_info: f_max_alibi_bias = 0.0e+00
+print_info: f_logit_scale    = 0.0e+00
+print_info: f_attn_scale     = 0.0e+00
+print_info: n_ff             = 8192
+print_info: n_expert         = 0
+print_info: n_expert_used    = 0
+print_info: n_expert_groups  = 0
+print_info: n_group_used     = 0
+print_info: causal attn      = 1
+print_info: pooling type     = 0
+print_info: rope type        = 2
+print_info: rope scaling     = linear
+print_info: freq_base_train  = 10000.0
+print_info: freq_scale_train = 1
+print_info: n_ctx_orig_yarn  = 4096
+print_info: rope_yarn_log_mul= 0.0000
+print_info: rope_finetuned   = unknown
+print_info: model type       = 3B
+print_info: model params     = 3.82 B
+print_info: general.name     = Phi 3.5 Mini Instruct
+print_info: vocab type       = SPM
+print_info: n_vocab          = 32064
+print_info: n_merges         = 0
+print_info: BOS token        = 1 '<s>'
+print_info: EOS token        = 32000 '<|endoftext|>'
+print_info: EOT token        = 32007 '<|end|>'
+print_info: UNK token        = 0 '<unk>'
+print_info: PAD token        = 32000 '<|endoftext|>'
+print_info: LF token         = 13 '<0x0A>'
+print_info: EOG token        = 32000 '<|endoftext|>'
+print_info: EOG token        = 32007 '<|end|>'
+print_info: max token length = 48
+load_tensors: loading model tensors, this can take a while... (mmap = false)
+load_tensors:          CPU model buffer size =  2281.66 MiB
+llama_context: constructing llama_context
+llama_context: n_seq_max     = 1
+llama_context: n_ctx         = 4096
+llama_context: n_ctx_seq     = 4096
+llama_context: n_batch       = 512
+llama_context: n_ubatch      = 512
+llama_context: causal_attn   = 1
+llama_context: flash_attn    = auto
+llama_context: kv_unified    = false
+llama_context: freq_base     = 10000.0
+llama_context: freq_scale    = 1
+llama_context: n_ctx_seq (4096) < n_ctx_train (131072) -- the full capacity of the model will not be utilized
+llama_context:        CPU  output buffer size =     0.13 MiB
+llama_kv_cache:        CPU KV buffer size =  1536.00 MiB
+llama_kv_cache: size = 1536.00 MiB (  4096 cells,  32 layers,  1/1 seqs), K (f16):  768.00 MiB, V (f16):  768.00 MiB
+llama_context: Flash Attention was auto, set to enabled
+llama_context:        CPU compute buffer size =    72.01 MiB
+llama_context: graph nodes  = 935
+llama_context: graph splits = 1
+time=2026-05-05T16:46:56.244+02:00 level=INFO source=server.go:1402 msg="llama runner started in 3.08 seconds"
+time=2026-05-05T16:46:56.245+02:00 level=INFO source=sched.go:561 msg="loaded runners" count=1
+time=2026-05-05T16:46:56.245+02:00 level=INFO source=server.go:1364 msg="waiting for llama runner to start responding"
+time=2026-05-05T16:46:56.245+02:00 level=INFO source=server.go:1402 msg="llama runner started in 3.08 seconds"
+[GIN] 2026/05/05 - 17:44:04 | 200 |        57m11s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/05/05 - 18:17:50 | 200 |        33m33s |       127.0.0.1 | POST     "/api/chat"
+18:17:50 | ERROR   | __main__ | Alert alert-0000-row578913 failed: an error was encountered while running the model: unexpected EOF (status code: -1)
+Processing alerts:   1%|          | 1/100 [1:30:57<150:04:39, 5457.37s/it]time=2026-05-05T18:17:50.425+02:00 level=WARN source=server.go:1284 msg="llama runner process no longer running" sys=9 string="signal: killed"
+time=2026-05-05T18:17:50.425+02:00 level=WARN source=server.go:1284 msg="llama runner process no longer running" sys=9 string="signal: killed"
+llama_model_loader: loaded meta data with 40 key-value pairs and 197 tensors from /home/deepak.g/.ollama/models/blobs/sha256-e4165e3a71af97f1b4820da61079826d8752a2088e313af0c7d346796c38eff5 (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = phi3
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Phi 3.5 Mini Instruct
+llama_model_loader: - kv   3:                           general.finetune str              = instruct
+llama_model_loader: - kv   4:                           general.basename str              = Phi-3.5
+llama_model_loader: - kv   5:                         general.size_label str              = mini
+llama_model_loader: - kv   6:                            general.license str              = mit
+llama_model_loader: - kv   7:                       general.license.link str              = https://huggingface.co/microsoft/Phi-...
+llama_model_loader: - kv   8:                               general.tags arr[str,3]       = ["nlp", "code", "text-generation"]
+llama_model_loader: - kv   9:                          general.languages arr[str,1]       = ["multilingual"]
+llama_model_loader: - kv  10:                        phi3.context_length u32              = 131072
+llama_model_loader: - kv  11:  phi3.rope.scaling.original_context_length u32              = 4096
+llama_model_loader: - kv  12:                      phi3.embedding_length u32              = 3072
+llama_model_loader: - kv  13:                   phi3.feed_forward_length u32              = 8192
+llama_model_loader: - kv  14:                           phi3.block_count u32              = 32
+llama_model_loader: - kv  15:                  phi3.attention.head_count u32              = 32
+llama_model_loader: - kv  16:               phi3.attention.head_count_kv u32              = 32
+llama_model_loader: - kv  17:      phi3.attention.layer_norm_rms_epsilon f32              = 0.000010
+llama_model_loader: - kv  18:                  phi3.rope.dimension_count u32              = 96
+llama_model_loader: - kv  19:                        phi3.rope.freq_base f32              = 10000.000000
+llama_model_loader: - kv  20:                          general.file_type u32              = 15
+llama_model_loader: - kv  21:              phi3.attention.sliding_window u32              = 262144
+llama_model_loader: - kv  22:              phi3.rope.scaling.attn_factor f32              = 1.190238
+llama_model_loader: - kv  23:                       tokenizer.ggml.model str              = llama
+llama_model_loader: - kv  24:                         tokenizer.ggml.pre str              = default
+llama_model_loader: - kv  25:                      tokenizer.ggml.tokens arr[str,32064]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+llama_model_loader: - kv  26:                      tokenizer.ggml.scores arr[f32,32064]   = [-1000.000000, -1000.000000, -1000.00...
+llama_model_loader: - kv  27:                  tokenizer.ggml.token_type arr[i32,32064]   = [3, 3, 4, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+llama_model_loader: - kv  28:                tokenizer.ggml.bos_token_id u32              = 1
+llama_model_loader: - kv  29:                tokenizer.ggml.eos_token_id u32              = 32000
+llama_model_loader: - kv  30:            tokenizer.ggml.unknown_token_id u32              = 0
+llama_model_loader: - kv  31:            tokenizer.ggml.padding_token_id u32              = 32000
+llama_model_loader: - kv  32:               tokenizer.ggml.add_bos_token bool             = false
+llama_model_loader: - kv  33:               tokenizer.ggml.add_eos_token bool             = false
+llama_model_loader: - kv  34:                    tokenizer.chat_template str              = {% for message in messages %}{% if me...
+llama_model_loader: - kv  35:               general.quantization_version u32              = 2
+llama_model_loader: - kv  36:                      quantize.imatrix.file str              = /models_out/Phi-3.5-mini-instruct-GGU...
+llama_model_loader: - kv  37:                   quantize.imatrix.dataset str              = /training_dir/calibration_datav3.txt
+llama_model_loader: - kv  38:             quantize.imatrix.entries_count i32              = 128
+llama_model_loader: - kv  39:              quantize.imatrix.chunks_count i32              = 151
+llama_model_loader: - type  f32:   67 tensors
+llama_model_loader: - type q4_K:   81 tensors
+llama_model_loader: - type q5_K:   32 tensors
+llama_model_loader: - type q6_K:   17 tensors
+print_info: file format = GGUF V3 (latest)
+print_info: file type   = Q4_K - Medium
+print_info: file size   = 2.23 GiB (5.01 BPW) 
+load: printing all EOG tokens:
+load:   - 32000 ('<|endoftext|>')
+load:   - 32007 ('<|end|>')
+load: special tokens cache size = 14
+load: token to piece cache size = 0.1685 MB
+print_info: arch             = phi3
+print_info: vocab_only       = 1
+print_info: no_alloc         = 0
+print_info: model type       = ?B
+print_info: model params     = 3.82 B
+print_info: general.name     = Phi 3.5 Mini Instruct
+print_info: vocab type       = SPM
+print_info: n_vocab          = 32064
+print_info: n_merges         = 0
+print_info: BOS token        = 1 '<s>'
+print_info: EOS token        = 32000 '<|endoftext|>'
+print_info: EOT token        = 32007 '<|end|>'
+print_info: UNK token        = 0 '<unk>'
+print_info: PAD token        = 32000 '<|endoftext|>'
+print_info: LF token         = 13 '<0x0A>'
+print_info: EOG token        = 32000 '<|endoftext|>'
+print_info: EOG token        = 32007 '<|end|>'
+print_info: max token length = 48
+llama_model_load: vocab only - skipping tensors
+time=2026-05-05T18:17:50.484+02:00 level=INFO source=server.go:444 msg="starting runner" cmd="/home/deepak.g/.local/bin/ollama runner --model /home/deepak.g/.ollama/models/blobs/sha256-e4165e3a71af97f1b4820da61079826d8752a2088e313af0c7d346796c38eff5 --port 40663"
+time=2026-05-05T18:17:50.490+02:00 level=INFO source=sched.go:484 msg="system memory" total="2014.9 GiB" free="1934.5 GiB" free_swap="16.0 GiB"
+time=2026-05-05T18:17:50.490+02:00 level=INFO source=server.go:511 msg="loading model" "model layers"=33 requested=-1
+time=2026-05-05T18:17:50.491+02:00 level=INFO source=device.go:245 msg="model weights" device=CPU size="2.2 GiB"
+time=2026-05-05T18:17:50.491+02:00 level=INFO source=device.go:256 msg="kv cache" device=CPU size="1.5 GiB"
+time=2026-05-05T18:17:50.491+02:00 level=INFO source=device.go:272 msg="total memory" size="3.7 GiB"
+time=2026-05-05T18:17:50.531+02:00 level=INFO source=runner.go:965 msg="starting go runner"
+time=2026-05-05T18:17:50.539+02:00 level=INFO source=ggml.go:104 msg=system CPU.0.LLAMAFILE=1 compiler=cgo(gcc)
+time=2026-05-05T18:17:50.553+02:00 level=INFO source=runner.go:1001 msg="Server listening on 127.0.0.1:40663"
+time=2026-05-05T18:17:50.555+02:00 level=INFO source=runner.go:895 msg=load request="{Operation:commit LoraPath:[] Parallel:1 BatchSize:512 FlashAttention:Auto KvSize:4096 KvCacheType: NumThreads:96 GPULayers:[] MultiUserCache:false ProjectorPath: MainGPU:0 UseMmap:false}"
+time=2026-05-05T18:17:50.555+02:00 level=INFO source=server.go:1364 msg="waiting for llama runner to start responding"
+time=2026-05-05T18:17:50.556+02:00 level=INFO source=server.go:1398 msg="waiting for server to become available" status="llm server loading model"
+llama_model_loader: loaded meta data with 40 key-value pairs and 197 tensors from /home/deepak.g/.ollama/models/blobs/sha256-e4165e3a71af97f1b4820da61079826d8752a2088e313af0c7d346796c38eff5 (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = phi3
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Phi 3.5 Mini Instruct
+llama_model_loader: - kv   3:                           general.finetune str              = instruct
+llama_model_loader: - kv   4:                           general.basename str              = Phi-3.5
+llama_model_loader: - kv   5:                         general.size_label str              = mini
+llama_model_loader: - kv   6:                            general.license str              = mit
+llama_model_loader: - kv   7:                       general.license.link str              = https://huggingface.co/microsoft/Phi-...
+llama_model_loader: - kv   8:                               general.tags arr[str,3]       = ["nlp", "code", "text-generation"]
+llama_model_loader: - kv   9:                          general.languages arr[str,1]       = ["multilingual"]
+llama_model_loader: - kv  10:                        phi3.context_length u32              = 131072
+llama_model_loader: - kv  11:  phi3.rope.scaling.original_context_length u32              = 4096
+llama_model_loader: - kv  12:                      phi3.embedding_length u32              = 3072
+llama_model_loader: - kv  13:                   phi3.feed_forward_length u32              = 8192
+llama_model_loader: - kv  14:                           phi3.block_count u32              = 32
+llama_model_loader: - kv  15:                  phi3.attention.head_count u32              = 32
+llama_model_loader: - kv  16:               phi3.attention.head_count_kv u32              = 32
+llama_model_loader: - kv  17:      phi3.attention.layer_norm_rms_epsilon f32              = 0.000010
+llama_model_loader: - kv  18:                  phi3.rope.dimension_count u32              = 96
+llama_model_loader: - kv  19:                        phi3.rope.freq_base f32              = 10000.000000
+llama_model_loader: - kv  20:                          general.file_type u32              = 15
+llama_model_loader: - kv  21:              phi3.attention.sliding_window u32              = 262144
+llama_model_loader: - kv  22:              phi3.rope.scaling.attn_factor f32              = 1.190238
+llama_model_loader: - kv  23:                       tokenizer.ggml.model str              = llama
+llama_model_loader: - kv  24:                         tokenizer.ggml.pre str              = default
+llama_model_loader: - kv  25:                      tokenizer.ggml.tokens arr[str,32064]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+llama_model_loader: - kv  26:                      tokenizer.ggml.scores arr[f32,32064]   = [-1000.000000, -1000.000000, -1000.00...
+llama_model_loader: - kv  27:                  tokenizer.ggml.token_type arr[i32,32064]   = [3, 3, 4, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+llama_model_loader: - kv  28:                tokenizer.ggml.bos_token_id u32              = 1
+llama_model_loader: - kv  29:                tokenizer.ggml.eos_token_id u32              = 32000
+llama_model_loader: - kv  30:            tokenizer.ggml.unknown_token_id u32              = 0
+llama_model_loader: - kv  31:            tokenizer.ggml.padding_token_id u32              = 32000
+llama_model_loader: - kv  32:               tokenizer.ggml.add_bos_token bool             = false
+llama_model_loader: - kv  33:               tokenizer.ggml.add_eos_token bool             = false
+llama_model_loader: - kv  34:                    tokenizer.chat_template str              = {% for message in messages %}{% if me...
+llama_model_loader: - kv  35:               general.quantization_version u32              = 2
+llama_model_loader: - kv  36:                      quantize.imatrix.file str              = /models_out/Phi-3.5-mini-instruct-GGU...
+llama_model_loader: - kv  37:                   quantize.imatrix.dataset str              = /training_dir/calibration_datav3.txt
+llama_model_loader: - kv  38:             quantize.imatrix.entries_count i32              = 128
+llama_model_loader: - kv  39:              quantize.imatrix.chunks_count i32              = 151
+llama_model_loader: - type  f32:   67 tensors
+llama_model_loader: - type q4_K:   81 tensors
+llama_model_loader: - type q5_K:   32 tensors
+llama_model_loader: - type q6_K:   17 tensors
+print_info: file format = GGUF V3 (latest)
+print_info: file type   = Q4_K - Medium
+print_info: file size   = 2.23 GiB (5.01 BPW) 
+load_hparams: Phi SWA is currently disabled - results might be suboptimal for some models (see https://github.com/ggml-org/llama.cpp/pull/13676)
+load: printing all EOG tokens:
+load:   - 32000 ('<|endoftext|>')
+load:   - 32007 ('<|end|>')
+load: special tokens cache size = 14
+load: token to piece cache size = 0.1685 MB
+print_info: arch             = phi3
+print_info: vocab_only       = 0
+print_info: no_alloc         = 0
+print_info: n_ctx_train      = 131072
+print_info: n_embd           = 3072
+print_info: n_embd_inp       = 3072
+print_info: n_layer          = 32
+print_info: n_head           = 32
+print_info: n_head_kv        = 32
+print_info: n_rot            = 96
+print_info: n_swa            = 0
+print_info: is_swa_any       = 0
+print_info: n_embd_head_k    = 96
+print_info: n_embd_head_v    = 96
+print_info: n_gqa            = 1
+print_info: n_embd_k_gqa     = 3072
+print_info: n_embd_v_gqa     = 3072
+print_info: f_norm_eps       = 0.0e+00
+print_info: f_norm_rms_eps   = 1.0e-05
+print_info: f_clamp_kqv      = 0.0e+00
+print_info: f_max_alibi_bias = 0.0e+00
+print_info: f_logit_scale    = 0.0e+00
+print_info: f_attn_scale     = 0.0e+00
+print_info: n_ff             = 8192
+print_info: n_expert         = 0
+print_info: n_expert_used    = 0
+print_info: n_expert_groups  = 0
+print_info: n_group_used     = 0
+print_info: causal attn      = 1
+print_info: pooling type     = 0
+print_info: rope type        = 2
+print_info: rope scaling     = linear
+print_info: freq_base_train  = 10000.0
+print_info: freq_scale_train = 1
+print_info: n_ctx_orig_yarn  = 4096
+print_info: rope_yarn_log_mul= 0.0000
+print_info: rope_finetuned   = unknown
+print_info: model type       = 3B
+print_info: model params     = 3.82 B
+print_info: general.name     = Phi 3.5 Mini Instruct
+print_info: vocab type       = SPM
+print_info: n_vocab          = 32064
+print_info: n_merges         = 0
+print_info: BOS token        = 1 '<s>'
+print_info: EOS token        = 32000 '<|endoftext|>'
+print_info: EOT token        = 32007 '<|end|>'
+print_info: UNK token        = 0 '<unk>'
+print_info: PAD token        = 32000 '<|endoftext|>'
+print_info: LF token         = 13 '<0x0A>'
+print_info: EOG token        = 32000 '<|endoftext|>'
+print_info: EOG token        = 32007 '<|end|>'
+print_info: max token length = 48
+load_tensors: loading model tensors, this can take a while... (mmap = false)
+load_tensors:          CPU model buffer size =  2281.66 MiB
+llama_context: constructing llama_context
+llama_context: n_seq_max     = 1
+llama_context: n_ctx         = 4096
+llama_context: n_ctx_seq     = 4096
+llama_context: n_batch       = 512
+llama_context: n_ubatch      = 512
+llama_context: causal_attn   = 1
+llama_context: flash_attn    = auto
+llama_context: kv_unified    = false
+llama_context: freq_base     = 10000.0
+llama_context: freq_scale    = 1
+llama_context: n_ctx_seq (4096) < n_ctx_train (131072) -- the full capacity of the model will not be utilized
+llama_context:        CPU  output buffer size =     0.13 MiB
+llama_kv_cache:        CPU KV buffer size =  1536.00 MiB
+llama_kv_cache: size = 1536.00 MiB (  4096 cells,  32 layers,  1/1 seqs), K (f16):  768.00 MiB, V (f16):  768.00 MiB
+llama_context: Flash Attention was auto, set to enabled
+llama_context:        CPU compute buffer size =    72.01 MiB
+llama_context: graph nodes  = 935
+llama_context: graph splits = 1
+time=2026-05-05T18:17:51.810+02:00 level=INFO source=server.go:1402 msg="llama runner started in 1.32 seconds"
+time=2026-05-05T18:17:51.810+02:00 level=INFO source=sched.go:561 msg="loaded runners" count=1
+time=2026-05-05T18:17:51.810+02:00 level=INFO source=server.go:1364 msg="waiting for llama runner to start responding"
+time=2026-05-05T18:17:51.810+02:00 level=INFO source=server.go:1402 msg="llama runner started in 1.32 seconds"
+[GIN] 2026/05/05 - 18:18:41 | 200 | 51.087101112s |       127.0.0.1 | POST     "/api/chat"
+18:18:41 | ERROR   | __main__ | Alert alert-0001-row579039 failed: an error was encountered while running the model: unexpected EOF (status code: -1)
+Processing alerts:   2%|▏         | 2/100 [1:31:48<61:59:29, 2277.24s/it] time=2026-05-05T18:18:41.548+02:00 level=WARN source=server.go:1284 msg="llama runner process no longer running" sys=9 string="signal: killed"
+time=2026-05-05T18:18:41.548+02:00 level=WARN source=server.go:1284 msg="llama runner process no longer running" sys=9 string="signal: killed"
+llama_model_loader: loaded meta data with 40 key-value pairs and 197 tensors from /home/deepak.g/.ollama/models/blobs/sha256-e4165e3a71af97f1b4820da61079826d8752a2088e313af0c7d346796c38eff5 (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = phi3
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Phi 3.5 Mini Instruct
+llama_model_loader: - kv   3:                           general.finetune str              = instruct
+llama_model_loader: - kv   4:                           general.basename str              = Phi-3.5
+llama_model_loader: - kv   5:                         general.size_label str              = mini
+llama_model_loader: - kv   6:                            general.license str              = mit
+llama_model_loader: - kv   7:                       general.license.link str              = https://huggingface.co/microsoft/Phi-...
+llama_model_loader: - kv   8:                               general.tags arr[str,3]       = ["nlp", "code", "text-generation"]
+llama_model_loader: - kv   9:                          general.languages arr[str,1]       = ["multilingual"]
+llama_model_loader: - kv  10:                        phi3.context_length u32              = 131072
+llama_model_loader: - kv  11:  phi3.rope.scaling.original_context_length u32              = 4096
+llama_model_loader: - kv  12:                      phi3.embedding_length u32              = 3072
+llama_model_loader: - kv  13:                   phi3.feed_forward_length u32              = 8192
+llama_model_loader: - kv  14:                           phi3.block_count u32              = 32
+llama_model_loader: - kv  15:                  phi3.attention.head_count u32              = 32
+llama_model_loader: - kv  16:               phi3.attention.head_count_kv u32              = 32
+llama_model_loader: - kv  17:      phi3.attention.layer_norm_rms_epsilon f32              = 0.000010
+llama_model_loader: - kv  18:                  phi3.rope.dimension_count u32              = 96
+llama_model_loader: - kv  19:                        phi3.rope.freq_base f32              = 10000.000000
+llama_model_loader: - kv  20:                          general.file_type u32              = 15
+llama_model_loader: - kv  21:              phi3.attention.sliding_window u32              = 262144
+llama_model_loader: - kv  22:              phi3.rope.scaling.attn_factor f32              = 1.190238
+llama_model_loader: - kv  23:                       tokenizer.ggml.model str              = llama
+llama_model_loader: - kv  24:                         tokenizer.ggml.pre str              = default
+llama_model_loader: - kv  25:                      tokenizer.ggml.tokens arr[str,32064]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+llama_model_loader: - kv  26:                      tokenizer.ggml.scores arr[f32,32064]   = [-1000.000000, -1000.000000, -1000.00...
+llama_model_loader: - kv  27:                  tokenizer.ggml.token_type arr[i32,32064]   = [3, 3, 4, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+llama_model_loader: - kv  28:                tokenizer.ggml.bos_token_id u32              = 1
+llama_model_loader: - kv  29:                tokenizer.ggml.eos_token_id u32              = 32000
+llama_model_loader: - kv  30:            tokenizer.ggml.unknown_token_id u32              = 0
+llama_model_loader: - kv  31:            tokenizer.ggml.padding_token_id u32              = 32000
+llama_model_loader: - kv  32:               tokenizer.ggml.add_bos_token bool             = false
+llama_model_loader: - kv  33:               tokenizer.ggml.add_eos_token bool             = false
+llama_model_loader: - kv  34:                    tokenizer.chat_template str              = {% for message in messages %}{% if me...
+llama_model_loader: - kv  35:               general.quantization_version u32              = 2
+llama_model_loader: - kv  36:                      quantize.imatrix.file str              = /models_out/Phi-3.5-mini-instruct-GGU...
+llama_model_loader: - kv  37:                   quantize.imatrix.dataset str              = /training_dir/calibration_datav3.txt
+llama_model_loader: - kv  38:             quantize.imatrix.entries_count i32              = 128
+llama_model_loader: - kv  39:              quantize.imatrix.chunks_count i32              = 151
+llama_model_loader: - type  f32:   67 tensors
+llama_model_loader: - type q4_K:   81 tensors
+llama_model_loader: - type q5_K:   32 tensors
+llama_model_loader: - type q6_K:   17 tensors
+print_info: file format = GGUF V3 (latest)
+print_info: file type   = Q4_K - Medium
+print_info: file size   = 2.23 GiB (5.01 BPW) 
+load: printing all EOG tokens:
+load:   - 32000 ('<|endoftext|>')
+load:   - 32007 ('<|end|>')
+load: special tokens cache size = 14
+load: token to piece cache size = 0.1685 MB
+print_info: arch             = phi3
+print_info: vocab_only       = 1
+print_info: no_alloc         = 0
+print_info: model type       = ?B
+print_info: model params     = 3.82 B
+print_info: general.name     = Phi 3.5 Mini Instruct
+print_info: vocab type       = SPM
+print_info: n_vocab          = 32064
+print_info: n_merges         = 0
+print_info: BOS token        = 1 '<s>'
+print_info: EOS token        = 32000 '<|endoftext|>'
+print_info: EOT token        = 32007 '<|end|>'
+print_info: UNK token        = 0 '<unk>'
+print_info: PAD token        = 32000 '<|endoftext|>'
+print_info: LF token         = 13 '<0x0A>'
+print_info: EOG token        = 32000 '<|endoftext|>'
+print_info: EOG token        = 32007 '<|end|>'
+print_info: max token length = 48
+llama_model_load: vocab only - skipping tensors
+time=2026-05-05T18:18:41.603+02:00 level=INFO source=server.go:444 msg="starting runner" cmd="/home/deepak.g/.local/bin/ollama runner --model /home/deepak.g/.ollama/models/blobs/sha256-e4165e3a71af97f1b4820da61079826d8752a2088e313af0c7d346796c38eff5 --port 37853"
+time=2026-05-05T18:18:41.608+02:00 level=INFO source=sched.go:484 msg="system memory" total="2014.9 GiB" free="1934.4 GiB" free_swap="16.0 GiB"
+time=2026-05-05T18:18:41.609+02:00 level=INFO source=server.go:511 msg="loading model" "model layers"=33 requested=-1
+time=2026-05-05T18:18:41.610+02:00 level=INFO source=device.go:245 msg="model weights" device=CPU size="2.2 GiB"
+time=2026-05-05T18:18:41.610+02:00 level=INFO source=device.go:256 msg="kv cache" device=CPU size="1.5 GiB"
+time=2026-05-05T18:18:41.610+02:00 level=INFO source=device.go:272 msg="total memory" size="3.7 GiB"
+time=2026-05-05T18:18:41.644+02:00 level=INFO source=runner.go:965 msg="starting go runner"
+time=2026-05-05T18:18:41.652+02:00 level=INFO source=ggml.go:104 msg=system CPU.0.LLAMAFILE=1 compiler=cgo(gcc)
+time=2026-05-05T18:18:41.666+02:00 level=INFO source=runner.go:1001 msg="Server listening on 127.0.0.1:37853"
+time=2026-05-05T18:18:41.670+02:00 level=INFO source=runner.go:895 msg=load request="{Operation:commit LoraPath:[] Parallel:1 BatchSize:512 FlashAttention:Auto KvSize:4096 KvCacheType: NumThreads:96 GPULayers:[] MultiUserCache:false ProjectorPath: MainGPU:0 UseMmap:false}"
+time=2026-05-05T18:18:41.670+02:00 level=INFO source=server.go:1364 msg="waiting for llama runner to start responding"
+time=2026-05-05T18:18:41.670+02:00 level=INFO source=server.go:1398 msg="waiting for server to become available" status="llm server loading model"
+llama_model_loader: loaded meta data with 40 key-value pairs and 197 tensors from /home/deepak.g/.ollama/models/blobs/sha256-e4165e3a71af97f1b4820da61079826d8752a2088e313af0c7d346796c38eff5 (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = phi3
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Phi 3.5 Mini Instruct
+llama_model_loader: - kv   3:                           general.finetune str              = instruct
+llama_model_loader: - kv   4:                           general.basename str              = Phi-3.5
+llama_model_loader: - kv   5:                         general.size_label str              = mini
+llama_model_loader: - kv   6:                            general.license str              = mit
+llama_model_loader: - kv   7:                       general.license.link str              = https://huggingface.co/microsoft/Phi-...
+llama_model_loader: - kv   8:                               general.tags arr[str,3]       = ["nlp", "code", "text-generation"]
+llama_model_loader: - kv   9:                          general.languages arr[str,1]       = ["multilingual"]
+llama_model_loader: - kv  10:                        phi3.context_length u32              = 131072
+llama_model_loader: - kv  11:  phi3.rope.scaling.original_context_length u32              = 4096
+llama_model_loader: - kv  12:                      phi3.embedding_length u32              = 3072
+llama_model_loader: - kv  13:                   phi3.feed_forward_length u32              = 8192
+llama_model_loader: - kv  14:                           phi3.block_count u32              = 32
+llama_model_loader: - kv  15:                  phi3.attention.head_count u32              = 32
+llama_model_loader: - kv  16:               phi3.attention.head_count_kv u32              = 32
+llama_model_loader: - kv  17:      phi3.attention.layer_norm_rms_epsilon f32              = 0.000010
+llama_model_loader: - kv  18:                  phi3.rope.dimension_count u32              = 96
+llama_model_loader: - kv  19:                        phi3.rope.freq_base f32              = 10000.000000
+llama_model_loader: - kv  20:                          general.file_type u32              = 15
+llama_model_loader: - kv  21:              phi3.attention.sliding_window u32              = 262144
+llama_model_loader: - kv  22:              phi3.rope.scaling.attn_factor f32              = 1.190238
+llama_model_loader: - kv  23:                       tokenizer.ggml.model str              = llama
+llama_model_loader: - kv  24:                         tokenizer.ggml.pre str              = default
+llama_model_loader: - kv  25:                      tokenizer.ggml.tokens arr[str,32064]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+llama_model_loader: - kv  26:                      tokenizer.ggml.scores arr[f32,32064]   = [-1000.000000, -1000.000000, -1000.00...
+llama_model_loader: - kv  27:                  tokenizer.ggml.token_type arr[i32,32064]   = [3, 3, 4, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+llama_model_loader: - kv  28:                tokenizer.ggml.bos_token_id u32              = 1
+llama_model_loader: - kv  29:                tokenizer.ggml.eos_token_id u32              = 32000
+llama_model_loader: - kv  30:            tokenizer.ggml.unknown_token_id u32              = 0
+llama_model_loader: - kv  31:            tokenizer.ggml.padding_token_id u32              = 32000
+llama_model_loader: - kv  32:               tokenizer.ggml.add_bos_token bool             = false
+llama_model_loader: - kv  33:               tokenizer.ggml.add_eos_token bool             = false
+llama_model_loader: - kv  34:                    tokenizer.chat_template str              = {% for message in messages %}{% if me...
+llama_model_loader: - kv  35:               general.quantization_version u32              = 2
+llama_model_loader: - kv  36:                      quantize.imatrix.file str              = /models_out/Phi-3.5-mini-instruct-GGU...
+llama_model_loader: - kv  37:                   quantize.imatrix.dataset str              = /training_dir/calibration_datav3.txt
+llama_model_loader: - kv  38:             quantize.imatrix.entries_count i32              = 128
+llama_model_loader: - kv  39:              quantize.imatrix.chunks_count i32              = 151
+llama_model_loader: - type  f32:   67 tensors
+llama_model_loader: - type q4_K:   81 tensors
+llama_model_loader: - type q5_K:   32 tensors
+llama_model_loader: - type q6_K:   17 tensors
+print_info: file format = GGUF V3 (latest)
+print_info: file type   = Q4_K - Medium
+print_info: file size   = 2.23 GiB (5.01 BPW) 
+load_hparams: Phi SWA is currently disabled - results might be suboptimal for some models (see https://github.com/ggml-org/llama.cpp/pull/13676)
+load: printing all EOG tokens:
+load:   - 32000 ('<|endoftext|>')
+load:   - 32007 ('<|end|>')
+load: special tokens cache size = 14
+load: token to piece cache size = 0.1685 MB
+print_info: arch             = phi3
+print_info: vocab_only       = 0
+print_info: no_alloc         = 0
+print_info: n_ctx_train      = 131072
+print_info: n_embd           = 3072
+print_info: n_embd_inp       = 3072
+print_info: n_layer          = 32
+print_info: n_head           = 32
+print_info: n_head_kv        = 32
+print_info: n_rot            = 96
+print_info: n_swa            = 0
+print_info: is_swa_any       = 0
+print_info: n_embd_head_k    = 96
+print_info: n_embd_head_v    = 96
+print_info: n_gqa            = 1
+print_info: n_embd_k_gqa     = 3072
+print_info: n_embd_v_gqa     = 3072
+print_info: f_norm_eps       = 0.0e+00
+print_info: f_norm_rms_eps   = 1.0e-05
+print_info: f_clamp_kqv      = 0.0e+00
+print_info: f_max_alibi_bias = 0.0e+00
+print_info: f_logit_scale    = 0.0e+00
+print_info: f_attn_scale     = 0.0e+00
+print_info: n_ff             = 8192
+print_info: n_expert         = 0
+print_info: n_expert_used    = 0
+print_info: n_expert_groups  = 0
+print_info: n_group_used     = 0
+print_info: causal attn      = 1
+print_info: pooling type     = 0
+print_info: rope type        = 2
+print_info: rope scaling     = linear
+print_info: freq_base_train  = 10000.0
+print_info: freq_scale_train = 1
+print_info: n_ctx_orig_yarn  = 4096
+print_info: rope_yarn_log_mul= 0.0000
+print_info: rope_finetuned   = unknown
+print_info: model type       = 3B
+print_info: model params     = 3.82 B
+print_info: general.name     = Phi 3.5 Mini Instruct
+print_info: vocab type       = SPM
+print_info: n_vocab          = 32064
+print_info: n_merges         = 0
+print_info: BOS token        = 1 '<s>'
+print_info: EOS token        = 32000 '<|endoftext|>'
+print_info: EOT token        = 32007 '<|end|>'
+print_info: UNK token        = 0 '<unk>'
+print_info: PAD token        = 32000 '<|endoftext|>'
+print_info: LF token         = 13 '<0x0A>'
+print_info: EOG token        = 32000 '<|endoftext|>'
+print_info: EOG token        = 32007 '<|end|>'
+print_info: max token length = 48
+load_tensors: loading model tensors, this can take a while... (mmap = false)
+load_tensors:          CPU model buffer size =  2281.66 MiB
+llama_context: constructing llama_context
+llama_context: n_seq_max     = 1
+llama_context: n_ctx         = 4096
+llama_context: n_ctx_seq     = 4096
+llama_context: n_batch       = 512
+llama_context: n_ubatch      = 512
+llama_context: causal_attn   = 1
+llama_context: flash_attn    = auto
+llama_context: kv_unified    = false
+llama_context: freq_base     = 10000.0
+llama_context: freq_scale    = 1
+llama_context: n_ctx_seq (4096) < n_ctx_train (131072) -- the full capacity of the model will not be utilized
+llama_context:        CPU  output buffer size =     0.13 MiB
+llama_kv_cache:        CPU KV buffer size =  1536.00 MiB
+llama_kv_cache: size = 1536.00 MiB (  4096 cells,  32 layers,  1/1 seqs), K (f16):  768.00 MiB, V (f16):  768.00 MiB
+llama_context: Flash Attention was auto, set to enabled
+llama_context:        CPU compute buffer size =    72.01 MiB
+llama_context: graph nodes  = 935
+llama_context: graph splits = 1
+time=2026-05-05T18:18:42.926+02:00 level=INFO source=server.go:1402 msg="llama runner started in 1.32 seconds"
+time=2026-05-05T18:18:42.926+02:00 level=INFO source=sched.go:561 msg="loaded runners" count=1
+time=2026-05-05T18:18:42.926+02:00 level=INFO source=server.go:1364 msg="waiting for llama runner to start responding"
+time=2026-05-05T18:18:42.926+02:00 level=INFO source=server.go:1402 msg="llama runner started in 1.32 seconds"
+[GIN] 2026/05/05 - 18:19:11 | 500 |  30.27595724s |       127.0.0.1 | POST     "/api/chat"

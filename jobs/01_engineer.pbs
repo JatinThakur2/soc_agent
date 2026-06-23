@@ -1,0 +1,23 @@
+#!/bin/bash
+#PBS -N soc_engineer
+#PBS -q workq
+#PBS -l select=1:ncpus=8:mem=32gb
+#PBS -l walltime=01:00:00
+#PBS -o /home/deepak.g/Downloads/soc_agent/jobs/logs/01_engineer.out
+#PBS -e /home/deepak.g/Downloads/soc_agent/jobs/logs/01_engineer.err
+#PBS -j oe
+
+PROJECT=/home/deepak.g/Downloads/soc_agent
+cd $PROJECT
+
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+export OMP_NUM_THREADS=8
+
+echo "=== Feature Engineering ==="
+echo "Node: $(hostname)"
+echo "Start: $(date)"
+
+$PROJECT/.venv/bin/python -m src.features.engineer
+
+echo "End: $(date)"

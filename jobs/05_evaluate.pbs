@@ -1,0 +1,19 @@
+#!/bin/bash
+#PBS -N soc_evaluate
+#PBS -q workq
+#PBS -l select=1:ncpus=4:mem=16gb
+#PBS -l walltime=00:30:00
+#PBS -o /home/deepak.g/Downloads/soc_agent/jobs/logs/05_evaluate.out
+#PBS -e /home/deepak.g/Downloads/soc_agent/jobs/logs/05_evaluate.err
+#PBS -j oe
+
+PROJECT=/home/deepak.g/Downloads/soc_agent
+cd $PROJECT
+
+echo "=== Evaluation ==="
+echo "Node: $(hostname)"
+echo "Start: $(date)"
+
+$PROJECT/.venv/bin/python -m src.evaluation.evaluate
+
+echo "End: $(date)"

@@ -1,0 +1,10 @@
+ERROR: Directory '/cm/shared/modulefiles' not found
+ERROR: Directory '/cm/shared/modulefiles' not found
+=== Build MITRE Knowledge Base ===
+Node: jiit-cn01
+Start: Tue May  5 16:46:35 CEST 2026
+16:46:35 | INFO    | __main__ | MITRE ATT&CK already downloaded at /home/deepak.g/Downloads/soc_agent/knowledge_base/enterprise-attack.json
+16:46:35 | INFO    | __main__ | Parsed 697 active ATT&CK techniques
+16:46:42 | INFO    | __main__ | Checkpoint found — FAISS index already exists, skipping rebuild.
+16:46:42 | INFO    | __main__ | Phase 4 (knowledge base) complete.
+End: Tue May  5 16:46:42 CEST 2026

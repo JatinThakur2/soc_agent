@@ -1,0 +1,49 @@
+#!/bin/bash
+#PBS -N soc_pipeline
+#PBS -q gpu
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l walltime=03:00:00
+#PBS -o /home/deepak.g/Downloads/soc_agent/jobs/logs/04_pipeline.out
+#PBS -e /home/deepak.g/Downloads/soc_agent/jobs/logs/04_pipeline.err
+#PBS -j oe
+
+PROJECT=/home/deepak.g/Downloads/soc_agent
+cd $PROJECT
+
+export CUDA_HOME=/usr/local/cuda
+export PATH=$CUDA_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+
+OLLAMA_BIN=/home/deepak.g/.local/bin/ollama
+OLLAMA_PORT=11435
+
+echo "=== Agent Pipeline ==="
+echo "Node: $(hostname)"
+echo "Start: $(date)"
+
+# Start Ollama server on this GPU node
+export OLLAMA_HOST=0.0.0.0:$OLLAMA_PORT
+export OLLAMA_MODELS=/home/deepak.g/.ollama/models
+$OLLAMA_BIN serve &
+OLLAMA_PID=$!
+echo "Ollama PID: $OLLAMA_PID"
+
+# Wait for Ollama to be ready
+echo "Waiting for Ollama to start..."
+for i in $(seq 1 30); do
+    if curl -s http://localhost:$OLLAMA_PORT/api/tags >/dev/null 2>&1; then
+        echo "Ollama ready after ${i}s"
+        break
+    fi
+    sleep 2
+done
+
+# Set the env var the app reads
+export OLLAMA_HOST=http://localhost:$OLLAMA_PORT
+
+# Run agent pipeline
+$PROJECT/.venv/bin/python -m src.agents.run_pipeline
+
+# Cleanup
+kill $OLLAMA_PID 2>/dev/null
+echo "End: $(date)"

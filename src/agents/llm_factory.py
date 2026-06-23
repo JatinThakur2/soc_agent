@@ -13,10 +13,12 @@ def make_llm(cfg):
     if backend == "ollama":
         from langchain_ollama import ChatOllama
         model = agent_cfg.get("ollama_model", "phi3.5")
+        base_url = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
         return ChatOllama(
             model=model,
             temperature=temperature,
             num_predict=max_tokens,
+            base_url=base_url,
         )
 
     load_dotenv()

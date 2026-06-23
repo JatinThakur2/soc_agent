@@ -1,0 +1,59 @@
+ERROR: Directory '/cm/shared/modulefiles' not found
+ERROR: Directory '/cm/shared/modulefiles' not found
+=== Feature Engineering ===
+Node: jiit-cn01
+Start: Tue May  5 15:58:02 CEST 2026
+15:58:03 | INFO    | __main__ | Loading /home/deepak.g/Downloads/soc_agent/data/cleaned/combined_cleaned.parquet
+15:58:04 | INFO    | __main__ | Loaded: (3370943, 71)
+15:58:04 | INFO    | __main__ | Engineered: fwd_bwd_ratio
+15:58:05 | INFO    | __main__ | Engineered: duration_bucket
+15:58:06 | INFO    | __main__ | Engineered: payload_category
+15:58:06 | INFO    | __main__ | Engineered: port_category, service
+15:58:06 | INFO    | __main__ | Engineered: syn_no_ack
+15:58:07 | INFO    | __main__ | Label classes: ['BENIGN', 'Bot', 'DDoS', 'DoS GoldenEye', 'DoS Hulk', 'DoS Slowhttptest', 'DoS slowloris', 'FTP-Patator', 'Heartbleed', 'Infiltration', 'PortScan', 'SSH-Patator', 'Web Attack � Brute Force', 'Web Attack � Sql Injection', 'Web Attack � XSS']
+15:58:09 | INFO    | __main__ | One-hot encoded: ['duration_bucket', 'payload_category', 'port_category', 'service']
+15:58:11 | INFO    | __main__ | Running consensus selection on 99 numeric features...
+15:58:11 | INFO    | __main__ | Stage 1: Mutual Information...
+16:30:59 | INFO    | __main__ |   MI top 30: ['Average Packet Size', 'Packet Length Mean', 'Packet Length Std', 'Packet Length Variance', 'Init_Win_bytes_forward']...
+16:30:59 | INFO    | __main__ | Stage 2: XGBoost importance...
+/home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/xgboost/core.py:158: UserWarning: [16:31:05] WARNING: /workspace/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/xgboost/core.py:158: UserWarning: [16:31:05] WARNING: /workspace/src/context.cc:43: No visible GPU is found, setting device to CPU.
+  warnings.warn(smsg, UserWarning)
+/home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/xgboost/core.py:158: UserWarning: [16:31:05] WARNING: /workspace/src/context.cc:196: XGBoost is not compiled with CUDA support.
+  warnings.warn(smsg, UserWarning)
+/home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/xgboost/core.py:158: UserWarning: [16:31:05] WARNING: /workspace/src/learner.cc:740: 
+Parameters: { "use_label_encoder" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+/home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/xgboost/core.py:158: UserWarning: [16:31:11] WARNING: /workspace/src/learner.cc:740: 
+Parameters: { "use_label_encoder" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+16:33:19 | INFO    | __main__ |   XGBoost top 25: ['Bwd Packet Length Std', 'PSH Flag Count', 'Idle Mean', 'service_HTTP', 'Average Packet Size']...
+16:33:19 | INFO    | __main__ | Consensus (intersection): 7 features
+16:33:19 | INFO    | __main__ | Final feature set: 36 features
+16:33:21 | INFO    | __main__ | Train: (2696754, 36), Test: (674189, 36)
+16:33:22 | INFO    | __main__ | Resampling: benign cap=500000, SMOTE k_neighbors=5
+16:34:35 | INFO    | __main__ | After resampling: (7500000, 36)
+16:34:35 | INFO    | __main__ | Class distribution after resampling:
+0     500000
+1     500000
+2     500000
+3     500000
+4     500000
+5     500000
+6     500000
+7     500000
+8     500000
+9     500000
+10    500000
+11    500000
+12    500000
+13    500000
+14    500000
+16:34:41 | INFO    | __main__ | Saved processed data to /home/deepak.g/Downloads/soc_agent/data/splits and /home/deepak.g/Downloads/soc_agent/data/processed
+End: Tue May  5 16:34:41 CEST 2026

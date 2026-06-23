@@ -1,0 +1,24 @@
+#!/bin/bash
+#PBS -N soc_train
+#PBS -q gpu
+#PBS -l select=1:ncpus=8:mem=32gb
+#PBS -l walltime=02:00:00
+#PBS -o /home/deepak.g/Downloads/soc_agent/jobs/logs/02_train.out
+#PBS -e /home/deepak.g/Downloads/soc_agent/jobs/logs/02_train.err
+#PBS -j oe
+
+PROJECT=/home/deepak.g/Downloads/soc_agent
+cd $PROJECT
+
+export CUDA_HOME=/usr/local/cuda
+export PATH=$CUDA_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+
+echo "=== Model Training ==="
+echo "Node: $(hostname)"
+echo "GPUs: $(nvidia-smi --query-gpu=name --format=csv,noheader 2>/dev/null)"
+echo "Start: $(date)"
+
+$PROJECT/.venv/bin/python -m src.models.train
+
+echo "End: $(date)"

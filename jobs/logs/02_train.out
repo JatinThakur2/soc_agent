@@ -1,0 +1,89 @@
+=== Model Training ===
+Node: jiit-gpu01
+GPUs: NVIDIA A100-SXM4-80GB
+NVIDIA A100-SXM4-80GB
+NVIDIA A100-SXM4-80GB
+NVIDIA A100-SXM4-80GB
+NVIDIA A100-SXM4-80GB
+NVIDIA A100-SXM4-80GB
+NVIDIA A100-SXM4-80GB
+NVIDIA A100-SXM4-80GB
+Start: Tue May  5 16:34:43 CEST 2026
+16:34:45 | INFO    | __main__ | Loading splits …
+16:34:45 | INFO    | __main__ | X_train: (7500000, 36), X_test: (674189, 36), classes: 15
+16:34:45 | INFO    | __main__ | ============================================================
+16:34:45 | INFO    | __main__ | Training XGBoost …
+/home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/xgboost/core.py:158: UserWarning: [16:34:49] WARNING: /workspace/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/xgboost/core.py:158: UserWarning: [16:34:49] WARNING: /workspace/src/learner.cc:740: 
+Parameters: { "use_label_encoder" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+16:34:49 | WARNING | __main__ | GPU training failed ([16:34:49] /workspace/src/c_api/../common/device_helpers.cuh:393: Memory allocation error on worker 0: std::bad_alloc: cudaErrorMemoryAllocation: out of memory
+- Free memory: 415432704
+- Requested memory: 900000000
+
+Stack trace:
+  [bt] (0) /home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/xgboost/lib/libxgboost.so(+0x25c1ac) [0x1554f3e491ac]
+  [bt] (1) /home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/xgboost/lib/libxgboost.so(+0x907346) [0x1554f44f4346]
+  [bt] (2) /home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/xgboost/lib/libxgboost.so(+0x1125e8) [0x1554f3cff5e8]
+  [bt] (3) /home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/xgboost/lib/libxgboost.so(+0x97c080) [0x1554f4569080]
+  [bt] (4) /home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/xgboost/lib/libxgboost.so(+0x97c73e) [0x1554f456973e]
+  [bt] (5) /home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/xgboost/lib/libxgboost.so(+0xcfe4b1) [0x1554f48eb4b1]
+  [bt] (6) /home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/xgboost/lib/libxgboost.so(+0x5f8c53) [0x1554f41e5c53]
+  [bt] (7) /home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/xgboost/lib/libxgboost.so(XGBoosterUpdateOneIter+0x6f) [0x1554f3d52a1f]
+  [bt] (8) /lib64/libffi.so.6(ffi_call_unix64+0x4c) [0x15553322e17e]
+
+), falling back to CPU hist.
+/home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/xgboost/core.py:158: UserWarning: [16:34:53] WARNING: /workspace/src/learner.cc:740: 
+Parameters: { "use_label_encoder" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[0]	validation_0-mlogloss:2.38600
+[100]	validation_0-mlogloss:0.13316
+[200]	validation_0-mlogloss:0.10986
+[299]	validation_0-mlogloss:0.10762
+16:44:10 | INFO    | __main__ | XGBoost model saved → /home/deepak.g/Downloads/soc_agent/models/xgboost_model.pkl
+16:44:11 | INFO    | __main__ | Classification report saved → /home/deepak.g/Downloads/soc_agent/results/tables/xgboost_report.csv
+16:44:12 | INFO    | __main__ | Confusion matrix saved → /home/deepak.g/Downloads/soc_agent/results/figures/confusion_xgboost.png
+16:44:12 | INFO    | __main__ | XGBoost feature importances saved → /home/deepak.g/Downloads/soc_agent/results/tables/xgb_importance.csv
+16:44:12 | INFO    | __main__ | Computing SHAP on 5000 samples …
+16:44:39 | INFO    | __main__ | SHAP summary saved → /home/deepak.g/Downloads/soc_agent/results/figures/shap_summary.png
+16:44:40 | INFO    | __main__ | ============================================================
+16:44:40 | INFO    | __main__ | Training Random Forest …
+16:45:23 | INFO    | __main__ | Random Forest model saved → /home/deepak.g/Downloads/soc_agent/models/random_forest_model.pkl
+16:45:24 | INFO    | __main__ | Classification report saved → /home/deepak.g/Downloads/soc_agent/results/tables/random_forest_report.csv
+16:45:25 | INFO    | __main__ | Confusion matrix saved → /home/deepak.g/Downloads/soc_agent/results/figures/confusion_random_forest.png
+16:45:26 | INFO    | __main__ | ============================================================
+16:45:26 | INFO    | __main__ | Training DNN (PyTorch MLP) …
+16:45:28 | INFO    | __main__ | DNN device: cuda
+Traceback (most recent call last):
+  File "/cm/local/apps/python39/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/cm/local/apps/python39/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/deepak.g/Downloads/soc_agent/src/models/train.py", line 383, in <module>
+    main()
+  File "/home/deepak.g/Downloads/soc_agent/src/models/train.py", line 367, in main
+    _, row = train_dnn(X_train, X_test, y_train, y_test, label_names,
+  File "/home/deepak.g/Downloads/soc_agent/src/models/train.py", line 273, in train_dnn
+    val_out = model(X_te.to(device))
+  File "/home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/torch/nn/modules/container.py", line 219, in forward
+    input = module(input)
+  File "/home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/torch/nn/modules/activation.py", line 104, in forward
+    return F.relu(input, inplace=self.inplace)
+  File "/home/deepak.g/Downloads/soc_agent/.venv/lib/python3.9/site-packages/torch/nn/functional.py", line 1500, in relu
+    result = torch.relu(input)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 660.00 MiB. GPU 0 has a total capacity of 79.15 GiB of which 12.12 MiB is free. Process 93258 has 414.00 MiB memory in use. Process 93254 has 414.00 MiB memory in use. Process 93261 has 1.13 GiB memory in use. Process 93257 has 414.00 MiB memory in use. Process 93260 has 414.00 MiB memory in use. Process 93256 has 1.10 GiB memory in use. Process 93255 has 414.00 MiB memory in use. Process 93259 has 414.00 MiB memory in use. Process 189277 has 73.05 GiB memory in use. Including non-PyTorch memory, this process has 1.28 GiB memory in use. Of the allocated memory 768.05 MiB is allocated by PyTorch, and 29.95 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+End: Tue May  5 16:46:34 CEST 2026
