@@ -1,0 +1,5 @@
+stratum,Threshold-IDS,ML-Only,Triage-only,No-Coordinator,No-Investigation,No-RAG,No-SHAP,SOC-Agent
+S1_attack_flagged,99.4,99.4,100.0,100.0,100.0,100.0,97.2,100.0
+S2_ml_false_positive,99.5,99.5,99.5,99.5,99.5,99.5,60.0,99.5
+S3_hard_benign,0.0,0.0,1.0,1.0,1.0,1.0,0.0,1.0
+S4_ml_miss,0.0,0.0,6.2,6.2,6.2,6.2,0.0,6.2

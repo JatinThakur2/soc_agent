@@ -1,0 +1,17 @@
+,train (before resampling),test,train (after resampling),test share of cleaned rows (%)
+BENIGN,1657803,414451,500000,20.0
+Bot,1558,390,500000,20.02
+DDoS,102411,25603,500000,20.0
+DoS GoldenEye,8226,2056,500000,20.0
+DoS Hulk,138277,34569,500000,20.0
+DoS Slowhttptest,4182,1046,500000,20.01
+DoS slowloris,4299,1075,500000,20.0
+FTP-Patator,4745,1186,500000,20.0
+Heartbleed,9,2,500000,18.18
+Infiltration,29,7,500000,19.44
+PortScan,72555,18139,500000,20.0
+SSH-Patator,2575,644,500000,20.01
+Web Attack - Brute Force,1176,294,500000,20.0
+Web Attack - Sql Injection,17,4,500000,19.05
+Web Attack - XSS,522,130,500000,19.94
+TOTAL,1998384,499596,7500000,20.0

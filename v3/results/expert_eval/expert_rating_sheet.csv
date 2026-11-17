@@ -1,0 +1,2701 @@
+blind_id,alert_packet,executive_summary,final_severity,disposition,escalate,attck_techniques,evidence,recommended_actions,block_source,q1_disposition_correct,q2_expert_severity,q3_techniques_correct,q4_evidence_supports_claims,q5_actionability,q6_unsupported_claim,q7_unsafe_action,comments
+R001,"{
+ ""alert_id"": ""A0358"",
+ ""predicted_label"": ""Web Attack - XSS"",
+ ""confidence"": 0.7363,
+ ""p_attack"": 0.9978,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 29200.0,
+   ""shap"": ""+1.8953""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 3775294.75,
+   ""shap"": ""+0.5246""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.3214""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 0.0,
+   ""shap"": ""-0.0874""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 3.0,
+   ""shap"": ""-0.0835""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""short"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 5.413,
+  ""fwd_packets"": 3,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with a high probability of a Web Attack - XSS was detected targeting HTTP service on port 80. The SHAP values indicate significant contributions from 'Init_Win_bytes_backward' and 'Fwd IAT Std', suggesting malicious behavior. Immediate actions include isolating the web server and running a vulnerability scan. The source IP should be blocked due to consistent behavior with a Web Attack - XSS attempt.",High,true_positive,True,T1189 Drive-by Compromise,service: HTTP | port_category: well_known | destination_port: 80 | context.feature: Init_Win_bytes_backward | context.feature: Fwd IAT Std,Isolate the affected web server from the network | Run a full scan of the web server for known vulnerabilities | Apply security patches to the web server | Enable Web Application Firewall (WAF) rules to block similar attacks | Monitor the web server logs for suspicious activities,True,,,,,,,,
+R002,"{
+ ""alert_id"": ""A0071"",
+ ""predicted_label"": ""DoS slowloris"",
+ ""confidence"": 0.9971,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": -1.0,
+   ""shap"": ""+2.3782""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 711905.1875,
+   ""shap"": ""+1.9562""
+  },
+  {
+   ""feature"": ""duration_bucket_short"",
+   ""value"": 1.0,
+   ""shap"": ""+0.7601""
+  },
+  {
+   ""feature"": ""service_HTTP"",
+   ""value"": 1.0,
+   ""shap"": ""+0.5288""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.4429""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""short"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 3.001,
+  ""fwd_packets"": 3,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence (0.9971) and p_attack probability of 1.0 indicates a probable DoS slowloris attack targeting HTTP service on port 80. Significant SHAP values support this prediction, and immediate actions include checking firewall logs and increasing HTTP request logging levels.",High,true_positive,True,T1498 Network Denial of Service,service_HTTP: 1.0 | duration_bucket_short: 1.0 | Fwd IAT Std: 711905.1875 | Init_Win_bytes_backward: -1.0,Check firewall logs for similar patterns | Increase logging level for HTTP requests | Apply rate limiting on HTTP requests | Enable SYN cookies on the web server | Monitor server performance and adjust thresholds if necessary,True,,,,,,,,
+R003,"{
+ ""alert_id"": ""A0160"",
+ ""predicted_label"": ""DDoS"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 229.0,
+   ""shap"": ""+5.6304""
+  },
+  {
+   ""feature"": ""Total Length of Fwd Packets"",
+   ""value"": 26.0,
+   ""shap"": ""+1.5891""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 4572451.5,
+   ""shap"": ""+1.5369""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 8.6667,
+   ""shap"": ""+1.2520""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Max"",
+   ""value"": 20.0,
+   ""shap"": ""+1.2317""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.049,
+  ""fwd_packets"": 3,
+  ""bwd_packets"": 6,
+  ""flow_bytes_per_s"": 236621.0
+ },
+ ""flag_anomaly"": ""None""
+}","The alert A0160 indicates a highly probable DDoS attack targeting port 80 with a high flow byte rate and significant packet variance, supported by strong SHAP values. Immediate actions include applying rate limiting and enabling firewall rules to drop traffic from suspicious IPs. Additional monitoring and DDoS protection services are recommended.",High,true_positive,True,T1498 Network Denial of Service; T1499.002 Service Exhaustion Flood,context.service: HTTP | context.port_category: well_known | context.flow_bytes_per_s: 236621.0 | evidence.feature: Packet Length Variance | evidence.feature: Fwd Packet Length Max,Apply rate limiting on port 80 | Enable firewall rules to drop traffic from suspicious IP addresses | Deploy additional network monitoring tools to detect similar patterns | Increase logging and monitoring of traffic to port 80 | Consider implementing a Distributed Denial-of-Service (DDoS) protection service,True,,,,,,,,
+R004,"{
+ ""alert_id"": ""A0005"",
+ ""predicted_label"": ""DoS Slowhttptest"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 63200000.0,
+   ""shap"": ""+3.2798""
+  },
+  {
+   ""feature"": ""Active Mean"",
+   ""value"": 5459.0,
+   ""shap"": ""+1.7885""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Max"",
+   ""value"": 351.0,
+   ""shap"": ""+1.5462""
+  },
+  {
+   ""feature"": ""Bwd IAT Mean"",
+   ""value"": 54700000.0,
+   ""shap"": ""+0.8497""
+  },
+  {
+   ""feature"": ""duration_bucket_long"",
+   ""value"": 1.0,
+   ""shap"": ""-0.8418""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""long"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 109.416,
+  ""fwd_packets"": 4,
+  ""bwd_packets"": 3,
+  ""flow_bytes_per_s"": 3.4
+ },
+ ""flag_anomaly"": ""None""
+}","The alert A0005 indicates a high-confidence DoS Slowhttptest attack targeting the HTTP service on port 80. Evidence includes significant SHAP values for network traffic features such as 'Fwd IAT Std', 'Active Mean', and 'Fwd Packet Length Max'. The long duration and low flow bytes per second further support the likelihood of a slow-rate attack.",High,true_positive,True,T1498 Network Denial of Service,feature:Fwd IAT Std | feature:Active Mean | feature:Fwd Packet Length Max | context:duration_bucket_long | context:flow_bytes_per_s,Check firewall logs for similar patterns | Monitor affected services for performance degradation | Apply rate limiting on HTTP requests | Increase logging level for suspicious traffic | Review and adjust firewall rules to block known malicious IPs,True,,,,,,,,
+R005,"{
+ ""alert_id"": ""A0453"",
+ ""predicted_label"": ""Web Attack - XSS"",
+ ""confidence"": 0.5015,
+ ""p_attack"": 0.8872,
+ ""evidence"": [
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.8887""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 1.0,
+   ""shap"": ""+0.7504""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 0.0,
+   ""shap"": ""-0.6594""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 2.0,
+   ""shap"": ""+0.5011""
+  },
+  {
+   ""feature"": ""Total Length of Fwd Packets"",
+   ""value"": 0.0,
+   ""shap"": ""+0.2516""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.0,
+  ""fwd_packets"": 2,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert indicating a potential Web Attack - XSS with a high attack probability (0.8872) and moderate confidence (0.5015) was triaged and investigated. The targeted service is HTTP on port 80, and key evidence features like 'Flow Bytes/s' and 'duration_bucket_micro' support the prediction. The investigation confirmed the likelihood of a real attack, warranting immediate isolation of the affected web server and escalation.",High,true_positive,True,T1584.006 Web Services; T1189 Drive-by Compromise; T1567 Exfiltration Over Web Service,context.service: HTTP | context.port_category: well_known | context.destination_port: 80 | evidence.feature: Flow Bytes/s | evidence.feature: duration_bucket_micro,Isolate the affected web server from the network | Run a vulnerability scan on the web server | Apply security patches and updates to the web server | Enable Content Security Policy (CSP) headers | Implement input validation and output encoding in web applications,True,,,,,,,,
+R006,"{
+ ""alert_id"": ""A0002"",
+ ""predicted_label"": ""DoS GoldenEye"",
+ ""confidence"": 0.9973,
+ ""p_attack"": 0.9983,
+ ""evidence"": [
+  {
+   ""feature"": ""duration_bucket_medium"",
+   ""value"": 1.0,
+   ""shap"": ""+1.2845""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": -1.0,
+   ""shap"": ""+0.9899""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 0.0,
+   ""shap"": ""+0.9844""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.8767""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 2.0,
+   ""shap"": ""+0.6464""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""medium"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 14.211,
+  ""fwd_packets"": 2,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with very high confidence (0.9973) and attack probability (0.9983) for a DoS GoldenEye attack targeting HTTP on port 80 was generated. The SHAP values indicate significant contributions from features such as 'duration_bucket_medium', 'Init_Win_bytes_backward', and 'Packet Length Variance', aligning with the characteristics of a potential DoS attack. Immediate actions include checking firewall logs and monitoring affected services. The alert should be escalated for further investigation.",High,true_positive,True,T1498 Network Denial of Service,context.service: HTTP | context.port_category: well_known | context.duration_bucket: medium | evidence.feature: duration_bucket_medium | evidence.feature: Packet Length Variance,Check firewall logs for similar traffic patterns | Monitor affected services for performance degradation | Apply rate limiting on HTTP requests from the identified source IP | Increase monitoring and logging of HTTP traffic on port 80,True,,,,,,,,
+R007,"{
+ ""alert_id"": ""A0130"",
+ ""predicted_label"": ""Bot"",
+ ""confidence"": 0.9976,
+ ""p_attack"": 0.9976,
+ ""evidence"": [
+  {
+   ""feature"": ""service_HTTP-Alt"",
+   ""value"": 1.0,
+   ""shap"": ""+2.9756""
+  },
+  {
+   ""feature"": ""port_category_well_known"",
+   ""value"": 0.0,
+   ""shap"": ""+2.7098""
+  },
+  {
+   ""feature"": ""service_Other"",
+   ""value"": 0.0,
+   ""shap"": ""+1.3010""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 18.0502,
+   ""shap"": ""-0.9920""
+  },
+  {
+   ""feature"": ""port_category_registered"",
+   ""value"": 1.0,
+   ""shap"": ""+0.7162""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP-Alt"",
+  ""port_category"": ""registered"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 8080,
+  ""flow_duration_s"": 0.997,
+  ""fwd_packets"": 3,
+  ""bwd_packets"": 3,
+  ""flow_bytes_per_s"": 18.1
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with very high confidence (0.9976) and attack probability (0.9976) indicates potential botnet activity targeting an HTTP-Alt service on a registered port. The SHAP analysis supports this conclusion, showing significant contributions from the service type and port category. Immediate actions include isolating the affected host and blocking the source IP.",High,true_positive,True,T1498 Network Denial of Service,service_HTTP-Alt | port_category_registered | flag_anomaly_None,Isolate the affected host | Block the source IP | Deploy updated signatures for botnet detection | Monitor network traffic for similar patterns | Conduct a thorough investigation of the affected host,True,,,,,,,,
+R008,"{
+ ""alert_id"": ""A0320"",
+ ""predicted_label"": ""Web Attack - XSS"",
+ ""confidence"": 0.5015,
+ ""p_attack"": 0.8872,
+ ""evidence"": [
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.8887""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 1.0,
+   ""shap"": ""+0.7504""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 0.0,
+   ""shap"": ""-0.6594""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 2.0,
+   ""shap"": ""+0.5011""
+  },
+  {
+   ""feature"": ""Total Length of Fwd Packets"",
+   ""value"": 0.0,
+   ""shap"": ""+0.2516""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.015,
+  ""fwd_packets"": 2,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert indicating a potential Web Attack - XSS has been identified with a high attack probability (0.8872) and moderate confidence (0.5015). The key evidence includes significant SHAP values for 'Flow Bytes/s' and 'duration_bucket_micro', aligning with typical web application attacks on HTTP service on port 80. Immediate actions include isolating the affected web server and running a vulnerability scan, while long-term mitigation steps such as applying security patches and enabling CSP are recommended.",High,true_positive,True,T1584.006 Web Services; T1189 Drive-by Compromise; T1499.002 Service Exhaustion Flood,context.service: HTTP | context.port_category: well_known | context.duration_bucket: micro | context.destination_port: 80 | evidence.feature: Flow Bytes/s | evidence.feature: duration_bucket_micro,Isolate the affected web server | Run a vulnerability scan on the web server | Apply security patches to the web server | Enable Content Security Policy (CSP) | Implement input validation and output encoding in web applications,True,,,,,,,,
+R009,"{
+ ""alert_id"": ""A0242"",
+ ""predicted_label"": ""PortScan"",
+ ""confidence"": 0.9987,
+ ""p_attack"": 0.9987,
+ ""evidence"": [
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 242424.25,
+   ""shap"": ""+2.2460""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 1.0,
+   ""shap"": ""+1.4444""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 0.0,
+   ""shap"": ""+0.9982""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Max"",
+   ""value"": 2.0,
+   ""shap"": ""+0.5731""
+  },
+  {
+   ""feature"": ""service_Other"",
+   ""value"": 1.0,
+   ""shap"": ""+0.5452""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""Other"",
+  ""port_category"": ""registered"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 2717,
+  ""flow_duration_s"": 0.0,
+  ""fwd_packets"": 1,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 242424.2
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence (0.9987) and attack probability (0.9987) indicates a likely port scan targeting a non-standard port (2717). The SHAP values for key features support this conclusion, and the targeted service ('Other') suggests potential reconnaissance activity. Immediate actions include checking firewall logs and running a network scan. Escalation is recommended due to the high confidence and potential for malicious activity.",High,true_positive,True,T1571 Non-Standard Port; T1205 Traffic Signaling; T1205.001 Port Knocking,context.destination_port: 2717 | context.service: Other | evidence.feature: Flow Bytes/s | evidence.feature: Total Fwd Packets | evidence.feature: Init_Win_bytes_backward | evidence.feature: Fwd Packet Length Max,Check firewall logs for similar activity | Run a network scan to identify any new or unusual devices | Update firewall rules to block the identified source IP | Enable intrusion prevention system (IPS) rules to detect and block similar port scanning attempts,True,,,,,,,,
+R010,"{
+ ""alert_id"": ""A0215"",
+ ""predicted_label"": ""Web Attack - XSS"",
+ ""confidence"": 0.6478,
+ ""p_attack"": 0.9974,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 28960.0,
+   ""shap"": ""+1.8757""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.3205""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 3792674.75,
+   ""shap"": ""+0.2693""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 0.0,
+   ""shap"": ""-0.0874""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 3.0,
+   ""shap"": ""-0.0839""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""short"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 5.365,
+  ""fwd_packets"": 3,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with a high attack probability (0.9974) and moderate confidence (0.6478) suggests a likely Web Attack - XSS. Although the SHAP values indicate contributing factors such as 'Init_Win_bytes_backward' and 'Flow Bytes/s', the low 'Flow Bytes/s' and short duration create uncertainty. Escalation is recommended for further investigation to confirm the presence of an actual attack.",High,uncertain,True,T1583.006 Web Services; T1189 Drive-by Compromise; T1567 Exfiltration Over Web Service,context.service: HTTP | context.port_category: well_known | context.destination_port: 80 | evidence.feature: Init_Win_bytes_backward | evidence.feature: Flow Bytes/s,Check the web server logs for suspicious activities related to XSS attacks | Run an automated scan for XSS vulnerabilities using a tool like OWASP ZAP | Apply security patches and updates to the web application | Implement input validation and output encoding in the web application code,False,,,,,,,,
+R011,"{
+ ""alert_id"": ""A0203"",
+ ""predicted_label"": ""DDoS"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 229.0,
+   ""shap"": ""+4.9491""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 8217438.0,
+   ""shap"": ""+1.5965""
+  },
+  {
+   ""feature"": ""Total Length of Fwd Packets"",
+   ""value"": 26.0,
+   ""shap"": ""+1.4943""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Max"",
+   ""value"": 20.0,
+   ""shap"": ""+1.3084""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 8.6667,
+   ""shap"": ""+1.2741""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""short"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 1.802,
+  ""fwd_packets"": 3,
+  ""bwd_packets"": 5,
+  ""flow_bytes_per_s"": 6453.4
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence and attack probability suggests a potential DDoS attack targeting HTTP service on port 80, with significant anomalies in packet length variance and forward packet metrics. Immediate actions include blocking traffic from the source and increasing monitoring on port 80. Further mitigation steps involve implementing rate limiting and enabling IP blacklisting of detected sources.",High,true_positive,True,T1498 Network Denial of Service; T1499.002 Service Exhaustion Flood,context.service: HTTP | context.port_category: well_known | context.destination_port: 80 | evidence.feature: Packet Length Variance | evidence.feature: Fwd Packet Length Max | evidence.feature: Fwd Packet Length Mean,block_traffic_from_source | increase_monitoring_on_port_80 | implement_rate_limiting_on_port_80 | enable_IP_blacklisting_of_detected_sources | deploy_additional_defensive_measures_like_DDOS_protection_services,True,,,,,,,,
+R012,"{
+ ""alert_id"": ""A0004"",
+ ""predicted_label"": ""DDoS"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 229.0,
+   ""shap"": ""+5.0899""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 12600000.0,
+   ""shap"": ""+1.5710""
+  },
+  {
+   ""feature"": ""Total Length of Fwd Packets"",
+   ""value"": 26.0,
+   ""shap"": ""+1.5689""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Max"",
+   ""value"": 20.0,
+   ""shap"": ""+1.3195""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 8.6667,
+   ""shap"": ""+1.2685""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""short"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 1.202,
+  ""fwd_packets"": 3,
+  ""bwd_packets"": 4,
+  ""flow_bytes_per_s"": 9676.5
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence and attack probability suggests a potential DDoS attack targeting HTTP service on port 80. Evidence includes significant anomalies in packet length variance and forward packet metrics, consistent with a DDoS attack pattern. Immediate actions and mitigation steps have been recommended to block traffic from the source and increase monitoring on port 80.",High,true_positive,True,T1498 Network Denial of Service,context.service: HTTP | context.port_category: well_known | context.destination_port: 80 | evidence.feature: Packet Length Variance | evidence.feature: Fwd Packet Length Max | evidence.feature: Fwd Packet Length Mean,block_traffic_from_source | increase_monitoring_on_port_80 | deploy_rate_limiting_on_port_80 | enable_IP_blacklisting_of_detected_sources,True,,,,,,,,
+R013,"{
+ ""alert_id"": ""A0292"",
+ ""predicted_label"": ""Web Attack - XSS"",
+ ""confidence"": 0.5476,
+ ""p_attack"": 0.9981,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 28960.0,
+   ""shap"": ""+1.8367""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.3177""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 0.0,
+   ""shap"": ""-0.0876""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 3.0,
+   ""shap"": ""-0.0848""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 3638272.25,
+   ""shap"": ""+0.0715""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""short"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 5.147,
+  ""fwd_packets"": 3,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with a high probability of a Web Attack - XSS was generated, targeting HTTP service on port 80. The SHAP analysis indicates significant contributions from features such as 'Init_Win_bytes_backward' and 'Fwd IAT Std', suggesting potential malicious behavior. Immediate actions include checking web server logs and applying WAF rules to block known XSS patterns. Escalation is recommended for further investigation.",High,true_positive,True,T1583.006 Web Services; T1189 Drive-by Compromise,context.service: HTTP | context.port_category: well_known | evidence.feature: Init_Win_bytes_backward | evidence.feature: Fwd IAT Std,Check the web server logs for any suspicious activities related to the detected HTTP requests | Apply WAF rules to block known XSS patterns | Update web application security patches,True,,,,,,,,
+R014,"{
+ ""alert_id"": ""A0010"",
+ ""predicted_label"": ""DDoS"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 229.0,
+   ""shap"": ""+4.9944""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 2509299.0,
+   ""shap"": ""+1.4998""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 6.8889,
+   ""shap"": ""+1.2416""
+  },
+  {
+   ""feature"": ""Active Mean"",
+   ""value"": 195052.0,
+   ""shap"": ""+1.1072""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Max"",
+   ""value"": 20.0,
+   ""shap"": ""+1.0610""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""long"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 82.227,
+  ""fwd_packets"": 9,
+  ""bwd_packets"": 6,
+  ""flow_bytes_per_s"": 141.9
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence and probability of a DDoS attack targeting HTTP service on port 80 was identified. Evidence includes significant Packet Length Variance and Active Mean, contributing to a high likelihood of malicious activity. Immediate actions include applying network ACLs and enabling rate limiting on HTTP requests. Escalation is recommended due to the severity and potential impact on services.",High,true_positive,True,T1498 Network Denial of Service; T1499.002 Service Exhaustion Flood,context.service: HTTP | context.port_category: well_known | evidence.Packet Length Variance.value: 2509299.0 | evidence.Active Mean.value: 195052.0,Apply network ACLs to block traffic from the source IP | Enable rate limiting on HTTP requests | Deploy a WAF to filter out malicious HTTP requests | Increase server capacity temporarily if necessary,True,,,,,,,,
+R015,"{
+ ""alert_id"": ""A0089"",
+ ""predicted_label"": ""Bot"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""service_HTTP-Alt"",
+   ""value"": 1.0,
+   ""shap"": ""+3.0135""
+  },
+  {
+   ""feature"": ""port_category_well_known"",
+   ""value"": 0.0,
+   ""shap"": ""+2.8853""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 39687.2969,
+   ""shap"": ""+1.8380""
+  },
+  {
+   ""feature"": ""service_Other"",
+   ""value"": 0.0,
+   ""shap"": ""+1.4846""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 51.5,
+   ""shap"": ""+0.9116""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP-Alt"",
+  ""port_category"": ""registered"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 8080,
+  ""flow_duration_s"": 0.07,
+  ""fwd_packets"": 4,
+  ""bwd_packets"": 3,
+  ""flow_bytes_per_s"": 4853.7
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence and attack probability of 1.0 was generated, indicating a potential botnet activity targeting a non-standard port (8080). The investigation confirmed the presence of techniques associated with botnets and network denial of service, supporting the initial detection. Immediate actions include isolating the affected network segment and running a full scan of the affected host. Escalation is recommended for further analysis and containment.",High,true_positive,True,T1498 Network Denial of Service,service_HTTP-Alt: HTTP-Alt | port_category_well_known: registered | Fwd IAT Std: 39687.2969 | Fwd Packet Length Mean: 51.5,Isolate the affected network segment | Run a full scan of the affected host | Deploy firewall rules to block traffic from the identified source IP | Update IDS/IPS signatures to detect similar patterns,True,,,,,,,,
+R016,"{
+ ""alert_id"": ""A0216"",
+ ""predicted_label"": ""Bot"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""service_HTTP-Alt"",
+   ""value"": 1.0,
+   ""shap"": ""+3.0275""
+  },
+  {
+   ""feature"": ""port_category_well_known"",
+   ""value"": 0.0,
+   ""shap"": ""+2.8840""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 35779.168,
+   ""shap"": ""+1.8371""
+  },
+  {
+   ""feature"": ""service_Other"",
+   ""value"": 0.0,
+   ""shap"": ""+1.4892""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 51.75,
+   ""shap"": ""+0.9117""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP-Alt"",
+  ""port_category"": ""registered"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 8080,
+  ""flow_duration_s"": 0.063,
+  ""fwd_packets"": 4,
+  ""bwd_packets"": 3,
+  ""flow_bytes_per_s"": 5416.6
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence and attack probability indicates potential botnet activity targeting a non-standard HTTP service on a registered port. Evidence includes unusual service type, high standard deviation in packet timing, and small packet sizes, suggesting malicious intent. Immediate actions include isolating the affected network segment and running a full scan of the affected host. Escalation is recommended for further investigation and mitigation.",High,true_positive,True,T1498 Network Denial of Service; T1584.005 Botnet; T1583.005 Botnet,service: HTTP-Alt | port_category: registered | Fwd IAT Std: 35779.168 | Fwd Packet Length Mean: 51.75,Isolate the affected network segment | Run a full scan of the affected host | Deploy updated signatures for known botnet C2 traffic | Implement strict access controls and monitor for similar anomalies,True,,,,,,,,
+R017,"{
+ ""alert_id"": ""A0166"",
+ ""predicted_label"": ""BENIGN"",
+ ""confidence"": 0.6103,
+ ""p_attack"": 0.3897,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": -1.0,
+   ""shap"": ""+1.1231""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 1.0,
+   ""shap"": ""+1.0819""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 6.0,
+   ""shap"": ""+0.5199""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 0.0,
+   ""shap"": ""+0.4235""
+  },
+  {
+   ""feature"": ""service_DNS"",
+   ""value"": 0.0,
+   ""shap"": ""-0.3401""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.013,
+  ""fwd_packets"": 2,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 927.6
+ },
+ ""flag_anomaly"": ""None""
+}","The alert A0166 has a low confidence score of 0.6103 in predicting a BENIGN label, with a p_attack of 0.3897. The SHAP values indicate some features contributing positively to the prediction, but the overall context points to normal HTTP traffic on port 80 with minimal packets and flow duration. There is no evidence of malicious activity or anomalies.",Low,false_positive,False,,,,False,,,,,,,,
+R018,"{
+ ""alert_id"": ""A0091"",
+ ""predicted_label"": ""DoS Slowhttptest"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Active Mean"",
+   ""value"": 7004968.0,
+   ""shap"": ""+4.9894""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 11900000.0,
+   ""shap"": ""+2.7652""
+  },
+  {
+   ""feature"": ""duration_bucket_long"",
+   ""value"": 1.0,
+   ""shap"": ""-0.9483""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.8187""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": -1.0,
+   ""shap"": ""+0.4889""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""long"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 63.132,
+  ""fwd_packets"": 7,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence (1.0) and attack probability (1.0) indicates a potential DoS Slowhttptest attack targeting HTTP on port 80. The SHAP analysis supports this conclusion, showing significant contributions from features like Active Mean and Fwd IAT Std, consistent with slow-rate attacks. Immediate actions include checking firewall logs and monitoring the affected service. The alert is escalated due to the high confidence and consistency of evidence.",High,true_positive,True,T1498 Network Denial of Service,context.service: HTTP | context.port_category: well_known | evidence.feature: Active Mean | evidence.feature: Fwd IAT Std | evidence.feature: duration_bucket_long | evidence.feature: Flow Bytes/s,Check firewall logs for similar patterns | Monitor affected service for performance degradation | Apply rate limiting on HTTP requests from the identified source IP | Increase logging level for the affected service to capture more details about the attack,True,,,,,,,,
+R019,"{
+ ""alert_id"": ""A0042"",
+ ""predicted_label"": ""DoS slowloris"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Bwd IAT Mean"",
+   ""value"": 51400000.0,
+   ""shap"": ""+5.1467""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Max"",
+   ""value"": 231.0,
+   ""shap"": ""+1.1859""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 13823.5029,
+   ""shap"": ""+1.1341""
+  },
+  {
+   ""feature"": ""Total Length of Fwd Packets"",
+   ""value"": 2541.0,
+   ""shap"": ""+0.8228""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 158.8125,
+   ""shap"": ""+0.7963""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""long"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 105.711,
+  ""fwd_packets"": 16,
+  ""bwd_packets"": 3,
+  ""flow_bytes_per_s"": 24.1
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence indicates a potential DoS Slowloris attack targeting HTTP on port 80, characterized by significant SHAP values for features like Bwd IAT Mean and Fwd Packet Length Max. Immediate actions include checking firewall logs and monitoring server performance.",High,true_positive,True,T1498 Network Denial of Service,context.service: HTTP | context.port_category: well_known | context.destination_port: 80 | evidence.feature: Bwd IAT Mean | evidence.feature: Fwd Packet Length Max,Check firewall logs for similar patterns | Monitor affected server performance | Apply rate limiting on HTTP requests from the identified source IP | Increase logging level for HTTP requests to capture more details,True,,,,,,,,
+R020,"{
+ ""alert_id"": ""A0027"",
+ ""predicted_label"": ""DoS slowloris"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Bwd IAT Mean"",
+   ""value"": 51300000.0,
+   ""shap"": ""+5.1142""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Max"",
+   ""value"": 231.0,
+   ""shap"": ""+1.1947""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 13329.7939,
+   ""shap"": ""+1.1442""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 181.5,
+   ""shap"": ""+0.8352""
+  },
+  {
+   ""feature"": ""Total Length of Fwd Packets"",
+   ""value"": 2541.0,
+   ""shap"": ""+0.8217""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""long"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 102.574,
+  ""fwd_packets"": 14,
+  ""bwd_packets"": 3,
+  ""flow_bytes_per_s"": 24.8
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence has been detected indicating a potential DoS Slowloris attack targeting HTTP on port 80. The investigation confirms significant deviations in network traffic patterns, supporting the likelihood of a real attack. Immediate actions include checking firewall logs and increasing monitoring on port 80, while mitigation steps involve applying rate limiting and deploying WAF rules.",High,true_positive,True,T1498 Network Denial of Service,Bwd IAT Mean: 51300000.0 | Fwd Packet Length Max: 231.0,Check firewall logs for similar patterns | Increase monitoring on port 80 | Apply rate limiting on HTTP requests from the identified source IP | Deploy WAF rules to detect and block Slowloris attack patterns,True,,,,,,,,
+R021,"{
+ ""alert_id"": ""A0309"",
+ ""predicted_label"": ""DoS Hulk"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 44200000.0,
+   ""shap"": ""+6.3950""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 1894449.75,
+   ""shap"": ""+1.7229""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 235.0,
+   ""shap"": ""+1.3123""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 0.0,
+   ""shap"": ""-0.9861""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 6.0,
+   ""shap"": ""+0.8656""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""long"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 98.923,
+  ""fwd_packets"": 6,
+  ""bwd_packets"": 6,
+  ""flow_bytes_per_s"": 121.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence and probability of a DoS Hulk attack was detected targeting the HTTP service on port 80. The SHAP analysis indicates significant contributions from features such as 'Fwd IAT Std', 'Packet Length Variance', and 'Init_Win_bytes_backward', consistent with a network flood attack. Immediate actions include blocking the source and notifying the network team.",High,true_positive,True,T1498 Network Denial of Service; T1498.001 Direct Network Flood,feature:Fwd IAT Std | feature:Packet Length Variance | feature:Init_Win_bytes_backward | context:service | context:port_category | context:destination_port,block_source | notify_network_team | implement_rate_limiting_on_HTTP_traffic_to_port_80 | monitor_affected_services_for_further_anomalies,True,,,,,,,,
+R022,"{
+ ""alert_id"": ""A0256"",
+ ""predicted_label"": ""FTP-Patator"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""service_FTP"",
+   ""value"": 1.0,
+   ""shap"": ""+9.1843""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 227.0,
+   ""shap"": ""+1.4827""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 1408716.125,
+   ""shap"": ""+0.8874""
+  },
+  {
+   ""feature"": ""service_HTTP"",
+   ""value"": 0.0,
+   ""shap"": ""+0.6607""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 162.0267,
+   ""shap"": ""+0.6555""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""FTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""short"",
+  ""destination_port"": 21,
+  ""flow_duration_s"": 9.006,
+  ""fwd_packets"": 9,
+  ""bwd_packets"": 15,
+  ""flow_bytes_per_s"": 33.0
+ },
+ ""flag_anomaly"": ""None""
+}","The alert A0256 indicates a high likelihood of an FTP Patator attack with strong evidence supporting the prediction. The alert has been escalated due to its high confidence and attack probability, and immediate actions have been recommended to mitigate the threat.",High,true_positive,True,T1071.002 File Transfer Protocols; T1048 Exfiltration Over Alternative Protocol,service_FTP: 1.0 | Init_Win_bytes_backward: 227.0 | Fwd IAT Std: 1408716.125 | service_HTTP: 0.0 | Packet Length Variance: 162.0267,Check firewall logs for similar activity | Review FTP server logs for failed login attempts | Enable two-factor authentication for FTP access | Limit login attempts on the FTP server | Monitor FTP server logs for unusual activity,True,,,,,,,,
+R023,"{
+ ""alert_id"": ""A0352"",
+ ""predicted_label"": ""Web Attack - XSS"",
+ ""confidence"": 0.5015,
+ ""p_attack"": 0.8872,
+ ""evidence"": [
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.8887""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 1.0,
+   ""shap"": ""+0.7504""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 0.0,
+   ""shap"": ""-0.6594""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 2.0,
+   ""shap"": ""+0.5011""
+  },
+  {
+   ""feature"": ""Total Length of Fwd Packets"",
+   ""value"": 0.0,
+   ""shap"": ""+0.2516""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.0,
+  ""fwd_packets"": 2,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with a high attack probability (0.8872) and moderate confidence (0.5015) indicates a potential Web Attack - XSS on HTTP traffic. The SHAP analysis supports this conclusion, showing significant contributions from flow bytes per second, duration bucket, and total fwd packets. Immediate actions include isolating the affected web server and running a vulnerability scan.",High,true_positive,True,T1584.006 Web Services; T1189 Drive-by Compromise; T1567 Exfiltration Over Web Service,context.service: HTTP | context.port_category: well_known | evidence.feature: Flow Bytes/s | evidence.feature: duration_bucket_micro | evidence.feature: Total Fwd Packets,Isolate the affected web server | Run a vulnerability scan on the web server | Apply security patches to the web server | Implement input validation and output encoding in web applications | Enable web application firewall rules to block known XSS patterns,True,,,,,,,,
+R024,"{
+ ""alert_id"": ""A0080"",
+ ""predicted_label"": ""DoS slowloris"",
+ ""confidence"": 0.9999,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 710011.5625,
+   ""shap"": ""+2.5503""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": -1.0,
+   ""shap"": ""+2.4534""
+  },
+  {
+   ""feature"": ""duration_bucket_short"",
+   ""value"": 1.0,
+   ""shap"": ""+0.7716""
+  },
+  {
+   ""feature"": ""service_HTTP"",
+   ""value"": 1.0,
+   ""shap"": ""+0.5441""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.4448""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""short"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 3.004,
+  ""fwd_packets"": 3,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","The alert A0080 indicates a highly probable DoS Slowloris attack targeting HTTP service on port 80, with strong evidence supporting the prediction. Immediate actions include applying rate limiting on HTTP requests from the source IP and monitoring the affected server. The investigation corroborates the attack likelihood, confirming the need for further mitigation steps.",High,true_positive,True,T1498 Network Denial of Service,service_HTTP: 1.0 | duration_bucket_short: 1.0 | Fwd IAT Std: 710011.5625 | Init_Win_bytes_backward: -1.0,Apply rate limiting on HTTP requests from the source IP | Deploy WAF rules to block suspicious HTTP requests | Increase logging and monitoring of HTTP traffic to detect similar patterns | Monitor the affected server for increased load or connection exhaustion,True,,,,,,,,
+R025,"{
+ ""alert_id"": ""A0311"",
+ ""predicted_label"": ""Web Attack - XSS"",
+ ""confidence"": 0.8288,
+ ""p_attack"": 0.9486,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 270.0,
+   ""shap"": ""+1.1778""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.9815""
+  },
+  {
+   ""feature"": ""service_HTTP"",
+   ""value"": 1.0,
+   ""shap"": ""+0.5889""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 0.0,
+   ""shap"": ""-0.5669""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 1.0,
+   ""shap"": ""+0.5353""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.182,
+  ""fwd_packets"": 1,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence (82.88%) and a very high probability (94.86%) of being a Web Attack - XSS has been identified. The evidence supports the detection, particularly the involvement of the HTTP service and the duration bucket micro feature. The investigation confirms the likelihood of a real attack, warranting immediate actions such as isolating the affected web server and running a vulnerability scan.",High,true_positive,True,T1583.006 Web Services; T1189 Drive-by Compromise; T1567 Exfiltration Over Web Service,context.service: HTTP | evidence.feature: service_HTTP | evidence.feature: duration_bucket_micro,Isolate the affected web server | Run a vulnerability scan on the web server | Apply patches and updates to the web server software | Implement input validation and output encoding in web applications | Enable web application firewall rules to block suspicious requests,True,,,,,,,,
+R026,"{
+ ""alert_id"": ""A0286"",
+ ""predicted_label"": ""Bot"",
+ ""confidence"": 0.9799,
+ ""p_attack"": 0.9799,
+ ""evidence"": [
+  {
+   ""feature"": ""port_category_well_known"",
+   ""value"": 0.0,
+   ""shap"": ""+2.8340""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 256.0,
+   ""shap"": ""+1.0136""
+  },
+  {
+   ""feature"": ""port_category_ephemeral"",
+   ""value"": 1.0,
+   ""shap"": ""+0.7439""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 187500.0,
+   ""shap"": ""+0.5407""
+  },
+  {
+   ""feature"": ""service_HTTP-Alt"",
+   ""value"": 0.0,
+   ""shap"": ""-0.3815""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""Other"",
+  ""port_category"": ""ephemeral"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 63241,
+  ""flow_duration_s"": 0.0,
+  ""fwd_packets"": 1,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 187500.0
+ },
+ ""flag_anomaly"": ""None""
+}","The alert A0286 indicates a high-confidence botnet activity with a predicted attack probability of 97.99%. The investigation corroborates this with evidence of botnet-like behavior, including the use of an ephemeral port and high data transfer rates. Immediate actions include isolating the affected network segment and running a full malware scan.",High,true_positive,True,T1498 Network Denial of Service; T1496.002 Bandwidth Hijacking; T1584.005 Botnet,port_category: ephemeral | Flow Bytes/s: 187500.0 | service: Other,Isolate the affected network segment | Run a full scan for malware | Deploy updated firewall rules to block the identified source IP | Monitor network traffic for similar patterns,True,,,,,,,,
+R027,"{
+ ""alert_id"": ""A0171"",
+ ""predicted_label"": ""DoS Slowhttptest"",
+ ""confidence"": 0.9999,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Active Mean"",
+   ""value"": 7010207.0,
+   ""shap"": ""+4.5381""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 11900000.0,
+   ""shap"": ""+2.5741""
+  },
+  {
+   ""feature"": ""duration_bucket_long"",
+   ""value"": 1.0,
+   ""shap"": ""-0.8999""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.8143""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": -1.0,
+   ""shap"": ""+0.4725""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""long"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 63.106,
+  ""fwd_packets"": 7,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence (0.9999) and an attack probability of 1.0 indicates a likely DoS Slowhttptest attack targeting the HTTP service on port 80. The SHAP values for 'Active Mean', 'Fwd IAT Std', and 'Flow Bytes/s' strongly support this conclusion, suggesting immediate action is required to mitigate the impact on the affected service.",High,true_positive,True,T1498 Network Denial of Service,context.service: HTTP | evidence.feature: Active Mean | evidence.feature: Fwd IAT Std | evidence.feature: Flow Bytes/s,Check firewall logs for similar patterns | Monitor affected services for performance degradation | Apply rate limiting on HTTP requests from the identified source IP | Increase monitoring on the affected service to detect further anomalies,True,,,,,,,,
+R028,"{
+ ""alert_id"": ""A0326"",
+ ""predicted_label"": ""BENIGN"",
+ ""confidence"": 0.8126,
+ ""p_attack"": 0.1874,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": -1.0,
+   ""shap"": ""+1.1451""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 1.0,
+   ""shap"": ""+1.0779""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 6.0,
+   ""shap"": ""+0.5243""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 0.0,
+   ""shap"": ""+0.4430""
+  },
+  {
+   ""feature"": ""service_DNS"",
+   ""value"": 0.0,
+   ""shap"": ""-0.3375""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.009,
+  ""fwd_packets"": 2,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 1402.4
+ },
+ ""flag_anomaly"": ""None""
+}","The alert with ID A0326 has a low predicted attack probability of 0.1874 and a high confidence score of 0.8126 in predicting the traffic as benign. The context shows normal HTTP traffic on port 80 with no anomalies, supporting the conclusion that this is likely a false positive.",Low,false_positive,False,,,,False,,,,,,,,
+R029,"{
+ ""alert_id"": ""A0184"",
+ ""predicted_label"": ""Web Attack - XSS"",
+ ""confidence"": 0.5015,
+ ""p_attack"": 0.8872,
+ ""evidence"": [
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.8887""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 1.0,
+   ""shap"": ""+0.7504""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 0.0,
+   ""shap"": ""-0.6594""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 2.0,
+   ""shap"": ""+0.5011""
+  },
+  {
+   ""feature"": ""Total Length of Fwd Packets"",
+   ""value"": 0.0,
+   ""shap"": ""+0.2516""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.001,
+  ""fwd_packets"": 2,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert has been generated indicating a potential Web Attack - XSS with a high attack probability (0.8872) and moderate confidence (0.5015). The investigation corroborates the likelihood of a real attack, given the significant SHAP values for key features such as 'Flow Bytes/s', 'duration_bucket_micro', and 'Total Fwd Packets'. Immediate actions include isolating the affected web server and running a vulnerability scan.",High,true_positive,True,T1499.002 Service Exhaustion Flood; T1584.006 Web Services; T1189 Drive-by Compromise,context.service: HTTP | context.port_category: well_known | evidence.feature: Flow Bytes/s | evidence.feature: duration_bucket_micro | evidence.feature: Total Fwd Packets,Isolate the affected web server from the network | Run a vulnerability scan on the web server | Apply security patches to the web server | Enable web application firewall rules to block XSS attempts | Review and update the web application code to prevent XSS vulnerabilities,True,,,,,,,,
+R030,"{
+ ""alert_id"": ""A0145"",
+ ""predicted_label"": ""Web Attack - Brute Force"",
+ ""confidence"": 0.9989,
+ ""p_attack"": 0.999,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 1176.0,
+   ""shap"": ""+3.0880""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 1.0,
+   ""shap"": ""+0.8775""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.7046""
+  },
+  {
+   ""feature"": ""service_HTTP"",
+   ""value"": 1.0,
+   ""shap"": ""+0.6992""
+  },
+  {
+   ""feature"": ""duration_bucket_short"",
+   ""value"": 0.0,
+   ""shap"": ""-0.3566""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.0,
+  ""fwd_packets"": 1,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence (0.9989) and attack probability (0.999) indicates a likely brute force attack targeting HTTP service on port 80. Evidence supports this conclusion, including high SHAP values for 'service_HTTP'. Immediate actions include checking firewall logs and running a vulnerability scan. The alert should be escalated due to the high severity and confirmed evidence.",High,true_positive,True,T1110 Brute Force,service_HTTP: 1.0 | flag_anomaly: None,Check firewall logs for similar activity | Run a vulnerability scan on the affected server | Apply rate limiting on login attempts | Enable account lockout after multiple failed login attempts | Review and update password policies,True,,,,,,,,
+R031,"{
+ ""alert_id"": ""A0108"",
+ ""predicted_label"": ""PortScan"",
+ ""confidence"": 0.9999,
+ ""p_attack"": 0.9999,
+ ""evidence"": [
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 133333.3281,
+   ""shap"": ""+2.9427""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 1.0,
+   ""shap"": ""+1.4434""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 0.0,
+   ""shap"": ""+1.1242""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 12.0,
+   ""shap"": ""+0.8409""
+  },
+  {
+   ""feature"": ""service_Other"",
+   ""value"": 1.0,
+   ""shap"": ""+0.5671""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""Other"",
+  ""port_category"": ""registered"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 5862,
+  ""flow_duration_s"": 0.0,
+  ""fwd_packets"": 1,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 133333.3
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence (0.9999) and attack probability (0.9999) indicates a likely port scan targeting an unusual destination port (5862) and service ('Other'). Significant SHAP values support this conclusion, and investigation confirms command-and-control tactics such as non-standard port usage and traffic signaling. Immediate actions include checking firewall logs and running a network scan.",High,true_positive,True,T1571 Non-Standard Port; T1205 Traffic Signaling; T1205.001 Port Knocking,context.destination_port: 5862 | context.service: Other | evidence.feature: Flow Bytes/s | evidence.feature: Total Fwd Packets | evidence.feature: Packet Length Variance,Check firewall logs for similar traffic | Run a full network scan to identify any new or unusual devices | Update firewall rules to block the identified source IP | Enable intrusion prevention system (IPS) rules to detect and block similar port scans,True,,,,,,,,
+R032,"{
+ ""alert_id"": ""A0251"",
+ ""predicted_label"": ""DDoS"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 229.0,
+   ""shap"": ""+5.2095""
+  },
+  {
+   ""feature"": ""Total Length of Fwd Packets"",
+   ""value"": 26.0,
+   ""shap"": ""+1.5204""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 2706820.5,
+   ""shap"": ""+1.4812""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 8.6667,
+   ""shap"": ""+1.2585""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Max"",
+   ""value"": 20.0,
+   ""shap"": ""+1.2354""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""short"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 1.754,
+  ""fwd_packets"": 3,
+  ""bwd_packets"": 6,
+  ""flow_bytes_per_s"": 6628.7
+ },
+ ""flag_anomaly"": ""None""
+}",An alert with high confidence and attack probability suggests a potential DDoS attack targeting the HTTP service on port 80. Significant anomalies in packet length variance and forward packet lengths support this conclusion. Immediate actions include blocking the source IP and enabling rate limiting on port 80.,High,true_positive,True,T1498 Network Denial of Service; T1499.002 Service Exhaustion Flood,context.service: HTTP | context.port_category: well_known | evidence.feature: Packet Length Variance | evidence.feature: Fwd Packet Length Mean | evidence.feature: Fwd Packet Length Max,Block the source IP address | Enable rate limiting on port 80 | Deploy additional rate limiting rules | Monitor network traffic for further signs of DDoS activity | Consider deploying a DDoS protection solution,True,,,,,,,,
+R033,"{
+ ""alert_id"": ""A0099"",
+ ""predicted_label"": ""Web Attack - XSS"",
+ ""confidence"": 0.7363,
+ ""p_attack"": 0.9978,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 28960.0,
+   ""shap"": ""+1.8953""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 3771086.75,
+   ""shap"": ""+0.5246""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.3214""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 0.0,
+   ""shap"": ""-0.0874""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 3.0,
+   ""shap"": ""-0.0835""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""short"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 5.335,
+  ""fwd_packets"": 3,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with a high probability of a Web Attack - XSS targeting HTTP on port 80 was identified. The evidence, including network flow characteristics such as 'Init_Win_bytes_backward' and 'Fwd IAT Std', supports the likelihood of a real attack. Immediate actions include isolating the affected web server and running a vulnerability scan.",High,true_positive,True,T1584.006 Web Services; T1189 Drive-by Compromise; T1567 Exfiltration Over Web Service,service: HTTP | port_category: well_known | destination_port: 80 | feature: Init_Win_bytes_backward | feature: Fwd IAT Std,Isolate the affected web server | Run a vulnerability scan on the web server | Apply security patches to the web server | Enable web application firewall rules to block XSS attacks | Monitor the affected server for further signs of compromise,True,,,,,,,,
+R034,"{
+ ""alert_id"": ""A0250"",
+ ""predicted_label"": ""PortScan"",
+ ""confidence"": 0.9996,
+ ""p_attack"": 0.9996,
+ ""evidence"": [
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 166666.6719,
+   ""shap"": ""+2.8001""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 1.0,
+   ""shap"": ""+1.3247""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 0.0,
+   ""shap"": ""+1.0329""
+  },
+  {
+   ""feature"": ""service_Other"",
+   ""value"": 1.0,
+   ""shap"": ""+0.7237""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 12.0,
+   ""shap"": ""+0.5410""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""Other"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 389,
+  ""flow_duration_s"": 0.0,
+  ""fwd_packets"": 1,
+  ""bwd_packets"": 2,
+  ""flow_bytes_per_s"": 166666.7
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence (0.9996) and attack probability (0.9996) indicates a likely port scan targeting a well-known port (389). The SHAP values for key features support this prediction, and investigation confirms the presence of suspicious traffic patterns. Immediate actions include checking firewall logs and running a network scan. Escalation is recommended for further analysis and mitigation.",High,true_positive,True,T1562.004 Disable or Modify System Firewall; T1205 Traffic Signaling; T1571 Non-Standard Port,context.destination_port: 389 | context.service: Other | evidence.feature: Flow Bytes/s | evidence.feature: Total Fwd Packets | evidence.feature: Init_Win_bytes_backward | evidence.feature: service_Other,Check firewall logs for recent rule changes | Run a network scan to identify any new or unusual hosts | Apply firewall rules to block the identified source IP | Increase monitoring on the affected port and related services,True,,,,,,,,
+R035,"{
+ ""alert_id"": ""A0162"",
+ ""predicted_label"": ""Web Attack - XSS"",
+ ""confidence"": 0.5741,
+ ""p_attack"": 0.7854,
+ ""evidence"": [
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.9999""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 0.0,
+   ""shap"": ""-0.7910""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 1.0,
+   ""shap"": ""+0.6494""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 182.0,
+   ""shap"": ""+0.3087""
+  },
+  {
+   ""feature"": ""service_HTTP"",
+   ""value"": 1.0,
+   ""shap"": ""+0.2225""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.189,
+  ""fwd_packets"": 1,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}",An alert indicating a potential Web Attack - XSS has been identified with a moderate confidence level of 57.41% and a high probability of attack at 78.54%. Evidence includes HTTP service involvement and other network characteristics consistent with the predicted label. Escalation is recommended for further investigation.,High,true_positive,True,T1584.006 Web Services; T1189 Drive-by Compromise; T1567 Exfiltration Over Web Service,service_HTTP: 1.0 | context.service: HTTP | context.port_category: well_known | context.destination_port: 80,Check for any recent changes in web application code or configurations | Review web server logs for suspicious activities | Apply security patches and updates to web applications | Enable Content Security Policy (CSP) headers | Implement input validation and output encoding in web applications,False,,,,,,,,
+R036,"{
+ ""alert_id"": ""A0237"",
+ ""predicted_label"": ""Web Attack - XSS"",
+ ""confidence"": 0.7477,
+ ""p_attack"": 0.9424,
+ ""evidence"": [
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.9728""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 0.0,
+   ""shap"": ""-0.6173""
+  },
+  {
+   ""feature"": ""service_HTTP"",
+   ""value"": 1.0,
+   ""shap"": ""+0.5831""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 1.0,
+   ""shap"": ""+0.5394""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 256.0,
+   ""shap"": ""+0.4228""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.05,
+  ""fwd_packets"": 1,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with a high probability of a Web Attack - XSS was detected, supported by strong evidence indicating HTTP service targeting and short-duration flows. The investigation confirmed the likelihood of such an attack, and immediate actions are recommended to mitigate the risk.",High,true_positive,True,T1583.006 Web Services; T1189 Drive-by Compromise; T1567 Exfiltration Over Web Service,context.service: HTTP | context.duration_bucket: micro | evidence.feature: service_HTTP,Check the web server logs for any suspicious activities related to XSS attacks | Run a vulnerability scan on the affected web server | Apply security patches and updates to the web server software | Implement input validation and output encoding in web applications to prevent XSS attacks | Configure web application firewalls (WAF) to block known XSS patterns,True,,,,,,,,
+R037,"{
+ ""alert_id"": ""A0154"",
+ ""predicted_label"": ""DoS slowloris"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Bwd IAT Mean"",
+   ""value"": 51400000.0,
+   ""shap"": ""+5.1351""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Max"",
+   ""value"": 231.0,
+   ""shap"": ""+1.1972""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 13643.0527,
+   ""shap"": ""+1.1282""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 169.4,
+   ""shap"": ""+0.8420""
+  },
+  {
+   ""feature"": ""Total Length of Fwd Packets"",
+   ""value"": 2541.0,
+   ""shap"": ""+0.8230""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""long"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 103.701,
+  ""fwd_packets"": 15,
+  ""bwd_packets"": 3,
+  ""flow_bytes_per_s"": 24.6
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence and attack probability for a DoS Slowloris attack targeting HTTP on port 80 was identified. The SHAP values indicate significant contributions from features like Bwd IAT Mean and Fwd Packet Length Max, consistent with the predicted attack type. Immediate actions include applying rate limiting and deploying WAF rules to block suspicious HTTP requests.",High,true_positive,True,T1498 Network Denial of Service,Bwd IAT Mean: 51400000.0 | Fwd Packet Length Max: 231.0 | Packet Length Variance: 13643.0527 | Fwd Packet Length Mean: 169.4 | Total Length of Fwd Packets: 2541.0,Apply rate limiting on HTTP requests from the source IP | Deploy WAF rules to block suspicious HTTP requests | Increase logging and monitoring of HTTP traffic on port 80 | Monitor the affected service for further anomalies,True,,,,,,,,
+R038,"{
+ ""alert_id"": ""A0423"",
+ ""predicted_label"": ""BENIGN"",
+ ""confidence"": 0.845,
+ ""p_attack"": 0.155,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": -1.0,
+   ""shap"": ""+1.1173""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 1.0,
+   ""shap"": ""+1.0908""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 6.0,
+   ""shap"": ""+0.5256""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 0.0,
+   ""shap"": ""+0.4096""
+  },
+  {
+   ""feature"": ""service_DNS"",
+   ""value"": 0.0,
+   ""shap"": ""-0.3398""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.022,
+  ""fwd_packets"": 2,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 557.3
+ },
+ ""flag_anomaly"": ""None""
+}","The alert A0423, initially flagged as potentially malicious with a low predicted attack probability of 0.155, was determined to be benign based on high confidence (0.845) and typical HTTP traffic characteristics. The SHAP analysis supports the benign classification despite some features contributing positively to the model's output.",Low,false_positive,False,,,,False,,,,,,,,
+R039,"{
+ ""alert_id"": ""A0294"",
+ ""predicted_label"": ""Web Attack - XSS"",
+ ""confidence"": 0.5403,
+ ""p_attack"": 0.9967,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 28960.0,
+   ""shap"": ""+1.8346""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.3163""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 0.0,
+   ""shap"": ""-0.0874""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 3.0,
+   ""shap"": ""-0.0841""
+  },
+  {
+   ""feature"": ""duration_bucket_short"",
+   ""value"": 1.0,
+   ""shap"": ""+0.0559""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""short"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 5.319,
+  ""fwd_packets"": 3,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert indicating a potential Web Attack - XSS with a high probability and strong confidence score was triaged and investigated. The alert targets HTTP on port 80, and the evidence includes significant SHAP values for features like 'Init_Win_bytes_backward' and 'Flow Bytes/s', suggesting unusual patterns consistent with an attack. Immediate actions include isolating the web server and running a full scan. The alert is escalated due to the high probability of a real attack.",High,true_positive,True,T1583.006 Web Services; T1189 Drive-by Compromise; T1499.002 Service Exhaustion Flood,context.service: HTTP | context.port_category: well_known | evidence.feature: Init_Win_bytes_backward | evidence.feature: Flow Bytes/s,Isolate the affected web server from the network | Run a full scan of the web server for any signs of compromise | Apply patches and updates to the web server software | Implement input validation and output encoding in web applications to prevent XSS attacks | Enable web application firewall rules to block suspicious requests,True,,,,,,,,
+R040,"{
+ ""alert_id"": ""A0492"",
+ ""predicted_label"": ""Web Attack - XSS"",
+ ""confidence"": 0.6383,
+ ""p_attack"": 0.9978,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 29200.0,
+   ""shap"": ""+1.8651""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.3181""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 3594625.5,
+   ""shap"": ""+0.2793""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 0.0,
+   ""shap"": ""-0.0901""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 3.0,
+   ""shap"": ""-0.0848""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""short"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 5.131,
+  ""fwd_packets"": 3,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high probability of a Web Attack - XSS targeting HTTP on port 80 was detected. The SHAP values indicate significant contributions from features such as 'Init_Win_bytes_backward' and 'Flow Bytes/s', supporting the likelihood of a real attack. Immediate actions include isolating the affected web server and running a full scan. Further human analysis is required.",High,true_positive,True,T1584.006 Web Services; T1189 Drive-by Compromise; T1567 Exfiltration Over Web Service,context.service: HTTP | context.port_category: well_known | context.destination_port: 80 | evidence.feature: Init_Win_bytes_backward | evidence.feature: Flow Bytes/s,Isolate the affected web server from the network | Run a full scan of the web server for any signs of compromise | Apply security patches and updates to the web server | Enable Web Application Firewall (WAF) rules to block known XSS attacks | Review and update input validation and output encoding in web applications,True,,,,,,,,
+R041,"{
+ ""alert_id"": ""A0069"",
+ ""predicted_label"": ""Web Attack - Brute Force"",
+ ""confidence"": 0.5095,
+ ""p_attack"": 0.9973,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 28960.0,
+   ""shap"": ""+1.3478""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.4462""
+  },
+  {
+   ""feature"": ""duration_bucket_short"",
+   ""value"": 1.0,
+   ""shap"": ""+0.1277""
+  },
+  {
+   ""feature"": ""service_HTTP"",
+   ""value"": 1.0,
+   ""shap"": ""+0.0799""
+  },
+  {
+   ""feature"": ""Total Length of Fwd Packets"",
+   ""value"": 0.0,
+   ""shap"": ""+0.0651""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""short"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 5.647,
+  ""fwd_packets"": 3,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert indicating a potential web attack - brute force targeting the HTTP service has been identified with a high attack probability (0.9973). Evidence includes significant SHAP contributions from 'Init_Win_bytes_backward' and 'Flow Bytes/s', aligning with the predicted attack. Investigation confirms the likelihood of a real attack, and immediate actions are recommended to mitigate the threat.",High,true_positive,True,T1499.002 Service Exhaustion Flood; T1584.006 Web Services; T1056.003 Web Portal Capture,service_HTTP: 1.0 | duration_bucket_short: 1.0 | Init_Win_bytes_backward: 28960.0 | Flow Bytes/s: 0.0,Check firewall logs for similar patterns | Review authentication logs for failed login attempts | Enable rate limiting on the affected service | Implement CAPTCHA for login pages | Increase password complexity requirements,True,,,,,,,,
+R042,"{
+ ""alert_id"": ""A0015"",
+ ""predicted_label"": ""FTP-Patator"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""service_FTP"",
+   ""value"": 1.0,
+   ""shap"": ""+9.1585""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 0.0,
+   ""shap"": ""+1.3872""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 65.3333,
+   ""shap"": ""+0.7928""
+  },
+  {
+   ""feature"": ""service_HTTP"",
+   ""value"": 0.0,
+   ""shap"": ""+0.6529""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Max"",
+   ""value"": 14.0,
+   ""shap"": ""+0.4175""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""FTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 21,
+  ""flow_duration_s"": 0.0,
+  ""fwd_packets"": 2,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 62222.2
+ },
+ ""flag_anomaly"": ""None""
+}","The alert A0015 indicates a highly probable FTP-Patator attack with strong evidence supporting the prediction. The investigation corroborates this with identified ATT&CK techniques related to command-and-control and exfiltration, confirming the need for immediate action to mitigate the threat.",High,true_positive,True,T1071.002 File Transfer Protocols; T1048 Exfiltration Over Alternative Protocol,service_FTP: 1.0 | flow_bytes_per_s: 62222.2,Check firewall logs for similar activity | Run a full system scan for malware | Enable strong authentication methods for FTP | Consider disabling FTP if not required | Implement rate limiting on FTP login attempts,True,,,,,,,,
+R043,"{
+ ""alert_id"": ""A0290"",
+ ""predicted_label"": ""SSH-Patator"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""service_SSH"",
+   ""value"": 1.0,
+   ""shap"": ""+9.9942""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Max"",
+   ""value"": 640.0,
+   ""shap"": ""+1.3574""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 247.0,
+   ""shap"": ""+0.7340""
+  },
+  {
+   ""feature"": ""duration_bucket_medium"",
+   ""value"": 1.0,
+   ""shap"": ""+0.6472""
+  },
+  {
+   ""feature"": ""Bwd IAT Mean"",
+   ""value"": 406728.1875,
+   ""shap"": ""+0.5395""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""SSH"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""medium"",
+  ""destination_port"": 22,
+  ""flow_duration_s"": 12.609,
+  ""fwd_packets"": 21,
+  ""bwd_packets"": 32,
+  ""flow_bytes_per_s"": 377.0
+ },
+ ""flag_anomaly"": ""None""
+}","The alert A0290 indicates a high likelihood of an SSH Patator attack with strong evidence supporting this conclusion. The investigation confirmed the presence of techniques associated with lateral movement and impact, and the immediate actions include checking SSH logs and running a vulnerability scan. Given the high confidence and alignment of evidence, the alert should be escalated for further analysis.",High,true_positive,True,T1563.001 SSH Hijacking; T1021.004 SSH; T1498.002 Reflection Amplification,service_SSH: 1.0 | duration_bucket_medium: 1.0 | Bwd IAT Mean: 406728.1875,Check SSH logs for failed login attempts | Run a vulnerability scan on the affected host | Implement rate limiting on SSH connections | Enable multi-factor authentication for SSH access,True,,,,,,,,
+R044,"{
+ ""alert_id"": ""A0225"",
+ ""predicted_label"": ""Web Attack - Brute Force"",
+ ""confidence"": 0.543,
+ ""p_attack"": 0.9973,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 28960.0,
+   ""shap"": ""+1.3584""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.4539""
+  },
+  {
+   ""feature"": ""duration_bucket_short"",
+   ""value"": 1.0,
+   ""shap"": ""+0.1302""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 4202682.0,
+   ""shap"": ""+0.1060""
+  },
+  {
+   ""feature"": ""service_HTTP"",
+   ""value"": 1.0,
+   ""shap"": ""+0.0800""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""short"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 5.945,
+  ""fwd_packets"": 3,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert has been generated indicating a potential Web Attack - Brute Force targeting HTTP service on port 80, with a very high attack probability (0.9973). The evidence includes high SHAP values for features such as 'Init_Win_bytes_backward', 'Flow Bytes/s', and 'service_HTTP'. Immediate actions include checking firewall logs and running a vulnerability scan.",High,true_positive,True,T1110 Brute Force,service_HTTP: 1.0 | predicted_label: Web Attack - Brute Force | p_attack: 0.9973,Check firewall logs for similar activity | Run a vulnerability scan on the affected server | Apply rate limiting on HTTP requests | Enable account lockout after multiple failed login attempts | Review and update password policies,True,,,,,,,,
+R045,"{
+ ""alert_id"": ""A0263"",
+ ""predicted_label"": ""DoS slowloris"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Bwd IAT Mean"",
+   ""value"": 51300000.0,
+   ""shap"": ""+5.1142""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Max"",
+   ""value"": 231.0,
+   ""shap"": ""+1.1947""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 13329.7939,
+   ""shap"": ""+1.1442""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 181.5,
+   ""shap"": ""+0.8352""
+  },
+  {
+   ""feature"": ""Total Length of Fwd Packets"",
+   ""value"": 2541.0,
+   ""shap"": ""+0.8217""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""long"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 102.631,
+  ""fwd_packets"": 14,
+  ""bwd_packets"": 3,
+  ""flow_bytes_per_s"": 24.8
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence indicates a potential DoS Slowloris attack targeting HTTP on port 80, characterized by unusual network traffic patterns. Evidence includes significant deviations in Bwd IAT Mean and Fwd Packet Length Max, supporting the likelihood of a real attack.",High,true_positive,True,T1498 Network Denial of Service,Bwd IAT Mean: 51300000.0 | Fwd Packet Length Max: 231.0,Check firewall logs for similar traffic patterns | Monitor affected service for performance degradation | Apply rate limiting on HTTP requests from the identified source IP | Increase monitoring on the affected service and network flow,True,,,,,,,,
+R046,"{
+ ""alert_id"": ""A0505"",
+ ""predicted_label"": ""BENIGN"",
+ ""confidence"": 0.8385,
+ ""p_attack"": 0.1615,
+ ""evidence"": [
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 5839353.0,
+   ""shap"": ""-2.3451""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Max"",
+   ""value"": 5792.0,
+   ""shap"": ""+0.7570""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 0.0,
+   ""shap"": ""-0.7492""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 349.0,
+   ""shap"": ""+0.6283""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 590.0,
+   ""shap"": ""+0.5609""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""Other"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""medium"",
+  ""destination_port"": 444,
+  ""flow_duration_s"": 24.72,
+  ""fwd_packets"": 590,
+  ""bwd_packets"": 436,
+  ""flow_bytes_per_s"": 66510.8
+ },
+ ""flag_anomaly"": ""None""
+}","The ML model predicts a low probability of attack (16.15%) with high confidence (83.85%). The SHAP analysis shows that negative contributions from 'Packet Length Variance' and 'duration_bucket_micro' outweigh the positive contributions from other features. The investigation did not find any additional evidence of malicious activity, suggesting this is likely a false positive.",Informational,false_positive,False,,,,False,,,,,,,,
+R047,"{
+ ""alert_id"": ""A0018"",
+ ""predicted_label"": ""Web Attack - XSS"",
+ ""confidence"": 0.5015,
+ ""p_attack"": 0.8872,
+ ""evidence"": [
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.8887""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 1.0,
+   ""shap"": ""+0.7504""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 0.0,
+   ""shap"": ""-0.6594""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 2.0,
+   ""shap"": ""+0.5011""
+  },
+  {
+   ""feature"": ""Total Length of Fwd Packets"",
+   ""value"": 0.0,
+   ""shap"": ""+0.2516""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.002,
+  ""fwd_packets"": 2,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert has been generated indicating a potential Web Attack - XSS targeting HTTP on port 80 with a high attack probability (0.8872) and moderate confidence (0.5015). The investigation corroborates the likelihood of a real attack, given the significant contributions from key features such as 'Flow Bytes/s', 'duration_bucket_micro', and 'Total Fwd Packets'. Immediate actions include isolating the affected web server and running a vulnerability scan.",High,true_positive,True,T1584.006 Web Services; T1189 Drive-by Compromise; T1499.002 Service Exhaustion Flood,context.service: HTTP | context.port_category: well_known | evidence.feature: Flow Bytes/s | evidence.feature: duration_bucket_micro | evidence.feature: Total Fwd Packets,Isolate the affected web server from the network | Run a vulnerability scan on the web server | Apply security patches to the web server | Enable web application firewall rules to block XSS attacks | Review and update the web application code to prevent XSS vulnerabilities,True,,,,,,,,
+R048,"{
+ ""alert_id"": ""A0380"",
+ ""predicted_label"": ""Web Attack - Brute Force"",
+ ""confidence"": 0.7321,
+ ""p_attack"": 0.9959,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 42408.0,
+   ""shap"": ""+1.4515""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.4793""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 4083022.75,
+   ""shap"": ""+0.3634""
+  },
+  {
+   ""feature"": ""duration_bucket_short"",
+   ""value"": 1.0,
+   ""shap"": ""+0.1384""
+  },
+  {
+   ""feature"": ""service_HTTP"",
+   ""value"": 1.0,
+   ""shap"": ""+0.0816""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""short"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 5.848,
+  ""fwd_packets"": 3,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with a high probability of a web attack - brute force targeting the HTTP service was detected. The evidence supports this conclusion, including the short duration of the flow and the focus on the HTTP service. Immediate actions include checking firewall and authentication logs, blocking the source IP, and implementing rate limiting and multi-factor authentication.",High,true_positive,True,T1110 Brute Force,service_HTTP: 1.0 | duration_bucket_short: 1.0,Check firewall logs for similar patterns | Review authentication logs for failed login attempts | Implement rate limiting on login attempts | Enable multi-factor authentication,True,,,,,,,,
+R049,"{
+ ""alert_id"": ""A0009"",
+ ""predicted_label"": ""DDoS"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 229.0,
+   ""shap"": ""+4.9672""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 6192667.5,
+   ""shap"": ""+1.6014""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 7.0,
+   ""shap"": ""+1.2522""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Max"",
+   ""value"": 20.0,
+   ""shap"": ""+1.1259""
+  },
+  {
+   ""feature"": ""Active Mean"",
+   ""value"": 718.0,
+   ""shap"": ""+1.0087""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""long"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 73.417,
+  ""fwd_packets"": 8,
+  ""bwd_packets"": 4,
+  ""flow_bytes_per_s"": 158.8
+ },
+ ""flag_anomaly"": ""None""
+}","The alert A0009 indicates a highly probable DDoS attack targeting HTTP on port 80, with a confidence of 1.0 and an attack probability of 1.0. Multiple SHAP values for features related to DDoS attacks are significantly positive, and the long duration and high packet activity further support this conclusion. Immediate actions include blocking the source and increasing monitoring.",High,true_positive,True,T1498 Network Denial of Service; T1499.002 Service Exhaustion Flood,context.service: HTTP | context.port_category: well_known | context.duration_bucket: long | evidence.feature: Init_Win_bytes_backward | evidence.feature: Packet Length Variance | evidence.feature: Active Mean,block_source | increase_monitoring | implement_rate_limiting | enable_firewall_rules | monitor_traffic,True,,,,,,,,
+R050,"{
+ ""alert_id"": ""A0456"",
+ ""predicted_label"": ""BENIGN"",
+ ""confidence"": 0.7057,
+ ""p_attack"": 0.2943,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 123.0,
+   ""shap"": ""+1.5171""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 1.0,
+   ""shap"": ""+0.8029""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 0.0,
+   ""shap"": ""+0.4016""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 0.0,
+   ""shap"": ""+0.3091""
+  },
+  {
+   ""feature"": ""service_Other"",
+   ""value"": 0.0,
+   ""shap"": ""-0.2616""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.05,
+  ""fwd_packets"": 1,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","The alert A0456, predicted as BENIGN with moderate confidence (70.57%), involves HTTP traffic on port 80 with minimal packet exchange and no data transfer. The SHAP analysis indicates some positive contributions from non-malicious features, supporting the benign classification. No suspicious activity was identified during investigation.",Low,false_positive,False,,service: HTTP | port_category: well_known | duration_bucket: micro | fwd_packets: 1 | bwd_packets: 1 | flow_bytes_per_s: 0.0,,False,,,,,,,,
+R051,"{
+ ""alert_id"": ""A0039"",
+ ""predicted_label"": ""Infiltration"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 412.659,
+   ""shap"": ""+4.7861""
+  },
+  {
+   ""feature"": ""service_Other"",
+   ""value"": 1.0,
+   ""shap"": ""+4.2395""
+  },
+  {
+   ""feature"": ""Total Length of Fwd Packets"",
+   ""value"": 929308.0,
+   ""shap"": ""+1.7405""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 3294.0,
+   ""shap"": ""-0.6863""
+  },
+  {
+   ""feature"": ""Active Mean"",
+   ""value"": 34300000.0,
+   ""shap"": ""+0.6361""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""Other"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""long"",
+  ""destination_port"": 444,
+  ""flow_duration_s"": 119.993,
+  ""fwd_packets"": 2252,
+  ""bwd_packets"": 2250,
+  ""flow_bytes_per_s"": 7857.2
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence and attack probability of 1.0 indicates a potential infiltration attempt targeting an unusual service on a well-known port. The investigation confirmed the presence of techniques indicative of command-and-control and exfiltration activities, warranting immediate isolation of the affected network segment and full packet capture.",High,true_positive,True,T1567 Exfiltration Over Web Service; T1090.003 Multi-hop Proxy; T1584.006 Web Services,service: Other | port_category: well_known | duration_bucket: long | fwd_packets: 2252 | bwd_packets: 2250 | flow_bytes_per_s: 7857.2,Isolate the affected network segment | Run full packet capture on the affected traffic | Update firewall rules to block the source IP | Monitor the affected network for further signs of infiltration,True,,,,,,,,
+R052,"{
+ ""alert_id"": ""A0463"",
+ ""predicted_label"": ""BENIGN"",
+ ""confidence"": 0.8372,
+ ""p_attack"": 0.1628,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": -1.0,
+   ""shap"": ""+1.1456""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 1.0,
+   ""shap"": ""+1.0779""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 6.0,
+   ""shap"": ""+0.5243""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 0.0,
+   ""shap"": ""+0.4431""
+  },
+  {
+   ""feature"": ""service_DNS"",
+   ""value"": 0.0,
+   ""shap"": ""-0.3375""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.01,
+  ""fwd_packets"": 2,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 1200.7
+ },
+ ""flag_anomaly"": ""None""
+}","The alert A0463 has a low predicted attack probability of 0.1628 and a high confidence score of 0.8372 in predicting the traffic as benign. The SHAP values indicate that certain features like 'duration_bucket_micro' and 'Fwd Packet Length Mean' contribute positively to the prediction, but these are consistent with normal HTTP traffic behavior on port 80. There is no evidence of malicious activity.",Low,false_positive,False,,service: HTTP | port_category: well_known | duration_bucket: micro | destination_port: 80 | flow_duration_s: 0.01 | fwd_packets: 2 | bwd_packets: 0 | flow_bytes_per_s: 1200.7,,False,,,,,,,,
+R053,"{
+ ""alert_id"": ""A0314"",
+ ""predicted_label"": ""BENIGN"",
+ ""confidence"": 0.7057,
+ ""p_attack"": 0.2943,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 125.0,
+   ""shap"": ""+1.5171""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 1.0,
+   ""shap"": ""+0.8029""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 0.0,
+   ""shap"": ""+0.4016""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 0.0,
+   ""shap"": ""+0.3091""
+  },
+  {
+   ""feature"": ""service_Other"",
+   ""value"": 0.0,
+   ""shap"": ""-0.2616""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.033,
+  ""fwd_packets"": 1,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","The ML model predicts a BENIGN label with moderate confidence (70.57%), and the context indicates normal HTTP traffic on port 80. The SHAP values suggest that features contributing to the prediction are not indicative of an attack. Given the low severity and lack of anomalies, this alert is likely a false positive.",Low,false_positive,False,,field: Init_Win_bytes_backward | field: Total Fwd Packets,,False,,,,,,,,
+R054,"{
+ ""alert_id"": ""A0392"",
+ ""predicted_label"": ""BENIGN"",
+ ""confidence"": 0.7397,
+ ""p_attack"": 0.2603,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": -1.0,
+   ""shap"": ""+1.2079""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 1.0,
+   ""shap"": ""+1.0210""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 6.0,
+   ""shap"": ""+0.5263""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 0.0,
+   ""shap"": ""+0.4648""
+  },
+  {
+   ""feature"": ""service_DNS"",
+   ""value"": 0.0,
+   ""shap"": ""-0.3376""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.001,
+  ""fwd_packets"": 2,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 11799.4
+ },
+ ""flag_anomaly"": ""None""
+}","The ML model predicts a BENIGN label with moderate confidence (73.97%) and a low attack probability (26.03%). The context indicates normal HTTP traffic on a well-known port (80) without any anomalies. Investigation confirms no suspicious techniques or gaps in evidence, supporting the conclusion that this is likely a false positive.",Low,false_positive,False,,service: HTTP | port_category: well_known | duration_bucket: micro | destination_port: 80 | flag_anomaly: None,,False,,,,,,,,
+R055,"{
+ ""alert_id"": ""A0219"",
+ ""predicted_label"": ""DoS GoldenEye"",
+ ""confidence"": 0.9971,
+ ""p_attack"": 0.9972,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": -1.0,
+   ""shap"": ""+1.3947""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 0.0,
+   ""shap"": ""+1.1040""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 2.0,
+   ""shap"": ""+1.0359""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 0.0,
+   ""shap"": ""+0.9062""
+  },
+  {
+   ""feature"": ""service_HTTP"",
+   ""value"": 1.0,
+   ""shap"": ""+0.6728""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""long"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 69.011,
+  ""fwd_packets"": 2,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert with high confidence (0.9971) and attack probability (0.9972) indicates a likely DoS GoldenEye attack targeting HTTP service on port 80. Key features such as 'Init_Win_bytes_backward', 'Fwd IAT Std', 'Total Fwd Packets', and 'duration_bucket_micro' have significant SHAP values supporting the prediction. Immediate actions include blocking the source IP and adding it to a blacklist. Additional mitigation steps involve implementing rate limiting on port 80 and enabling firewall rules to block the attacker's IP.",High,true_positive,True,T1498 Network Denial of Service,context.service: HTTP | context.port_category: well_known | context.duration_bucket: long | context.destination_port: 80 | evidence.feature: Init_Win_bytes_backward | evidence.feature: Fwd IAT Std | evidence.feature: Total Fwd Packets | evidence.feature: duration_bucket_micro,block_source | add_to_blacklist | implement_rate_limiting_on_port_80 | enable_firewall_rules_to_block_attacker_ip | monitor_http_service_for_abnormal_activity,True,,,,,,,,
+R056,"{
+ ""alert_id"": ""A0126"",
+ ""predicted_label"": ""Web Attack - Brute Force"",
+ ""confidence"": 0.9999,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 95.75,
+   ""shap"": ""+2.0078""
+  },
+  {
+   ""feature"": ""Bwd IAT Mean"",
+   ""value"": 3278004.75,
+   ""shap"": ""+1.7617""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 4.0,
+   ""shap"": ""-1.1490""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Max"",
+   ""value"": 383.0,
+   ""shap"": ""+1.1281""
+  },
+  {
+   ""feature"": ""duration_bucket_short"",
+   ""value"": 1.0,
+   ""shap"": ""+1.0323""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""short"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 9.834,
+  ""fwd_packets"": 4,
+  ""bwd_packets"": 4,
+  ""flow_bytes_per_s"": 76.6
+ },
+ ""flag_anomaly"": ""None""
+}","An alert has been generated indicating a high-confidence Web Attack - Brute Force targeting HTTP on port 80, a well-known web service port. The SHAP analysis supports this prediction, highlighting features such as 'Fwd Packet Length Mean', 'Bwd IAT Mean', and 'duration_bucket_short' as significant contributors. Immediate actions and mitigation steps have been recommended to address the threat.",High,true_positive,True,T1499.002 Service Exhaustion Flood; T1584.006 Web Services,context.service: HTTP | context.port_category: well_known | context.duration_bucket: short | evidence.feature: Fwd Packet Length Mean | evidence.feature: Bwd IAT Mean | evidence.feature: duration_bucket_short,Check firewall logs for similar traffic patterns | Run a vulnerability scan on the affected server | Apply rate limiting on the affected port | Enable fail2ban or equivalent service to block IP addresses after multiple failed login attempts | Review and update password policies to include complexity requirements,True,,,,,,,,
+R057,"{
+ ""alert_id"": ""A0213"",
+ ""predicted_label"": ""Web Attack - Sql Injection"",
+ ""confidence"": 0.7833,
+ ""p_attack"": 0.9997,
+ ""evidence"": [
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 1.0,
+   ""shap"": ""+0.9109""
+  },
+  {
+   ""feature"": ""service_HTTP"",
+   ""value"": 1.0,
+   ""shap"": ""+0.8673""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 236.0,
+   ""shap"": ""+0.7010""
+  },
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 0.0,
+   ""shap"": ""+0.3103""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 0.0,
+   ""shap"": ""+0.2939""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.0,
+  ""fwd_packets"": 1,
+  ""bwd_packets"": 1,
+  ""flow_bytes_per_s"": 0.0
+ },
+ ""flag_anomaly"": ""None""
+}","An alert indicating a high probability of a SQL injection attack on an HTTP service has been reviewed. The alert is supported by significant SHAP values for relevant features such as 'Total Fwd Packets' and 'service_HTTP', aligning with typical web application attacks. Immediate actions include isolating the affected web server and running a vulnerability scan.",High,true_positive,True,T1498 Network Denial of Service,"service_HTTP: HTTP | destination_port: 80 | flag_anomaly: None | evidence_source: SHAP (XGBoost, predicted class)",Isolate the affected web server from the network | Run a vulnerability scan on the web server | Apply security patches and updates to the web server | Implement input validation and parameterized queries in the web application code | Enable web application firewall (WAF) rules to prevent SQL injection attempts,True,,,,,,,,
+R058,"{
+ ""alert_id"": ""A0136"",
+ ""predicted_label"": ""BENIGN"",
+ ""confidence"": 0.5794,
+ ""p_attack"": 0.4206,
+ ""evidence"": [
+  {
+   ""feature"": ""Flow Bytes/s"",
+   ""value"": 2.0724,
+   ""shap"": ""+0.7499""
+  },
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 0.0,
+   ""shap"": ""+0.7355""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": -1.0,
+   ""shap"": ""+0.5685""
+  },
+  {
+   ""feature"": ""Total Length of Fwd Packets"",
+   ""value"": 12.0,
+   ""shap"": ""+0.5094""
+  },
+  {
+   ""feature"": ""service_DNS"",
+   ""value"": 0.0,
+   ""shap"": ""-0.4017""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""short"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 5.79,
+  ""fwd_packets"": 2,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 2.1
+ },
+ ""flag_anomaly"": ""None""
+}","The ML model predicts the traffic as BENIGN with a low confidence score of 0.5794 and a high probability of an attack (0.4206). The context indicates normal HTTP traffic on port 80, which aligns with benign behavior. The investigation supports this conclusion, suggesting a likely false positive.",Low,false_positive,False,,,,False,,,,,,,,
+R059,"{
+ ""alert_id"": ""A0477"",
+ ""predicted_label"": ""BENIGN"",
+ ""confidence"": 0.7688,
+ ""p_attack"": 0.2312,
+ ""evidence"": [
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": -1.0,
+   ""shap"": ""+1.1244""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 1.0,
+   ""shap"": ""+1.0862""
+  },
+  {
+   ""feature"": ""Fwd Packet Length Mean"",
+   ""value"": 6.0,
+   ""shap"": ""+0.5224""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 0.0,
+   ""shap"": ""+0.4143""
+  },
+  {
+   ""feature"": ""service_DNS"",
+   ""value"": 0.0,
+   ""shap"": ""-0.3400""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""micro"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 0.017,
+  ""fwd_packets"": 2,
+  ""bwd_packets"": 0,
+  ""flow_bytes_per_s"": 691.4
+ },
+ ""flag_anomaly"": ""None""
+}","The alert A0477 is predicted to be benign with a high confidence level (76.88%), and the context suggests normal HTTP traffic on a well-known port. The investigation did not find any evidence of malicious activity, confirming a likely false positive.",Low,false_positive,False,,,,False,,,,,,,,
+R060,"{
+ ""alert_id"": ""A0178"",
+ ""predicted_label"": ""DoS Hulk"",
+ ""confidence"": 1.0,
+ ""p_attack"": 1.0,
+ ""evidence"": [
+  {
+   ""feature"": ""Fwd IAT Std"",
+   ""value"": 40900000.0,
+   ""shap"": ""+6.5274""
+  },
+  {
+   ""feature"": ""Packet Length Variance"",
+   ""value"": 2780447.25,
+   ""shap"": ""+2.3475""
+  },
+  {
+   ""feature"": ""Init_Win_bytes_backward"",
+   ""value"": 235.0,
+   ""shap"": ""+1.3975""
+  },
+  {
+   ""feature"": ""duration_bucket_micro"",
+   ""value"": 0.0,
+   ""shap"": ""-1.0324""
+  },
+  {
+   ""feature"": ""Total Fwd Packets"",
+   ""value"": 7.0,
+   ""shap"": ""+0.7758""
+  }
+ ],
+ ""evidence_source"": ""SHAP (XGBoost, predicted class)"",
+ ""context"": {
+  ""service"": ""HTTP"",
+  ""port_category"": ""well_known"",
+  ""duration_bucket"": ""long"",
+  ""destination_port"": 80,
+  ""flow_duration_s"": 100.367,
+  ""fwd_packets"": 7,
+  ""bwd_packets"": 6,
+  ""flow_bytes_per_s"": 118.8
+ },
+ ""flag_anomaly"": ""None""
+}",An alert with high confidence and probability of a DoS Hulk attack targeting HTTP service on port 80 was identified. The SHAP analysis confirms significant contributions from features indicative of a network flood attack. Immediate actions include blocking the source and notifying the network team. Further mitigation steps involve implementing rate limiting on HTTP traffic to port 80 and monitoring affected services.,High,true_positive,True,T1498 Network Denial of Service,feature: Fwd IAT Std | feature: Packet Length Variance | feature: Init_Win_bytes_backward | context.service: HTTP | context.port_category: well_known | context.duration_bucket: long,block_source | notify_network_team | implement rate limiting on HTTP traffic to port 80 | monitor affected services for further anomalies,True,,,,,,,,

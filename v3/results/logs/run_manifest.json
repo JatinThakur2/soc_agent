@@ -1,0 +1,343 @@
+{
+  "config": {
+    "random_seed": 42,
+    "data": {
+      "dedup": true
+    },
+    "preprocessing": {
+      "drop_always_null": [
+        "Bwd PSH Flags",
+        "Bwd URG Flags",
+        "Fwd Avg Bytes/Bulk",
+        "Fwd Avg Packets/Bulk",
+        "Fwd Avg Bulk Rate",
+        "Bwd Avg Bytes/Bulk",
+        "Bwd Avg Packets/Bulk",
+        "Bwd Avg Bulk Rate"
+      ],
+      "drop_leaky": [
+        "Flow ID",
+        "Source IP",
+        "Src IP",
+        "Destination IP",
+        "Dst IP",
+        "Timestamp",
+        "Source Port",
+        "Src Port"
+      ],
+      "correlation_threshold": 0.95,
+      "corr_sample": 500000
+    },
+    "split": {
+      "mode": "random",
+      "test_size": 0.2,
+      "stratify": true,
+      "temporal_purge_frac": 0.02
+    },
+    "features": {
+      "profile": "paper",
+      "mi_top_k": 30,
+      "xgb_top_k": 25,
+      "mi_sample": 200000,
+      "port_service_map": {
+        "21": "FTP",
+        "22": "SSH",
+        "23": "Telnet",
+        "25": "SMTP",
+        "53": "DNS",
+        "80": "HTTP",
+        "110": "POP3",
+        "143": "IMAP",
+        "443": "HTTPS",
+        "993": "IMAPS",
+        "3306": "MySQL",
+        "3389": "RDP",
+        "5432": "PostgreSQL",
+        "8080": "HTTP-Alt"
+      }
+    },
+    "resampling": {
+      "benign_cap": 500000,
+      "smote_k_neighbors": 5
+    },
+    "models": {
+      "xgboost": {
+        "n_estimators": 500,
+        "max_depth": 8,
+        "learning_rate": 0.05,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "min_child_weight": 5,
+        "use_gpu": true
+      },
+      "random_forest": {
+        "n_estimators": 200,
+        "max_depth": 20,
+        "class_weight": "balanced",
+        "n_jobs": -1
+      },
+      "dnn": {
+        "hidden_layers": [
+          256,
+          128,
+          64
+        ],
+        "dropout": [
+          0.3,
+          0.2,
+          0.0
+        ],
+        "learning_rate": 0.001,
+        "weight_decay": 1e-05,
+        "batch_size": 8192,
+        "epochs": 50,
+        "use_gpu": true,
+        "num_workers": 0,
+        "pin_memory": true
+      }
+    },
+    "shap": {
+      "sample_size": 5000
+    },
+    "agents": {
+      "backend": "huggingface",
+      "hf_model": "Qwen/Qwen2.5-32B-Instruct",
+      "hf_revision": null,
+      "hf_use_4bit": true,
+      "temperature": 0.01,
+      "top_p": 0.95,
+      "max_new_tokens": {
+        "triage": 256,
+        "investigation": 640,
+        "response": 512,
+        "coordinator": 640
+      },
+      "batch_size": 4,
+      "n_gpu_workers": 1,
+      "compute_dtype": "auto",
+      "max_retries": 1,
+      "groq_model": "llama-3.1-8b-instant",
+      "anthropic_model": "claude-haiku-4-5-20251001"
+    },
+    "cohort": {
+      "attack_per_class": 15,
+      "ml_false_positives": 80,
+      "hard_benign": 40,
+      "ml_misses": 20,
+      "hard_benign_min_attack_prob": 0.05
+    },
+    "experiments": {
+      "run_seeds": [
+        42,
+        43,
+        44
+      ],
+      "llm_ablations": [
+        "no_rag",
+        "no_shap",
+        "no_investigation"
+      ],
+      "latency_probe_n": 20,
+      "threshold_ids_conf": 0.5
+    },
+    "rag": {
+      "attck_version": "17.1",
+      "attck_url": "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/enterprise-attack/enterprise-attack-{ver}.json",
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "top_k_retrieval": 5
+    },
+    "v3": {
+      "enabled": true,
+      "cohort_extension": {
+        "S2_ml_false_positive": 200,
+        "S3_hard_benign": 100,
+        "S4_ml_miss": "all"
+      },
+      "conditions": [
+        "raw",
+        "pred",
+        "pred_shap",
+        "pred_shuffled",
+        "pred_shap_explicit",
+        "flipped"
+      ],
+      "control_seeds": [
+        42,
+        43,
+        44
+      ],
+      "p2_conditions": [
+        "raw",
+        "pred",
+        "pred_shap"
+      ],
+      "full_pipeline_conditions": [],
+      "run_v2_runs": false,
+      "routing_grey_zone": 0.05,
+      "episode_block": 500,
+      "dev_fraction_note": "thresholds are selected on test rows NOT in the cohort",
+      "shift": {
+        "enabled": true,
+        "attack_per_class": 10,
+        "S2_ml_false_positive": 100,
+        "S3_hard_benign": 50,
+        "S4_ml_miss": 100,
+        "conditions": [
+          "raw",
+          "pred",
+          "pred_shap",
+          "pred_shap_explicit"
+        ],
+        "seeds": [
+          42
+        ]
+      }
+    },
+    "evaluation": {
+      "dpi": 300,
+      "font_size": 12,
+      "bootstrap": 1000,
+      "expert_sheet_attacks": 40,
+      "expert_sheet_benign": 20
+    }
+  },
+  "platform": "local workstation",
+  "gpu": {
+    "name": "NVIDIA A100-SXM4-80GB",
+    "count": 1,
+    "vram_gb_each": 79.2
+  },
+  "packages": {
+    "python": "3.11.15",
+    "numpy": "2.4.6",
+    "pandas": "3.1.0",
+    "sklearn": "1.9.1",
+    "xgboost": "3.2.0",
+    "imblearn": "0.14.2",
+    "torch": "2.5.1+cu121",
+    "transformers": "4.57.6",
+    "bitsandbytes": "0.50.2",
+    "shap": "0.51.0",
+    "faiss": "1.15.1",
+    "sentence_transformers": "4.1.0"
+  },
+  "ram_gb": 2163.5,
+  "benign_cap_used": 500000,
+  "features": {
+    "n_final": 32,
+    "consensus_raw": [
+      "Active Mean",
+      "Bwd IAT Mean",
+      "Flow Bytes/s",
+      "Fwd IAT Std",
+      "Fwd Packet Length Max",
+      "Fwd Packet Length Mean",
+      "Init_Win_bytes_backward",
+      "Packet Length Variance",
+      "Total Fwd Packets",
+      "Total Length of Fwd Packets"
+    ],
+    "engineered": [
+      "duration_bucket_long",
+      "duration_bucket_medium",
+      "duration_bucket_micro",
+      "duration_bucket_short",
+      "port_category_ephemeral",
+      "port_category_registered",
+      "port_category_well_known",
+      "service_DNS",
+      "service_FTP",
+      "service_HTTP",
+      "service_HTTP-Alt",
+      "service_HTTPS",
+      "service_IMAP",
+      "service_IMAPS",
+      "service_MySQL",
+      "service_Other",
+      "service_POP3",
+      "service_PostgreSQL",
+      "service_RDP",
+      "service_SMTP",
+      "service_SSH",
+      "service_Telnet"
+    ],
+    "n_candidates": 69,
+    "corr_dropped": [
+      "Total Backward Packets",
+      "Total Length of Bwd Packets",
+      "Fwd Packet Length Std",
+      "Bwd Packet Length Mean",
+      "Bwd Packet Length Std",
+      "Fwd IAT Total",
+      "Fwd IAT Max",
+      "Fwd Packets/s",
+      "Packet Length Std",
+      "SYN Flag Count",
+      "CWE Flag Count",
+      "ECE Flag Count",
+      "Average Packet Size",
+      "Avg Fwd Segment Size",
+      "Avg Bwd Segment Size",
+      "Subflow Fwd Packets",
+      "Subflow Fwd Bytes",
+      "Subflow Bwd Packets",
+      "Subflow Bwd Bytes",
+      "Idle Mean",
+      "Idle Max",
+      "Idle Min"
+    ],
+    "constant_dropped": []
+  },
+  "attck": {
+    "version": "17.1",
+    "n_techniques": 679,
+    "gold_source": "draft (not yet expert-reviewed)",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "index": "FAISS IndexFlatIP (cosine)"
+  },
+  "runs": {
+    "v3_raw_P1_triage_s42": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_raw_P1_triage_s42.json",
+    "v3_raw_P1_triage_s43": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_raw_P1_triage_s43.json",
+    "v3_raw_P1_triage_s44": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_raw_P1_triage_s44.json",
+    "v3_pred_P1_triage_s42": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_P1_triage_s42.json",
+    "v3_pred_P1_triage_s43": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_P1_triage_s43.json",
+    "v3_pred_P1_triage_s44": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_P1_triage_s44.json",
+    "v3_pred_shap_P1_triage_s42": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_shap_P1_triage_s42.json",
+    "v3_pred_shap_P1_triage_s43": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_shap_P1_triage_s43.json",
+    "v3_pred_shap_P1_triage_s44": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_shap_P1_triage_s44.json",
+    "v3_pred_shuffled_P1_triage_s42": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_shuffled_P1_triage_s42.json",
+    "v3_pred_shuffled_P1_triage_s43": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_shuffled_P1_triage_s43.json",
+    "v3_pred_shuffled_P1_triage_s44": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_shuffled_P1_triage_s44.json",
+    "v3_pred_shap_explicit_P1_triage_s42": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_shap_explicit_P1_triage_s42.json",
+    "v3_pred_shap_explicit_P1_triage_s43": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_shap_explicit_P1_triage_s43.json",
+    "v3_pred_shap_explicit_P1_triage_s44": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_shap_explicit_P1_triage_s44.json",
+    "v3_flipped_P1_triage_s42": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_flipped_P1_triage_s42.json",
+    "v3_flipped_P1_triage_s43": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_flipped_P1_triage_s43.json",
+    "v3_flipped_P1_triage_s44": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_flipped_P1_triage_s44.json",
+    "v3_raw_P2_triage_s42": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_raw_P2_triage_s42.json",
+    "v3_raw_P2_triage_s43": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_raw_P2_triage_s43.json",
+    "v3_raw_P2_triage_s44": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_raw_P2_triage_s44.json",
+    "v3_pred_P2_triage_s42": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_P2_triage_s42.json",
+    "v3_pred_P2_triage_s43": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_P2_triage_s43.json",
+    "v3_pred_P2_triage_s44": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_P2_triage_s44.json",
+    "v3_pred_shap_P2_triage_s42": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_shap_P2_triage_s42.json",
+    "v3_pred_shap_P2_triage_s43": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_shap_P2_triage_s43.json",
+    "v3_pred_shap_P2_triage_s44": "/home/jiit_255030001/SOC_Agent/results/agent_runs/Qwen2.5-32B-Instruct/v3/v3_pred_shap_P2_triage_s44.json"
+  },
+  "cohort_size": 508,
+  "llm_workers": {
+    "worker_0_info": {
+      "model_id": "Qwen/Qwen2.5-32B-Instruct",
+      "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+      "connectivity_ok": true,
+      "compute_dtype": "bfloat16",
+      "quantization": "4-bit NF4"
+    }
+  },
+  "llm": {
+    "backend": "huggingface",
+    "model_id": "Qwen/Qwen2.5-32B-Instruct",
+    "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd"
+  },
+  "finished_at": "2026-11-11 08:49:47"
+}

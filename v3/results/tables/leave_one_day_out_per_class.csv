@@ -1,0 +1,15 @@
+held_out_day,class,n,recall
+Friday,Bot,1948,0.0
+Friday,DDoS,128014,0.43
+Friday,PortScan,90694,0.31
+Thursday,Infiltration,36,0.0
+Thursday,Web Attack - Brute Force,1470,4.22
+Thursday,Web Attack - Sql Injection,21,66.67
+Thursday,Web Attack - XSS,652,2.3
+Tuesday,FTP-Patator,5931,0.02
+Tuesday,SSH-Patator,3219,0.0
+Wednesday,DoS GoldenEye,10282,12.67
+Wednesday,DoS Hulk,172846,2.55
+Wednesday,DoS Slowhttptest,5228,0.13
+Wednesday,DoS slowloris,5374,0.13
+Wednesday,Heartbleed,11,0.0

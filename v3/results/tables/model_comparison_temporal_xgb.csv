@@ -1,0 +1,3 @@
+split,test_rows,accuracy,weighted_f1,macro_f1
+random (main),499596,98.16,98.88,71.17
+temporal,499596,97.87,98.5,73.87

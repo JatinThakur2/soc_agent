@@ -1,0 +1,14 @@
+system,queue,flows_reviewed_by_agent,agent_gpu_hours,analyst_escalations,false_positives,attacks_escalated,end_to_end_recall_%
+Threshold-IDS (default),none,0,0.0,93760,8648,85112,99.961
+raw|P1|triage,Q0 flagged only,93771,134.0,0,0,0,0.0
+raw|P1|triage,Q1 flagged + grey zone,96108,137.3,0,0,0,0.0
+pred|P1|triage,Q0 flagged only,93771,134.0,42543,173,42370,49.762
+pred|P1|triage,Q1 flagged + grey zone,96108,137.3,42543,173,42370,49.762
+pred_shap|P1|triage,Q0 flagged only,93771,134.0,65617,3463,62154,72.997
+pred_shap|P1|triage,Q1 flagged + grey zone,96108,137.3,65617,3463,62154,72.997
+pred_shuffled|P1|triage,Q0 flagged only,93771,134.0,33691,606,33085,38.857
+pred_shuffled|P1|triage,Q1 flagged + grey zone,96108,137.3,33691,606,33085,38.857
+pred_shap_explicit|P1|triage,Q0 flagged only,93771,134.0,54806,2164,52641,61.825
+pred_shap_explicit|P1|triage,Q1 flagged + grey zone,96108,137.3,54806,2164,52641,61.825
+flipped|P1|triage,Q0 flagged only,93771,134.0,0,0,0,0.0
+flipped|P1|triage,Q1 flagged + grey zone,96108,137.3,96,93,3,0.004

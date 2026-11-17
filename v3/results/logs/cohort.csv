@@ -1,0 +1,509 @@
+test_pos,stratum,alert_id,ground_truth,ml_pred,ml_conf,p_attack,is_attack,pop_weight,batch,day,episode
+188375,S2_ml_false_positive,A0000,BENIGN,Bot,0.9912,0.9912,0,43.29,v2,Monday,Monday|BENIGN|684
+304756,S1_attack_flagged,A0001,FTP-Patator,FTP-Patator,1.0,1.0,1,79.06666666666666,v2,Tuesday,Tuesday|FTP-Patator|37
+490683,S1_attack_flagged,A0002,DoS GoldenEye,DoS GoldenEye,0.9973,0.9983,1,137.06666666666666,v2,Wednesday,Wednesday|DoS GoldenEye|1279
+438089,S2_ml_false_positive,A0003,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v2,Wednesday,Wednesday|BENIGN|690
+34322,S1_attack_flagged,A0004,DDoS,DDoS,1.0,1.0,1,1706.4,v2,Friday,Friday|DDoS|345
+395647,S1_attack_flagged,A0005,DoS Slowhttptest,DoS Slowhttptest,1.0,1.0,1,69.73333333333333,v2,Wednesday,Wednesday|DoS Slowhttptest|144
+24210,S4_ml_miss,A0006,DDoS,BENIGN,0.6577,0.3423,1,1.0,v2,Friday,Friday|DDoS|243
+11462,S1_attack_flagged,A0007,DDoS,DDoS,1.0,1.0,1,1706.4,v2,Friday,Friday|DDoS|115
+108469,S1_attack_flagged,A0008,Bot,Bot,0.9999,1.0,1,25.533333333333335,v2,Friday,Friday|Bot|223
+9295,S1_attack_flagged,A0009,DDoS,DDoS,1.0,1.0,1,1706.4,v2,Friday,Friday|DDoS|94
+18765,S1_attack_flagged,A0010,DDoS,DDoS,1.0,1.0,1,1706.4,v2,Friday,Friday|DDoS|188
+427465,S1_attack_flagged,A0011,DoS Hulk,DoS Hulk,1.0,1.0,1,2303.866666666667,v2,Wednesday,Wednesday|DoS Hulk|555
+340678,S2_ml_false_positive,A0012,BENIGN,Web Attack - XSS,0.681,0.9978,0,43.29,v2,Tuesday,Tuesday|BENIGN|423
+498190,S1_attack_flagged,A0013,DoS GoldenEye,DoS GoldenEye,1.0,1.0,1,137.06666666666666,v2,Wednesday,Wednesday|DoS GoldenEye|1369
+486260,S2_ml_false_positive,A0014,BENIGN,Bot,0.9807,0.9807,0,43.29,v2,Wednesday,Wednesday|BENIGN|1227
+310540,S1_attack_flagged,A0015,FTP-Patator,FTP-Patator,1.0,1.0,1,79.06666666666666,v2,Tuesday,Tuesday|FTP-Patator|100
+75469,S1_attack_flagged,A0016,PortScan,PortScan,0.9987,0.9987,1,1209.2,v2,Friday,Friday|PortScan|384
+480981,S1_attack_flagged,A0017,DoS GoldenEye,DoS GoldenEye,0.9973,0.9983,1,137.06666666666666,v2,Wednesday,Wednesday|DoS GoldenEye|1166
+105743,S2_ml_false_positive,A0018,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v2,Friday,Friday|BENIGN|195
+281365,S1_attack_flagged,A0019,Web Attack - Brute Force,Web Attack - Sql Injection,0.7833,0.9997,1,19.466666666666665,v2,Thursday,Thursday|Web Attack - Brute Force|121
+305401,S1_attack_flagged,A0020,FTP-Patator,FTP-Patator,1.0,1.0,1,79.06666666666666,v2,Tuesday,Tuesday|FTP-Patator|44
+75174,S1_attack_flagged,A0021,PortScan,PortScan,0.9998,0.9998,1,1209.2,v2,Friday,Friday|PortScan|378
+235735,S1_attack_flagged,A0022,Infiltration,Infiltration,1.0,1.0,1,1.0,v2,Thursday,Thursday|Infiltration|156
+100651,S2_ml_false_positive,A0023,BENIGN,Web Attack - XSS,0.5264,0.9968,0,43.29,v2,Friday,Friday|BENIGN|141
+65277,S1_attack_flagged,A0024,PortScan,PortScan,0.9994,0.9994,1,1209.2,v2,Friday,Friday|PortScan|222
+312901,S1_attack_flagged,A0025,FTP-Patator,FTP-Patator,1.0,1.0,1,79.06666666666666,v2,Tuesday,Tuesday|FTP-Patator|126
+390840,S3_hard_benign,A0026,BENIGN,BENIGN,0.8126,0.1874,0,23.13,v2,Wednesday,Wednesday|BENIGN|91
+390161,S1_attack_flagged,A0027,DoS slowloris,DoS slowloris,1.0,1.0,1,71.6,v2,Wednesday,Wednesday|DoS slowloris|84
+492587,S1_attack_flagged,A0028,DoS GoldenEye,Web Attack - XSS,0.5015,0.8872,1,137.06666666666666,v2,Wednesday,Wednesday|DoS GoldenEye|1301
+121115,S2_ml_false_positive,A0029,BENIGN,Bot,0.9428,0.9428,0,43.29,v2,Friday,Friday|BENIGN|358
+210846,S2_ml_false_positive,A0030,BENIGN,Bot,0.9774,0.9774,0,43.29,v2,Monday,Monday|BENIGN|938
+29522,S2_ml_false_positive,A0031,BENIGN,Bot,0.9881,0.9881,0,43.29,v2,Friday,Friday|BENIGN|296
+272947,S4_ml_miss,A0032,Web Attack - Brute Force,BENIGN,0.976,0.024,1,1.0,v2,Thursday,Thursday|Web Attack - Brute Force|30
+308009,S1_attack_flagged,A0033,FTP-Patator,FTP-Patator,1.0,1.0,1,79.06666666666666,v2,Tuesday,Tuesday|FTP-Patator|72
+424669,S1_attack_flagged,A0034,DoS Hulk,DoS Hulk,1.0,1.0,1,2303.866666666667,v2,Wednesday,Wednesday|DoS Hulk|518
+107757,S1_attack_flagged,A0035,Bot,Bot,0.9774,0.9774,1,25.533333333333335,v2,Friday,Friday|Bot|215
+96011,S2_ml_false_positive,A0036,BENIGN,Web Attack - Brute Force,0.869,0.9963,0,43.29,v2,Friday,Friday|BENIGN|93
+394143,S1_attack_flagged,A0037,DoS slowloris,DoS slowloris,1.0,1.0,1,71.6,v2,Wednesday,Wednesday|DoS slowloris|128
+246086,S1_attack_flagged,A0038,Infiltration,Infiltration,1.0,1.0,1,1.0,v2,Thursday,Thursday|Infiltration|278
+236435,S1_attack_flagged,A0039,Infiltration,Infiltration,1.0,1.0,1,1.0,v2,Thursday,Thursday|Infiltration|164
+395202,S1_attack_flagged,A0040,DoS Slowhttptest,DoS Slowhttptest,0.9996,1.0,1,69.73333333333333,v2,Wednesday,Wednesday|DoS Slowhttptest|140
+165961,S3_hard_benign,A0041,BENIGN,BENIGN,0.9076,0.0924,0,23.13,v2,Monday,Monday|BENIGN|445
+391623,S1_attack_flagged,A0042,DoS slowloris,DoS slowloris,1.0,1.0,1,71.6,v2,Wednesday,Wednesday|DoS slowloris|100
+59502,S2_ml_false_positive,A0043,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v2,Friday,Friday|BENIGN|152
+285971,S1_attack_flagged,A0044,Web Attack - XSS,Web Attack - XSS,0.5,0.9974,1,8.6,v2,Thursday,Thursday|Web Attack - XSS|171
+109530,S1_attack_flagged,A0045,Bot,Bot,0.9698,0.9699,1,25.533333333333335,v2,Friday,Friday|Bot|234
+481380,S3_hard_benign,A0046,BENIGN,BENIGN,0.5023,0.4977,0,23.13,v2,Wednesday,Wednesday|BENIGN|1171
+480414,S3_hard_benign,A0047,BENIGN,BENIGN,0.5268,0.4732,0,23.13,v2,Wednesday,Wednesday|BENIGN|1160
+387376,S1_attack_flagged,A0048,DoS slowloris,DoS slowloris,1.0,1.0,1,71.6,v2,Wednesday,Wednesday|DoS slowloris|55
+184402,S3_hard_benign,A0049,BENIGN,BENIGN,0.7929,0.2071,0,23.13,v2,Monday,Monday|BENIGN|642
+477674,S1_attack_flagged,A0050,DoS GoldenEye,DoS GoldenEye,0.9999,0.9999,1,137.06666666666666,v2,Wednesday,Wednesday|DoS GoldenEye|1127
+310498,S1_attack_flagged,A0051,FTP-Patator,FTP-Patator,1.0,1.0,1,79.06666666666666,v2,Tuesday,Tuesday|FTP-Patator|100
+433987,S4_ml_miss,A0052,DoS Hulk,BENIGN,0.7113,0.2887,1,1.0,v2,Wednesday,Wednesday|DoS Hulk|643
+141743,S3_hard_benign,A0053,BENIGN,BENIGN,0.9242,0.0758,0,23.13,v2,Monday,Monday|BENIGN|194
+304676,S1_attack_flagged,A0054,FTP-Patator,FTP-Patator,1.0,1.0,1,79.06666666666666,v2,Tuesday,Tuesday|FTP-Patator|36
+103258,S1_attack_flagged,A0055,Bot,Bot,0.9875,0.9875,1,25.533333333333335,v2,Friday,Friday|Bot|168
+406724,S1_attack_flagged,A0056,DoS Hulk,DoS Hulk,1.0,1.0,1,2303.866666666667,v2,Wednesday,Wednesday|DoS Hulk|279
+391705,S1_attack_flagged,A0057,DoS slowloris,DoS slowloris,1.0,1.0,1,71.6,v2,Wednesday,Wednesday|DoS slowloris|101
+284214,S1_attack_flagged,A0058,Web Attack - XSS,Web Attack - XSS,0.5673,0.9984,1,8.6,v2,Thursday,Thursday|Web Attack - XSS|151
+85823,S2_ml_false_positive,A0059,BENIGN,Bot,0.9494,0.9494,0,43.29,v2,Friday,Friday|BENIGN|558
+42163,S2_ml_false_positive,A0060,BENIGN,Bot,0.7836,0.7837,0,43.29,v2,Friday,Friday|BENIGN|425
+28025,S1_attack_flagged,A0061,DDoS,DDoS,1.0,1.0,1,1706.4,v2,Friday,Friday|DDoS|281
+242320,S3_hard_benign,A0062,BENIGN,BENIGN,0.7113,0.2887,0,23.13,v2,Thursday,Thursday|BENIGN|229
+434121,S4_ml_miss,A0063,DoS Hulk,BENIGN,0.4639,0.5361,1,1.0,v2,Wednesday,Wednesday|DoS Hulk|645
+75699,S3_hard_benign,A0064,BENIGN,BENIGN,0.9242,0.0758,0,23.13,v2,Friday,Friday|BENIGN|389
+17218,S2_ml_false_positive,A0065,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v2,Friday,Friday|BENIGN|173
+105694,S1_attack_flagged,A0066,Bot,Bot,1.0,1.0,1,25.533333333333335,v2,Friday,Friday|Bot|194
+45322,S2_ml_false_positive,A0067,BENIGN,Web Attack - Sql Injection,0.9108,0.999,0,43.29,v2,Friday,Friday|BENIGN|5
+395658,S1_attack_flagged,A0068,DoS Slowhttptest,DoS Slowhttptest,1.0,1.0,1,69.73333333333333,v2,Wednesday,Wednesday|DoS Slowhttptest|144
+284206,S1_attack_flagged,A0069,Web Attack - XSS,Web Attack - Brute Force,0.5095,0.9973,1,8.6,v2,Thursday,Thursday|Web Attack - XSS|151
+168456,S3_hard_benign,A0070,BENIGN,BENIGN,0.9359,0.0641,0,23.13,v2,Monday,Monday|BENIGN|472
+389081,S1_attack_flagged,A0071,DoS slowloris,DoS slowloris,0.9971,1.0,1,71.6,v2,Wednesday,Wednesday|DoS slowloris|72
+332398,S1_attack_flagged,A0072,SSH-Patator,SSH-Patator,1.0,1.0,1,42.93333333333333,v2,Tuesday,Tuesday|SSH-Patator|333
+433056,S4_ml_miss,A0073,DoS Hulk,BENIGN,0.53,0.47,1,1.0,v2,Wednesday,Wednesday|DoS Hulk|630
+326777,S2_ml_false_positive,A0074,BENIGN,Web Attack - XSS,0.7363,0.9978,0,43.29,v2,Tuesday,Tuesday|BENIGN|273
+360714,S1_attack_flagged,A0075,SSH-Patator,SSH-Patator,1.0,1.0,1,42.93333333333333,v2,Tuesday,Tuesday|SSH-Patator|643
+421360,S1_attack_flagged,A0076,DoS Hulk,DoS Hulk,1.0,1.0,1,2303.866666666667,v2,Wednesday,Wednesday|DoS Hulk|475
+67195,S1_attack_flagged,A0077,PortScan,PortScan,0.9996,0.9996,1,1209.2,v2,Friday,Friday|PortScan|253
+102146,S4_ml_miss,A0078,Bot,BENIGN,0.7148,0.2852,1,1.0,v2,Friday,Friday|Bot|157
+279273,S1_attack_flagged,A0079,Web Attack - Brute Force,Web Attack - XSS,0.5673,0.9984,1,19.466666666666665,v2,Thursday,Thursday|Web Attack - Brute Force|98
+394181,S1_attack_flagged,A0080,DoS slowloris,DoS slowloris,0.9999,1.0,1,71.6,v2,Wednesday,Wednesday|DoS slowloris|128
+326430,S2_ml_false_positive,A0081,BENIGN,Web Attack - XSS,0.5103,0.9966,0,43.29,v2,Tuesday,Tuesday|BENIGN|269
+8095,S2_ml_false_positive,A0082,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v2,Friday,Friday|BENIGN|81
+197134,S2_ml_false_positive,A0083,BENIGN,Bot,0.9807,0.9807,0,43.29,v2,Monday,Monday|BENIGN|783
+334322,S1_attack_flagged,A0084,SSH-Patator,SSH-Patator,1.0,1.0,1,42.93333333333333,v2,Tuesday,Tuesday|SSH-Patator|354
+33566,S1_attack_flagged,A0085,DDoS,DDoS,1.0,1.0,1,1706.4,v2,Friday,Friday|DDoS|338
+362128,S1_attack_flagged,A0086,SSH-Patator,SSH-Patator,1.0,1.0,1,42.93333333333333,v2,Tuesday,Tuesday|SSH-Patator|659
+263799,S2_ml_false_positive,A0087,BENIGN,Web Attack - Brute Force,0.5717,0.9976,0,43.29,v2,Thursday,Thursday|BENIGN|508
+498064,S2_ml_false_positive,A0088,BENIGN,Bot,0.9357,0.9358,0,43.29,v2,Wednesday,Wednesday|BENIGN|1367
+110056,S1_attack_flagged,A0089,Bot,Bot,1.0,1.0,1,25.533333333333335,v2,Friday,Friday|Bot|240
+286033,S1_attack_flagged,A0090,Web Attack - XSS,Web Attack - XSS,0.6478,0.9974,1,8.6,v2,Thursday,Thursday|Web Attack - XSS|171
+395746,S1_attack_flagged,A0091,DoS Slowhttptest,DoS Slowhttptest,1.0,1.0,1,69.73333333333333,v2,Wednesday,Wednesday|DoS Slowhttptest|145
+109020,S1_attack_flagged,A0092,Bot,Bot,0.998,0.998,1,25.533333333333335,v2,Friday,Friday|Bot|229
+272948,S4_ml_miss,A0093,Web Attack - Brute Force,BENIGN,0.9376,0.0624,1,1.0,v2,Thursday,Thursday|Web Attack - Brute Force|30
+270635,S2_ml_false_positive,A0094,BENIGN,Bot,0.9648,0.9648,0,43.29,v2,Thursday,Thursday|BENIGN|4
+70205,S1_attack_flagged,A0095,PortScan,PortScan,0.9996,0.9999,1,1209.2,v2,Friday,Friday|PortScan|305
+471647,S1_attack_flagged,A0096,DoS GoldenEye,DoS GoldenEye,1.0,1.0,1,137.06666666666666,v2,Wednesday,Wednesday|DoS GoldenEye|1057
+70084,S1_attack_flagged,A0097,PortScan,PortScan,1.0,1.0,1,1209.2,v2,Friday,Friday|PortScan|304
+333602,S1_attack_flagged,A0098,SSH-Patator,SSH-Patator,1.0,1.0,1,42.93333333333333,v2,Tuesday,Tuesday|SSH-Patator|346
+285095,S1_attack_flagged,A0099,Web Attack - XSS,Web Attack - XSS,0.7363,0.9978,1,8.6,v2,Thursday,Thursday|Web Attack - XSS|161
+303492,S2_ml_false_positive,A0100,BENIGN,Web Attack - Brute Force,0.643,0.9974,0,43.29,v2,Tuesday,Tuesday|BENIGN|23
+466622,S3_hard_benign,A0101,BENIGN,BENIGN,0.7818,0.2182,0,23.13,v2,Wednesday,Wednesday|BENIGN|1002
+326496,S2_ml_false_positive,A0102,BENIGN,Web Attack - XSS,0.6185,0.9976,0,43.29,v2,Tuesday,Tuesday|BENIGN|270
+331808,S1_attack_flagged,A0103,SSH-Patator,SSH-Patator,1.0,1.0,1,42.93333333333333,v2,Tuesday,Tuesday|SSH-Patator|326
+481145,S1_attack_flagged,A0104,DoS GoldenEye,DoS GoldenEye,0.9973,0.9983,1,137.06666666666666,v2,Wednesday,Wednesday|DoS GoldenEye|1168
+149521,S3_hard_benign,A0105,BENIGN,BENIGN,0.845,0.155,0,23.13,v2,Monday,Monday|BENIGN|274
+470053,S3_hard_benign,A0106,BENIGN,BENIGN,0.5023,0.4977,0,23.13,v2,Wednesday,Wednesday|BENIGN|1039
+285292,S1_attack_flagged,A0107,Web Attack - XSS,Web Attack - XSS,0.6383,0.9978,1,8.6,v2,Thursday,Thursday|Web Attack - XSS|163
+74850,S1_attack_flagged,A0108,PortScan,PortScan,0.9999,0.9999,1,1209.2,v2,Friday,Friday|PortScan|372
+197194,S2_ml_false_positive,A0109,BENIGN,Web Attack - XSS,0.5741,0.7854,0,43.29,v2,Monday,Monday|BENIGN|784
+387703,S4_ml_miss,A0110,DoS slowloris,BENIGN,0.964,0.036,1,1.0,v2,Wednesday,Wednesday|DoS slowloris|58
+99362,S2_ml_false_positive,A0111,BENIGN,DoS Hulk,0.9582,0.9602,0,43.29,v2,Friday,Friday|BENIGN|128
+285108,S1_attack_flagged,A0112,Web Attack - XSS,Web Attack - XSS,0.6383,0.9978,1,8.6,v2,Thursday,Thursday|Web Attack - XSS|161
+395139,S1_attack_flagged,A0113,DoS Slowhttptest,DoS Slowhttptest,0.9999,1.0,1,69.73333333333333,v2,Wednesday,Wednesday|DoS Slowhttptest|139
+61604,S4_ml_miss,A0114,PortScan,BENIGN,0.8894,0.1106,1,1.0,v2,Friday,Friday|PortScan|175
+188565,S2_ml_false_positive,A0115,BENIGN,Bot,0.9787,0.9787,0,43.29,v2,Monday,Monday|BENIGN|686
+389577,S1_attack_flagged,A0116,DoS slowloris,DoS slowloris,1.0,1.0,1,71.6,v2,Wednesday,Wednesday|DoS slowloris|78
+395956,S1_attack_flagged,A0117,DoS Slowhttptest,DoS Slowhttptest,1.0,1.0,1,69.73333333333333,v2,Wednesday,Wednesday|DoS Slowhttptest|147
+149543,S3_hard_benign,A0118,BENIGN,BENIGN,0.4639,0.5361,0,23.13,v2,Monday,Monday|BENIGN|274
+280018,S1_attack_flagged,A0119,Web Attack - Brute Force,Web Attack - Brute Force,0.7321,0.9959,1,19.466666666666665,v2,Thursday,Thursday|Web Attack - Brute Force|106
+15949,S1_attack_flagged,A0120,DDoS,DDoS,1.0,1.0,1,1706.4,v2,Friday,Friday|DDoS|160
+369045,S1_attack_flagged,A0121,SSH-Patator,SSH-Patator,1.0,1.0,1,42.93333333333333,v2,Tuesday,Tuesday|SSH-Patator|739
+304743,S1_attack_flagged,A0122,FTP-Patator,FTP-Patator,1.0,1.0,1,79.06666666666666,v2,Tuesday,Tuesday|FTP-Patator|37
+392521,S1_attack_flagged,A0123,DoS slowloris,DoS slowloris,0.9971,1.0,1,71.6,v2,Wednesday,Wednesday|DoS slowloris|110
+404923,S1_attack_flagged,A0124,DoS Hulk,DoS Hulk,1.0,1.0,1,2303.866666666667,v2,Wednesday,Wednesday|DoS Hulk|255
+394960,S1_attack_flagged,A0125,DoS slowloris,DoS slowloris,1.0,1.0,1,71.6,v2,Wednesday,Wednesday|DoS slowloris|137
+274051,S1_attack_flagged,A0126,Web Attack - Brute Force,Web Attack - Brute Force,0.9999,1.0,1,19.466666666666665,v2,Thursday,Thursday|Web Attack - Brute Force|42
+419645,S1_attack_flagged,A0127,DoS Hulk,DoS Hulk,1.0,1.0,1,2303.866666666667,v2,Wednesday,Wednesday|DoS Hulk|451
+277586,S1_attack_flagged,A0128,Web Attack - Brute Force,Web Attack - Brute Force,0.7962,0.9964,1,19.466666666666665,v2,Thursday,Thursday|Web Attack - Brute Force|80
+308001,S1_attack_flagged,A0129,FTP-Patator,FTP-Patator,1.0,1.0,1,79.06666666666666,v2,Tuesday,Tuesday|FTP-Patator|72
+122828,S1_attack_flagged,A0130,Bot,Bot,0.9976,0.9976,1,25.533333333333335,v2,Friday,Friday|Bot|378
+387663,S1_attack_flagged,A0131,DoS slowloris,DoS slowloris,1.0,1.0,1,71.6,v2,Wednesday,Wednesday|DoS slowloris|57
+122890,S1_attack_flagged,A0132,Bot,Bot,0.9982,0.9982,1,25.533333333333335,v2,Friday,Friday|Bot|378
+103491,S1_attack_flagged,A0133,Bot,Bot,0.9774,0.9774,1,25.533333333333335,v2,Friday,Friday|Bot|171
+258370,S2_ml_false_positive,A0134,BENIGN,Bot,0.9875,0.9875,0,43.29,v2,Thursday,Thursday|BENIGN|447
+192399,S2_ml_false_positive,A0135,BENIGN,Bot,0.9084,0.9084,0,43.29,v2,Monday,Monday|BENIGN|730
+6702,S4_ml_miss,A0136,DDoS,BENIGN,0.5794,0.4206,1,1.0,v2,Friday,Friday|DDoS|67
+395312,S1_attack_flagged,A0137,DoS Slowhttptest,DoS Slowhttptest,1.0,1.0,1,69.73333333333333,v2,Wednesday,Wednesday|DoS Slowhttptest|141
+277554,S1_attack_flagged,A0138,Web Attack - Brute Force,Web Attack - XSS,0.5087,0.997,1,19.466666666666665,v2,Thursday,Thursday|Web Attack - Brute Force|79
+29943,S1_attack_flagged,A0139,DDoS,DDoS,1.0,1.0,1,1706.4,v2,Friday,Friday|DDoS|301
+63335,S1_attack_flagged,A0140,PortScan,PortScan,0.9996,0.9996,1,1209.2,v2,Friday,Friday|PortScan|195
+450710,S3_hard_benign,A0141,BENIGN,BENIGN,0.7929,0.2071,0,23.13,v2,Wednesday,Wednesday|BENIGN|829
+76849,S1_attack_flagged,A0142,PortScan,PortScan,1.0,1.0,1,1209.2,v2,Friday,Friday|PortScan|413
+107785,S1_attack_flagged,A0143,Bot,Bot,1.0,1.0,1,25.533333333333335,v2,Friday,Friday|Bot|215
+332660,S1_attack_flagged,A0144,SSH-Patator,SSH-Patator,1.0,1.0,1,42.93333333333333,v2,Tuesday,Tuesday|SSH-Patator|336
+277504,S1_attack_flagged,A0145,Web Attack - Brute Force,Web Attack - Brute Force,0.9989,0.999,1,19.466666666666665,v2,Thursday,Thursday|Web Attack - Brute Force|79
+246798,S1_attack_flagged,A0146,Infiltration,Infiltration,1.0,1.0,1,1.0,v2,Thursday,Thursday|Infiltration|289
+395650,S1_attack_flagged,A0147,DoS Slowhttptest,DoS Slowhttptest,1.0,1.0,1,69.73333333333333,v2,Wednesday,Wednesday|DoS Slowhttptest|144
+434701,S4_ml_miss,A0148,DoS Hulk,BENIGN,0.7367,0.2633,1,1.0,v2,Wednesday,Wednesday|DoS Hulk|653
+204023,S3_hard_benign,A0149,BENIGN,BENIGN,0.8814,0.1186,0,23.13,v2,Monday,Monday|BENIGN|860
+113062,S2_ml_false_positive,A0150,BENIGN,Bot,0.6861,0.6861,0,43.29,v2,Friday,Friday|BENIGN|272
+285918,S3_hard_benign,A0151,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v2,Thursday,Thursday|BENIGN|170
+190342,S2_ml_false_positive,A0152,BENIGN,Bot,0.9897,0.9898,0,43.29,v2,Monday,Monday|BENIGN|706
+99626,S3_hard_benign,A0153,BENIGN,BENIGN,0.6577,0.3423,0,23.13,v2,Friday,Friday|BENIGN|131
+393739,S1_attack_flagged,A0154,DoS slowloris,DoS slowloris,1.0,1.0,1,71.6,v2,Wednesday,Wednesday|DoS slowloris|123
+198711,S2_ml_false_positive,A0155,BENIGN,Bot,0.6832,0.6833,0,43.29,v2,Monday,Monday|BENIGN|800
+5598,S1_attack_flagged,A0156,DDoS,DDoS,1.0,1.0,1,1706.4,v2,Friday,Friday|DDoS|56
+307750,S1_attack_flagged,A0157,FTP-Patator,FTP-Patator,1.0,1.0,1,79.06666666666666,v2,Tuesday,Tuesday|FTP-Patator|69
+479518,S2_ml_false_positive,A0158,BENIGN,Bot,0.9855,0.9855,0,43.29,v2,Wednesday,Wednesday|BENIGN|1149
+307780,S2_ml_false_positive,A0159,BENIGN,Web Attack - XSS,0.6055,0.9972,0,43.29,v2,Tuesday,Tuesday|BENIGN|69
+32314,S1_attack_flagged,A0160,DDoS,DDoS,1.0,1.0,1,1706.4,v2,Friday,Friday|DDoS|325
+323177,S2_ml_false_positive,A0161,BENIGN,Web Attack - XSS,0.6803,0.9903,0,43.29,v2,Tuesday,Tuesday|BENIGN|234
+479392,S2_ml_false_positive,A0162,BENIGN,Web Attack - XSS,0.5741,0.7854,0,43.29,v2,Wednesday,Wednesday|BENIGN|1147
+39105,S4_ml_miss,A0163,DDoS,BENIGN,0.9243,0.0757,1,1.0,v2,Friday,Friday|DDoS|393
+434250,S4_ml_miss,A0164,DoS Hulk,BENIGN,0.4639,0.5361,1,1.0,v2,Wednesday,Wednesday|DoS Hulk|648
+18584,S1_attack_flagged,A0165,DDoS,DDoS,1.0,1.0,1,1706.4,v2,Friday,Friday|DDoS|186
+434015,S4_ml_miss,A0166,DoS Hulk,BENIGN,0.6103,0.3897,1,1.0,v2,Wednesday,Wednesday|DoS Hulk|643
+287186,S1_attack_flagged,A0167,Web Attack - Sql Injection,Web Attack - Sql Injection,1.0,1.0,1,1.0,v2,Thursday,Thursday|Web Attack - Sql Injection|184
+359443,S1_attack_flagged,A0168,SSH-Patator,SSH-Patator,1.0,1.0,1,42.93333333333333,v2,Tuesday,Tuesday|SSH-Patator|628
+219713,S3_hard_benign,A0169,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v2,Monday,Monday|BENIGN|1038
+2554,S2_ml_false_positive,A0170,BENIGN,Web Attack - Brute Force,0.6225,0.9971,0,43.29,v2,Friday,Friday|BENIGN|25
+395760,S1_attack_flagged,A0171,DoS Slowhttptest,DoS Slowhttptest,0.9999,1.0,1,69.73333333333333,v2,Wednesday,Wednesday|DoS Slowhttptest|145
+435888,S2_ml_false_positive,A0172,BENIGN,Web Attack - XSS,0.6478,0.9974,0,43.29,v2,Wednesday,Wednesday|BENIGN|666
+78762,S1_attack_flagged,A0173,PortScan,PortScan,1.0,1.0,1,1209.2,v2,Friday,Friday|PortScan|457
+6808,S1_attack_flagged,A0174,DDoS,DDoS,1.0,1.0,1,1706.4,v2,Friday,Friday|DDoS|68
+401138,S1_attack_flagged,A0175,DoS Hulk,DoS Hulk,1.0,1.0,1,2303.866666666667,v2,Wednesday,Wednesday|DoS Hulk|206
+92467,S2_ml_false_positive,A0176,BENIGN,DDoS,0.6766,0.6808,0,43.29,v2,Friday,Friday|BENIGN|55
+335201,S2_ml_false_positive,A0177,BENIGN,Web Attack - Brute Force,0.5095,0.9973,0,43.29,v2,Tuesday,Tuesday|BENIGN|363
+410404,S1_attack_flagged,A0178,DoS Hulk,DoS Hulk,1.0,1.0,1,2303.866666666667,v2,Wednesday,Wednesday|DoS Hulk|328
+479087,S1_attack_flagged,A0179,DoS GoldenEye,DoS GoldenEye,1.0,1.0,1,137.06666666666666,v2,Wednesday,Wednesday|DoS GoldenEye|1144
+276903,S1_attack_flagged,A0180,Web Attack - Brute Force,Web Attack - Brute Force,0.9999,1.0,1,19.466666666666665,v2,Thursday,Thursday|Web Attack - Brute Force|72
+110674,S2_ml_false_positive,A0181,BENIGN,DoS Hulk,0.9928,0.9931,0,43.29,v2,Friday,Friday|BENIGN|247
+488563,S1_attack_flagged,A0182,DoS GoldenEye,DoS GoldenEye,1.0,1.0,1,137.06666666666666,v2,Wednesday,Wednesday|DoS GoldenEye|1254
+334294,S1_attack_flagged,A0183,SSH-Patator,SSH-Patator,1.0,1.0,1,42.93333333333333,v2,Tuesday,Tuesday|SSH-Patator|353
+440995,S2_ml_false_positive,A0184,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v2,Wednesday,Wednesday|BENIGN|722
+496617,S1_attack_flagged,A0185,DoS GoldenEye,DoS GoldenEye,0.9998,0.9998,1,137.06666666666666,v2,Wednesday,Wednesday|DoS GoldenEye|1350
+395730,S1_attack_flagged,A0186,DoS Slowhttptest,DoS Slowhttptest,1.0,1.0,1,69.73333333333333,v2,Wednesday,Wednesday|DoS Slowhttptest|145
+319802,S2_ml_false_positive,A0187,BENIGN,Web Attack - XSS,0.5545,0.9973,0,43.29,v2,Tuesday,Tuesday|BENIGN|198
+475147,S2_ml_false_positive,A0188,BENIGN,Bot,0.9807,0.9807,0,43.29,v2,Wednesday,Wednesday|BENIGN|1097
+107035,S3_hard_benign,A0189,BENIGN,BENIGN,0.5268,0.4732,0,23.13,v2,Friday,Friday|BENIGN|208
+483468,S1_attack_flagged,A0190,Heartbleed,Heartbleed,0.9999,0.9999,1,1.0,v2,Wednesday,Wednesday|Heartbleed|1195
+337343,S1_attack_flagged,A0191,SSH-Patator,SSH-Patator,1.0,1.0,1,42.93333333333333,v2,Tuesday,Tuesday|SSH-Patator|387
+438371,S3_hard_benign,A0192,BENIGN,BENIGN,0.9392,0.0608,0,23.13,v2,Wednesday,Wednesday|BENIGN|693
+339770,S1_attack_flagged,A0193,SSH-Patator,SSH-Patator,1.0,1.0,1,42.93333333333333,v2,Tuesday,Tuesday|SSH-Patator|413
+482973,S2_ml_false_positive,A0194,BENIGN,Bot,0.9859,0.9859,0,43.29,v2,Wednesday,Wednesday|BENIGN|1189
+429674,S1_attack_flagged,A0195,DoS Hulk,DoS Hulk,1.0,1.0,1,2303.866666666667,v2,Wednesday,Wednesday|DoS Hulk|584
+49624,S2_ml_false_positive,A0196,BENIGN,Web Attack - XSS,0.8285,0.9037,0,43.29,v2,Friday,Friday|BENIGN|48
+257548,S2_ml_false_positive,A0197,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v2,Thursday,Thursday|BENIGN|437
+426083,S1_attack_flagged,A0198,DoS Hulk,DoS Hulk,1.0,1.0,1,2303.866666666667,v2,Wednesday,Wednesday|DoS Hulk|537
+498838,S2_ml_false_positive,A0199,BENIGN,Bot,0.9887,0.9887,0,43.29,v2,Wednesday,Wednesday|BENIGN|1376
+16333,S4_ml_miss,A0200,DDoS,BENIGN,0.6577,0.3423,1,1.0,v2,Friday,Friday|DDoS|164
+159275,S2_ml_false_positive,A0201,BENIGN,DoS GoldenEye,0.9919,0.9959,0,43.29,v2,Monday,Monday|BENIGN|375
+447688,S2_ml_false_positive,A0202,BENIGN,Web Attack - XSS,0.6478,0.9974,0,43.29,v2,Wednesday,Wednesday|BENIGN|796
+25168,S1_attack_flagged,A0203,DDoS,DDoS,1.0,1.0,1,1706.4,v2,Friday,Friday|DDoS|253
+287032,S1_attack_flagged,A0204,Web Attack - Sql Injection,Web Attack - Sql Injection,0.9925,0.9951,1,1.0,v2,Thursday,Thursday|Web Attack - Sql Injection|183
+91864,S4_ml_miss,A0205,Bot,BENIGN,0.8544,0.1456,1,1.0,v2,Friday,Friday|Bot|49
+285105,S1_attack_flagged,A0206,Web Attack - XSS,Web Attack - XSS,0.5261,0.9972,1,8.6,v2,Thursday,Thursday|Web Attack - XSS|161
+72530,S1_attack_flagged,A0207,PortScan,PortScan,0.9999,0.9999,1,1209.2,v2,Friday,Friday|PortScan|334
+466530,S3_hard_benign,A0208,BENIGN,BENIGN,0.8486,0.1514,0,23.13,v2,Wednesday,Wednesday|BENIGN|1001
+286946,S1_attack_flagged,A0209,Web Attack - Sql Injection,DoS GoldenEye,0.9933,0.9999,1,1.0,v2,Thursday,Thursday|Web Attack - Sql Injection|182
+266626,S3_hard_benign,A0210,BENIGN,BENIGN,0.9076,0.0924,0,23.13,v2,Thursday,Thursday|BENIGN|538
+284367,S1_attack_flagged,A0211,Web Attack - XSS,Web Attack - XSS,0.6098,0.998,1,8.6,v2,Thursday,Thursday|Web Attack - XSS|153
+208918,S3_hard_benign,A0212,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v2,Monday,Monday|BENIGN|915
+277754,S1_attack_flagged,A0213,Web Attack - Brute Force,Web Attack - Sql Injection,0.7833,0.9997,1,19.466666666666665,v2,Thursday,Thursday|Web Attack - Brute Force|82
+261238,S2_ml_false_positive,A0214,BENIGN,Bot,0.9859,0.9859,0,43.29,v2,Thursday,Thursday|BENIGN|479
+285956,S1_attack_flagged,A0215,Web Attack - XSS,Web Attack - XSS,0.6478,0.9974,1,8.6,v2,Thursday,Thursday|Web Attack - XSS|170
+108997,S1_attack_flagged,A0216,Bot,Bot,1.0,1.0,1,25.533333333333335,v2,Friday,Friday|Bot|229
+70042,S1_attack_flagged,A0217,PortScan,PortScan,0.9999,0.9999,1,1209.2,v2,Friday,Friday|PortScan|303
+108869,S1_attack_flagged,A0218,Bot,Bot,0.9992,0.9992,1,25.533333333333335,v2,Friday,Friday|Bot|227
+476191,S1_attack_flagged,A0219,DoS GoldenEye,DoS GoldenEye,0.9971,0.9972,1,137.06666666666666,v2,Wednesday,Wednesday|DoS GoldenEye|1110
+427123,S1_attack_flagged,A0220,DoS Hulk,DoS Hulk,1.0,1.0,1,2303.866666666667,v2,Wednesday,Wednesday|DoS Hulk|550
+490640,S1_attack_flagged,A0221,DoS GoldenEye,DoS GoldenEye,1.0,1.0,1,137.06666666666666,v2,Wednesday,Wednesday|DoS GoldenEye|1279
+149749,S2_ml_false_positive,A0222,BENIGN,DoS GoldenEye,0.9971,0.9972,0,43.29,v2,Monday,Monday|BENIGN|277
+488974,S2_ml_false_positive,A0223,BENIGN,Web Attack - XSS,0.5741,0.7854,0,43.29,v2,Wednesday,Wednesday|BENIGN|1259
+386311,S3_hard_benign,A0224,BENIGN,BENIGN,0.9076,0.0924,0,23.13,v2,Wednesday,Wednesday|BENIGN|43
+281297,S1_attack_flagged,A0225,Web Attack - Brute Force,Web Attack - Brute Force,0.543,0.9973,1,19.466666666666665,v2,Thursday,Thursday|Web Attack - Brute Force|120
+388207,S1_attack_flagged,A0226,DoS slowloris,DoS slowloris,0.9999,1.0,1,71.6,v2,Wednesday,Wednesday|DoS slowloris|63
+104911,S3_hard_benign,A0227,BENIGN,BENIGN,0.9392,0.0608,0,23.13,v2,Friday,Friday|BENIGN|186
+363048,S1_attack_flagged,A0228,SSH-Patator,SSH-Patator,1.0,1.0,1,42.93333333333333,v2,Tuesday,Tuesday|SSH-Patator|669
+312554,S1_attack_flagged,A0229,FTP-Patator,FTP-Patator,1.0,1.0,1,79.06666666666666,v2,Tuesday,Tuesday|FTP-Patator|122
+346939,S2_ml_false_positive,A0230,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v2,Tuesday,Tuesday|BENIGN|492
+283667,S1_attack_flagged,A0231,Web Attack - XSS,Web Attack - XSS,0.6791,0.9975,1,8.6,v2,Thursday,Thursday|Web Attack - XSS|146
+297765,S2_ml_false_positive,A0232,BENIGN,Bot,0.8459,0.8459,0,43.29,v2,Thursday,Thursday|BENIGN|302
+475397,S2_ml_false_positive,A0233,BENIGN,Bot,0.9774,0.9774,0,43.29,v2,Wednesday,Wednesday|BENIGN|1100
+236706,S1_attack_flagged,A0234,Infiltration,Infiltration,1.0,1.0,1,1.0,v2,Thursday,Thursday|Infiltration|167
+469901,S3_hard_benign,A0235,BENIGN,BENIGN,0.5268,0.4732,0,23.13,v2,Wednesday,Wednesday|BENIGN|1037
+117932,S1_attack_flagged,A0236,Bot,Bot,0.999,0.999,1,25.533333333333335,v2,Friday,Friday|Bot|324
+230625,S2_ml_false_positive,A0237,BENIGN,Web Attack - XSS,0.7477,0.9424,0,43.29,v2,Thursday,Thursday|BENIGN|100
+434717,S4_ml_miss,A0238,DoS Hulk,BENIGN,0.5771,0.4229,1,1.0,v2,Wednesday,Wednesday|DoS Hulk|654
+277672,S1_attack_flagged,A0239,Web Attack - Brute Force,Web Attack - Brute Force,1.0,1.0,1,19.466666666666665,v2,Thursday,Thursday|Web Attack - Brute Force|81
+395175,S1_attack_flagged,A0240,DoS Slowhttptest,DoS Slowhttptest,1.0,1.0,1,69.73333333333333,v2,Wednesday,Wednesday|DoS Slowhttptest|139
+22659,S1_attack_flagged,A0241,DDoS,DDoS,1.0,1.0,1,1706.4,v2,Friday,Friday|DDoS|228
+63903,S1_attack_flagged,A0242,PortScan,PortScan,0.9987,0.9987,1,1209.2,v2,Friday,Friday|PortScan|202
+87563,S3_hard_benign,A0243,BENIGN,BENIGN,0.9224,0.0776,0,23.13,v2,Friday,Friday|BENIGN|3
+284066,S1_attack_flagged,A0244,Web Attack - XSS,Web Attack - XSS,0.5673,0.9984,1,8.6,v2,Thursday,Thursday|Web Attack - XSS|150
+108800,S4_ml_miss,A0245,Bot,BENIGN,0.9996,0.0004,1,1.0,v2,Friday,Friday|Bot|227
+440470,S2_ml_false_positive,A0246,BENIGN,Web Attack - XSS,0.515,0.9969,0,43.29,v2,Wednesday,Wednesday|BENIGN|716
+225428,S3_hard_benign,A0247,BENIGN,BENIGN,0.5268,0.4732,0,23.13,v2,Thursday,Thursday|BENIGN|41
+138501,S3_hard_benign,A0248,BENIGN,BENIGN,0.5771,0.4229,0,23.13,v2,Monday,Monday|BENIGN|161
+393711,S3_hard_benign,A0249,BENIGN,BENIGN,0.5771,0.4229,0,23.13,v2,Wednesday,Wednesday|BENIGN|123
+473365,S2_ml_false_positive,A0250,BENIGN,PortScan,0.9996,0.9996,0,43.29,v2,Wednesday,Wednesday|BENIGN|1077
+13253,S1_attack_flagged,A0251,DDoS,DDoS,1.0,1.0,1,1706.4,v2,Friday,Friday|DDoS|133
+412149,S1_attack_flagged,A0252,DoS Hulk,DoS Hulk,1.0,1.0,1,2303.866666666667,v2,Wednesday,Wednesday|DoS Hulk|351
+275733,S1_attack_flagged,A0253,Web Attack - Brute Force,Web Attack - XSS,0.6055,0.9972,1,19.466666666666665,v2,Thursday,Thursday|Web Attack - Brute Force|60
+273683,S1_attack_flagged,A0254,Web Attack - Brute Force,Web Attack - XSS,0.681,0.9978,1,19.466666666666665,v2,Thursday,Thursday|Web Attack - Brute Force|38
+100375,S3_hard_benign,A0255,BENIGN,BENIGN,0.9376,0.0624,0,23.13,v2,Friday,Friday|BENIGN|138
+310731,S1_attack_flagged,A0256,FTP-Patator,FTP-Patator,1.0,1.0,1,79.06666666666666,v2,Tuesday,Tuesday|FTP-Patator|102
+128620,S3_hard_benign,A0257,BENIGN,BENIGN,0.7892,0.2108,0,23.13,v2,Monday,Monday|BENIGN|57
+63023,S1_attack_flagged,A0258,PortScan,PortScan,0.9993,0.9993,1,1209.2,v2,Friday,Friday|PortScan|191
+124328,S2_ml_false_positive,A0259,BENIGN,Web Attack - XSS,0.5476,0.9981,0,43.29,v2,Monday,Monday|BENIGN|12
+110115,S1_attack_flagged,A0260,Bot,Bot,1.0,1.0,1,25.533333333333335,v2,Friday,Friday|Bot|241
+302509,S2_ml_false_positive,A0261,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v2,Tuesday,Tuesday|BENIGN|13
+493436,S2_ml_false_positive,A0262,BENIGN,Bot,0.952,0.952,0,43.29,v2,Wednesday,Wednesday|BENIGN|1313
+394174,S1_attack_flagged,A0263,DoS slowloris,DoS slowloris,1.0,1.0,1,71.6,v2,Wednesday,Wednesday|DoS slowloris|128
+307627,S1_attack_flagged,A0264,FTP-Patator,FTP-Patator,1.0,1.0,1,79.06666666666666,v2,Tuesday,Tuesday|FTP-Patator|68
+350842,S2_ml_false_positive,A0265,BENIGN,Web Attack - Brute Force,0.6225,0.9971,0,43.29,v2,Tuesday,Tuesday|BENIGN|532
+230644,S2_ml_false_positive,A0266,BENIGN,PortScan,0.9982,0.9982,0,43.29,v2,Thursday,Thursday|BENIGN|100
+221233,S2_ml_false_positive,A0267,BENIGN,Bot,0.8459,0.8459,0,43.29,v2,Monday,Monday|BENIGN|1055
+268174,S3_hard_benign,A0268,BENIGN,BENIGN,0.9221,0.0779,0,23.13,v2,Thursday,Thursday|BENIGN|555
+366833,S1_attack_flagged,A0269,SSH-Patator,SSH-Patator,1.0,1.0,1,42.93333333333333,v2,Tuesday,Tuesday|SSH-Patator|713
+274505,S1_attack_flagged,A0270,Web Attack - Brute Force,Web Attack - Brute Force,1.0,1.0,1,19.466666666666665,v2,Thursday,Thursday|Web Attack - Brute Force|47
+132255,S3_hard_benign,A0271,BENIGN,BENIGN,0.5268,0.4732,0,23.13,v2,Monday,Monday|BENIGN|96
+395864,S1_attack_flagged,A0272,DoS Slowhttptest,DoS slowloris,0.9954,1.0,1,69.73333333333333,v2,Wednesday,Wednesday|DoS Slowhttptest|146
+196096,S2_ml_false_positive,A0273,BENIGN,Bot,0.9335,0.9336,0,43.29,v2,Monday,Monday|BENIGN|771
+403444,S1_attack_flagged,A0274,DoS Hulk,DoS Hulk,1.0,1.0,1,2303.866666666667,v2,Wednesday,Wednesday|DoS Hulk|235
+308000,S1_attack_flagged,A0275,FTP-Patator,FTP-Patator,1.0,1.0,1,79.06666666666666,v2,Tuesday,Tuesday|FTP-Patator|72
+389629,S1_attack_flagged,A0276,DoS slowloris,DoS slowloris,1.0,1.0,1,71.6,v2,Wednesday,Wednesday|DoS slowloris|78
+492250,S3_hard_benign,A0277,BENIGN,BENIGN,0.5268,0.4732,0,23.13,v2,Wednesday,Wednesday|BENIGN|1297
+395548,S1_attack_flagged,A0278,DoS Slowhttptest,DoS Slowhttptest,1.0,1.0,1,69.73333333333333,v2,Wednesday,Wednesday|DoS Slowhttptest|143
+236467,S1_attack_flagged,A0279,Infiltration,Infiltration,1.0,1.0,1,1.0,v2,Thursday,Thursday|Infiltration|164
+395095,S1_attack_flagged,A0280,DoS Slowhttptest,DoS Slowhttptest,1.0,1.0,1,69.73333333333333,v2,Wednesday,Wednesday|DoS Slowhttptest|138
+212349,S2_ml_false_positive,A0281,BENIGN,Bot,0.9709,0.971,0,43.29,v2,Monday,Monday|BENIGN|954
+113891,S4_ml_miss,A0282,Bot,BENIGN,0.978,0.022,1,1.0,v2,Friday,Friday|Bot|280
+58226,S2_ml_false_positive,A0283,BENIGN,Bot,0.9787,0.9787,0,43.29,v2,Friday,Friday|BENIGN|138
+494050,S2_ml_false_positive,A0284,BENIGN,Bot,0.9357,0.9358,0,43.29,v2,Wednesday,Wednesday|BENIGN|1319
+170774,S2_ml_false_positive,A0285,BENIGN,Web Attack - Brute Force,0.7881,0.9638,0,43.29,v2,Monday,Monday|BENIGN|497
+202205,S2_ml_false_positive,A0286,BENIGN,Bot,0.9799,0.9799,0,43.29,v2,Monday,Monday|BENIGN|839
+274102,S1_attack_flagged,A0287,Web Attack - Brute Force,Web Attack - XSS,0.6383,0.9978,1,19.466666666666665,v2,Thursday,Thursday|Web Attack - Brute Force|43
+433319,S4_ml_miss,A0288,DoS Hulk,BENIGN,0.9941,0.0059,1,1.0,v2,Wednesday,Wednesday|DoS Hulk|633
+83477,S3_hard_benign,A0289,BENIGN,BENIGN,0.7113,0.2887,0,23.13,v2,Friday,Friday|BENIGN|522
+338507,S1_attack_flagged,A0290,SSH-Patator,SSH-Patator,1.0,1.0,1,42.93333333333333,v2,Tuesday,Tuesday|SSH-Patator|400
+213524,S2_ml_false_positive,A0291,BENIGN,Bot,0.6861,0.6861,0,43.29,v2,Monday,Monday|BENIGN|967
+284810,S1_attack_flagged,A0292,Web Attack - XSS,Web Attack - XSS,0.5476,0.9981,1,8.6,v2,Thursday,Thursday|Web Attack - XSS|158
+435693,S1_attack_flagged,A0293,DoS GoldenEye,DoS GoldenEye,1.0,1.0,1,137.06666666666666,v2,Wednesday,Wednesday|DoS GoldenEye|664
+141002,S2_ml_false_positive,A0294,BENIGN,Web Attack - XSS,0.5403,0.9967,0,43.29,v2,Monday,Monday|BENIGN|187
+283635,S1_attack_flagged,A0295,Web Attack - XSS,Web Attack - XSS,0.5673,0.9984,1,8.6,v2,Thursday,Thursday|Web Attack - XSS|145
+287319,S1_attack_flagged,A0296,Web Attack - Sql Injection,Web Attack - Sql Injection,0.7833,0.9997,1,1.0,v2,Thursday,Thursday|Web Attack - Sql Injection|186
+306941,S1_attack_flagged,A0297,FTP-Patator,FTP-Patator,1.0,1.0,1,79.06666666666666,v2,Tuesday,Tuesday|FTP-Patator|60
+112766,S2_ml_false_positive,A0298,BENIGN,Bot,0.9923,0.9923,0,43.29,v2,Friday,Friday|BENIGN|269
+333339,S2_ml_false_positive,A0299,BENIGN,DoS Hulk,0.5518,0.5553,0,43.29,v2,Tuesday,Tuesday|BENIGN|343
+49505,S3_hard_benign,A0300,BENIGN,BENIGN,0.5268,0.4732,0,23.13,v2,Friday,Friday|BENIGN|47
+407604,S1_attack_flagged,A0301,DoS Hulk,DoS Hulk,1.0,1.0,1,2303.866666666667,v2,Wednesday,Wednesday|DoS Hulk|291
+237250,S2_ml_false_positive,A0302,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v2,Thursday,Thursday|BENIGN|173
+113685,S3_hard_benign,A0303,BENIGN,BENIGN,0.9359,0.0641,0,23.13,v2,Friday,Friday|BENIGN|278
+477817,S1_attack_flagged,A0304,DoS GoldenEye,DoS GoldenEye,1.0,1.0,1,137.06666666666666,v2,Wednesday,Wednesday|DoS GoldenEye|1129
+189514,S3_hard_benign,A0305,BENIGN,BENIGN,0.5268,0.4732,0,23.13,v2,Monday,Monday|BENIGN|696
+496086,S1_attack_flagged,A0306,DoS GoldenEye,DoS GoldenEye,1.0,1.0,1,137.06666666666666,v2,Wednesday,Wednesday|DoS GoldenEye|1343
+392405,S2_ml_false_positive,A0307,BENIGN,Web Attack - XSS,0.515,0.9969,0,43.29,v2,Wednesday,Wednesday|BENIGN|109
+438896,S2_ml_false_positive,A0308,BENIGN,Web Attack - Brute Force,0.643,0.9974,0,43.29,v2,Wednesday,Wednesday|BENIGN|699
+427097,S1_attack_flagged,A0309,DoS Hulk,DoS Hulk,1.0,1.0,1,2303.866666666667,v2,Wednesday,Wednesday|DoS Hulk|550
+395514,S1_attack_flagged,A0310,DoS Slowhttptest,DoS Slowhttptest,0.9998,1.0,1,69.73333333333333,v2,Wednesday,Wednesday|DoS Slowhttptest|143
+88567,S2_ml_false_positive,A0311,BENIGN,Web Attack - XSS,0.8288,0.9486,0,43.29,v2,Friday,Friday|BENIGN|14
+285486,S1_attack_flagged,A0312,Web Attack - XSS,Web Attack - XSS,0.5015,0.8872,1,8.6,v2,Thursday,Thursday|Web Attack - XSS|165
+175385,S2_ml_false_positive,A0313,BENIGN,Web Attack - Brute Force,0.776,0.9969,0,43.29,v2,Monday,Monday|BENIGN|546
+360415,S3_hard_benign,A0314,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v2,Tuesday,Tuesday|BENIGN|639
+66565,S1_attack_flagged,A0315,PortScan,PortScan,0.9988,0.9988,1,1209.2,v2,Friday,Friday|PortScan|242
+234868,S3_hard_benign,A0316,BENIGN,BENIGN,0.7929,0.2071,0,23.13,v3_extension,Thursday,Thursday|BENIGN|147
+351120,S2_ml_false_positive,A0317,BENIGN,Web Attack - Brute Force,0.5717,0.9976,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|535
+188207,S2_ml_false_positive,A0318,BENIGN,Bot,0.9859,0.9859,0,43.29,v3_extension,Monday,Monday|BENIGN|682
+212914,S2_ml_false_positive,A0319,BENIGN,Bot,0.9494,0.9494,0,43.29,v3_extension,Monday,Monday|BENIGN|960
+100772,S2_ml_false_positive,A0320,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Friday,Friday|BENIGN|142
+267404,S2_ml_false_positive,A0321,BENIGN,Web Attack - Brute Force,0.7278,0.9967,0,43.29,v3_extension,Thursday,Thursday|BENIGN|547
+221459,S2_ml_false_positive,A0322,BENIGN,Bot,0.6832,0.6833,0,43.29,v3_extension,Monday,Monday|BENIGN|1058
+118818,S3_hard_benign,A0323,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v3_extension,Friday,Friday|BENIGN|333
+208605,S2_ml_false_positive,A0324,BENIGN,Bot,0.9501,0.9501,0,43.29,v3_extension,Monday,Monday|BENIGN|911
+179919,S3_hard_benign,A0325,BENIGN,BENIGN,0.8372,0.1628,0,23.13,v3_extension,Monday,Monday|BENIGN|594
+464360,S3_hard_benign,A0326,BENIGN,BENIGN,0.8126,0.1874,0,23.13,v3_extension,Wednesday,Wednesday|BENIGN|977
+133300,S2_ml_false_positive,A0327,BENIGN,Web Attack - XSS,0.6558,0.9975,0,43.29,v3_extension,Monday,Monday|BENIGN|107
+342041,S2_ml_false_positive,A0328,BENIGN,Web Attack - XSS,0.5476,0.9981,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|438
+87078,S2_ml_false_positive,A0329,BENIGN,Bot,0.9494,0.9494,0,43.29,v3_extension,Friday,Friday|BENIGN|571
+48318,S2_ml_false_positive,A0330,BENIGN,Bot,0.6861,0.6861,0,43.29,v3_extension,Friday,Friday|BENIGN|35
+39652,S3_hard_benign,A0331,BENIGN,BENIGN,0.8949,0.1051,0,23.13,v3_extension,Friday,Friday|BENIGN|399
+212417,S2_ml_false_positive,A0332,BENIGN,Bot,0.9897,0.9898,0,43.29,v3_extension,Monday,Monday|BENIGN|955
+44615,S3_hard_benign,A0333,BENIGN,BENIGN,0.697,0.303,0,23.13,v3_extension,Friday,Friday|BENIGN|449
+347603,S2_ml_false_positive,A0334,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|499
+246444,S2_ml_false_positive,A0335,BENIGN,Bot,0.9634,0.9635,0,43.29,v3_extension,Thursday,Thursday|BENIGN|285
+233614,S3_hard_benign,A0336,BENIGN,BENIGN,0.6103,0.3897,0,23.13,v3_extension,Thursday,Thursday|BENIGN|133
+108395,S4_ml_miss,A0337,Bot,BENIGN,0.9527,0.0473,1,1.0,v3_extension,Friday,Friday|Bot|222
+176066,S2_ml_false_positive,A0338,BENIGN,Web Attack - XSS,0.5,0.9974,0,43.29,v3_extension,Monday,Monday|BENIGN|553
+124541,S3_hard_benign,A0339,BENIGN,BENIGN,0.92,0.08,0,23.13,v3_extension,Monday,Monday|BENIGN|14
+199443,S3_hard_benign,A0340,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v3_extension,Monday,Monday|BENIGN|808
+211119,S2_ml_false_positive,A0341,BENIGN,Bot,0.7084,0.7084,0,43.29,v3_extension,Monday,Monday|BENIGN|941
+267014,S2_ml_false_positive,A0342,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Thursday,Thursday|BENIGN|542
+301780,S2_ml_false_positive,A0343,BENIGN,Web Attack - Brute Force,0.7278,0.9967,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|6
+235771,S2_ml_false_positive,A0344,BENIGN,Bot,0.9501,0.9501,0,43.29,v3_extension,Thursday,Thursday|BENIGN|156
+482138,S3_hard_benign,A0345,BENIGN,BENIGN,0.4812,0.5188,0,23.13,v3_extension,Wednesday,Wednesday|BENIGN|1180
+204266,S2_ml_false_positive,A0346,BENIGN,Bot,0.9774,0.9774,0,43.29,v3_extension,Monday,Monday|BENIGN|863
+309531,S2_ml_false_positive,A0347,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|89
+45929,S2_ml_false_positive,A0348,BENIGN,Bot,0.9236,0.9237,0,43.29,v3_extension,Friday,Friday|BENIGN|11
+314089,S2_ml_false_positive,A0349,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|139
+385625,S3_hard_benign,A0350,BENIGN,BENIGN,0.7113,0.2887,0,23.13,v3_extension,Wednesday,Wednesday|BENIGN|36
+292108,S3_hard_benign,A0351,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v3_extension,Thursday,Thursday|BENIGN|239
+340582,S2_ml_false_positive,A0352,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|422
+314899,S2_ml_false_positive,A0353,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|148
+463030,S2_ml_false_positive,A0354,BENIGN,Web Attack - Brute Force,0.869,0.9963,0,43.29,v3_extension,Wednesday,Wednesday|BENIGN|963
+45159,S2_ml_false_positive,A0355,BENIGN,Bot,0.9787,0.9787,0,43.29,v3_extension,Friday,Friday|BENIGN|3
+126686,S3_hard_benign,A0356,BENIGN,BENIGN,0.8126,0.1874,0,23.13,v3_extension,Monday,Monday|BENIGN|37
+360242,S3_hard_benign,A0357,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v3_extension,Tuesday,Tuesday|BENIGN|637
+315179,S2_ml_false_positive,A0358,BENIGN,Web Attack - XSS,0.7363,0.9978,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|150
+182009,S3_hard_benign,A0359,BENIGN,BENIGN,0.8949,0.1051,0,23.13,v3_extension,Monday,Monday|BENIGN|616
+216953,S3_hard_benign,A0360,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v3_extension,Monday,Monday|BENIGN|1007
+110048,S2_ml_false_positive,A0361,BENIGN,Bot,0.9837,0.9837,0,43.29,v3_extension,Friday,Friday|BENIGN|240
+167396,S3_hard_benign,A0362,BENIGN,BENIGN,0.7113,0.2887,0,23.13,v3_extension,Monday,Monday|BENIGN|461
+416811,S3_hard_benign,A0363,BENIGN,BENIGN,0.7929,0.2071,0,23.13,v3_extension,Wednesday,Wednesday|BENIGN|412
+213133,S2_ml_false_positive,A0364,BENIGN,Bot,0.9774,0.9774,0,43.29,v3_extension,Monday,Monday|BENIGN|963
+340972,S2_ml_false_positive,A0365,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|426
+282764,S3_hard_benign,A0366,BENIGN,BENIGN,0.9421,0.0579,0,23.13,v3_extension,Thursday,Thursday|BENIGN|136
+482564,S2_ml_false_positive,A0367,BENIGN,Bot,0.9837,0.9837,0,43.29,v3_extension,Wednesday,Wednesday|BENIGN|1185
+282851,S2_ml_false_positive,A0368,BENIGN,Bot,0.8459,0.8459,0,43.29,v3_extension,Thursday,Thursday|BENIGN|137
+95211,S2_ml_false_positive,A0369,BENIGN,Bot,0.9236,0.9237,0,43.29,v3_extension,Friday,Friday|BENIGN|84
+292575,S2_ml_false_positive,A0370,BENIGN,Web Attack - Brute Force,0.5095,0.9973,0,43.29,v3_extension,Thursday,Thursday|BENIGN|244
+230670,S2_ml_false_positive,A0371,BENIGN,PortScan,0.9997,0.9997,0,43.29,v3_extension,Thursday,Thursday|BENIGN|100
+208955,S3_hard_benign,A0372,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v3_extension,Monday,Monday|BENIGN|915
+490718,S3_hard_benign,A0373,BENIGN,BENIGN,0.6292,0.3708,0,23.13,v3_extension,Wednesday,Wednesday|BENIGN|1280
+392873,S3_hard_benign,A0374,BENIGN,BENIGN,0.7849,0.2151,0,23.13,v3_extension,Wednesday,Wednesday|BENIGN|114
+344454,S2_ml_false_positive,A0375,BENIGN,Web Attack - XSS,0.6383,0.9978,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|464
+480840,S2_ml_false_positive,A0376,BENIGN,Bot,0.9827,0.9827,0,43.29,v3_extension,Wednesday,Wednesday|BENIGN|1165
+254460,S2_ml_false_positive,A0377,BENIGN,Bot,0.9634,0.9635,0,43.29,v3_extension,Thursday,Thursday|BENIGN|392
+453303,S3_hard_benign,A0378,BENIGN,BENIGN,0.8854,0.1146,0,23.13,v3_extension,Wednesday,Wednesday|BENIGN|858
+286068,S4_ml_miss,A0379,Web Attack - XSS,BENIGN,0.7954,0.2046,1,1.0,v3_extension,Thursday,Thursday|Web Attack - XSS|172
+124975,S2_ml_false_positive,A0380,BENIGN,Web Attack - Brute Force,0.7321,0.9959,0,43.29,v3_extension,Monday,Monday|BENIGN|19
+191852,S2_ml_false_positive,A0381,BENIGN,Bot,0.9091,0.9092,0,43.29,v3_extension,Monday,Monday|BENIGN|724
+499065,S2_ml_false_positive,A0382,BENIGN,Web Attack - Sql Injection,0.9108,0.999,0,43.29,v3_extension,Wednesday,Wednesday|BENIGN|1379
+489321,S2_ml_false_positive,A0383,BENIGN,Bot,0.9648,0.9648,0,43.29,v3_extension,Wednesday,Wednesday|BENIGN|1263
+308440,S3_hard_benign,A0384,BENIGN,BENIGN,0.9441,0.0559,0,23.13,v3_extension,Tuesday,Tuesday|BENIGN|76
+498717,S2_ml_false_positive,A0385,BENIGN,Bot,0.8459,0.8459,0,43.29,v3_extension,Wednesday,Wednesday|BENIGN|1375
+385356,S3_hard_benign,A0386,BENIGN,BENIGN,0.7688,0.2312,0,23.13,v3_extension,Wednesday,Wednesday|BENIGN|33
+230508,S3_hard_benign,A0387,BENIGN,BENIGN,0.9452,0.0548,0,23.13,v3_extension,Thursday,Thursday|BENIGN|99
+271252,S2_ml_false_positive,A0388,BENIGN,Bot,0.9688,0.9688,0,43.29,v3_extension,Thursday,Thursday|BENIGN|11
+203379,S2_ml_false_positive,A0389,BENIGN,Bot,0.9557,0.9557,0,43.29,v3_extension,Monday,Monday|BENIGN|852
+43418,S2_ml_false_positive,A0390,BENIGN,DoS Hulk,0.9582,0.9602,0,43.29,v3_extension,Friday,Friday|BENIGN|437
+434608,S4_ml_miss,A0391,DoS Hulk,BENIGN,0.4639,0.5361,1,1.0,v3_extension,Wednesday,Wednesday|DoS Hulk|652
+127972,S3_hard_benign,A0392,BENIGN,BENIGN,0.7397,0.2603,0,23.13,v3_extension,Monday,Monday|BENIGN|50
+190744,S3_hard_benign,A0393,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v3_extension,Monday,Monday|BENIGN|711
+336602,S2_ml_false_positive,A0394,BENIGN,DoS Slowhttptest,0.8725,0.8836,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|379
+42269,S3_hard_benign,A0395,BENIGN,BENIGN,0.5771,0.4229,0,23.13,v3_extension,Friday,Friday|BENIGN|426
+119765,S2_ml_false_positive,A0396,BENIGN,Bot,0.9357,0.9358,0,43.29,v3_extension,Friday,Friday|BENIGN|343
+328282,S2_ml_false_positive,A0397,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|289
+228478,S3_hard_benign,A0398,BENIGN,BENIGN,0.5268,0.4732,0,23.13,v3_extension,Thursday,Thursday|BENIGN|76
+379617,S2_ml_false_positive,A0399,BENIGN,SSH-Patator,0.8994,0.8996,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|862
+218189,S2_ml_false_positive,A0400,BENIGN,Bot,0.9791,0.9791,0,43.29,v3_extension,Monday,Monday|BENIGN|1021
+437033,S2_ml_false_positive,A0401,BENIGN,Web Attack - XSS,0.6928,0.9975,0,43.29,v3_extension,Wednesday,Wednesday|BENIGN|678
+248559,S2_ml_false_positive,A0402,BENIGN,Web Attack - XSS,0.5264,0.9968,0,43.29,v3_extension,Thursday,Thursday|BENIGN|314
+302950,S2_ml_false_positive,A0403,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|18
+333744,S2_ml_false_positive,A0404,BENIGN,Web Attack - XSS,0.6791,0.9975,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|347
+321209,S2_ml_false_positive,A0405,BENIGN,Web Attack - XSS,0.6154,0.9977,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|214
+266088,S2_ml_false_positive,A0406,BENIGN,Web Attack - Brute Force,0.5132,0.9973,0,43.29,v3_extension,Thursday,Thursday|BENIGN|532
+268956,S3_hard_benign,A0407,BENIGN,BENIGN,0.5268,0.4732,0,23.13,v3_extension,Thursday,Thursday|BENIGN|563
+376677,S3_hard_benign,A0408,BENIGN,BENIGN,0.5268,0.4732,0,23.13,v3_extension,Tuesday,Tuesday|BENIGN|827
+200086,S2_ml_false_positive,A0409,BENIGN,Bot,0.9887,0.9887,0,43.29,v3_extension,Monday,Monday|BENIGN|816
+314826,S2_ml_false_positive,A0410,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|147
+320322,S2_ml_false_positive,A0411,BENIGN,Web Attack - XSS,0.5403,0.9967,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|204
+369794,S3_hard_benign,A0412,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v3_extension,Tuesday,Tuesday|BENIGN|748
+39107,S4_ml_miss,A0413,DDoS,BENIGN,0.6103,0.3897,1,1.0,v3_extension,Friday,Friday|DDoS|394
+473105,S2_ml_false_positive,A0414,BENIGN,Bot,0.9837,0.9837,0,43.29,v3_extension,Wednesday,Wednesday|BENIGN|1074
+234755,S4_ml_miss,A0415,Infiltration,BENIGN,0.9835,0.0165,1,1.0,v3_extension,Thursday,Thursday|Infiltration|146
+317174,S2_ml_false_positive,A0416,BENIGN,Web Attack - XSS,0.5857,0.9972,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|171
+49181,S2_ml_false_positive,A0417,BENIGN,Bot,0.9428,0.9428,0,43.29,v3_extension,Friday,Friday|BENIGN|44
+302695,S2_ml_false_positive,A0418,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|15
+108769,S4_ml_miss,A0419,Bot,BENIGN,0.9988,0.0012,1,1.0,v3_extension,Friday,Friday|Bot|226
+276046,S3_hard_benign,A0420,BENIGN,BENIGN,0.9392,0.0608,0,23.13,v3_extension,Thursday,Thursday|BENIGN|63
+343487,S2_ml_false_positive,A0421,BENIGN,Web Attack - XSS,0.5857,0.9972,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|454
+278233,S2_ml_false_positive,A0422,BENIGN,Bot,0.9501,0.9501,0,43.29,v3_extension,Thursday,Thursday|BENIGN|87
+451123,S3_hard_benign,A0423,BENIGN,BENIGN,0.845,0.155,0,23.13,v3_extension,Wednesday,Wednesday|BENIGN|833
+227354,S2_ml_false_positive,A0424,BENIGN,Web Attack - XSS,0.5403,0.9967,0,43.29,v3_extension,Thursday,Thursday|BENIGN|63
+42373,S2_ml_false_positive,A0425,BENIGN,Bot,0.6483,0.6483,0,43.29,v3_extension,Friday,Friday|BENIGN|427
+89110,S2_ml_false_positive,A0426,BENIGN,Bot,0.9648,0.9648,0,43.29,v3_extension,Friday,Friday|BENIGN|20
+51707,S3_hard_benign,A0427,BENIGN,BENIGN,0.9242,0.0758,0,23.13,v3_extension,Friday,Friday|BENIGN|70
+336709,S2_ml_false_positive,A0428,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|380
+183409,S2_ml_false_positive,A0429,BENIGN,DoS GoldenEye,0.9973,0.9983,0,43.29,v3_extension,Monday,Monday|BENIGN|631
+220248,S2_ml_false_positive,A0430,BENIGN,Bot,0.6964,0.6964,0,43.29,v3_extension,Monday,Monday|BENIGN|1044
+317173,S2_ml_false_positive,A0431,BENIGN,Web Attack - XSS,0.5857,0.9972,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|171
+263694,S3_hard_benign,A0432,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v3_extension,Thursday,Thursday|BENIGN|507
+260652,S2_ml_false_positive,A0433,BENIGN,Bot,0.9875,0.9875,0,43.29,v3_extension,Thursday,Thursday|BENIGN|473
+339042,S2_ml_false_positive,A0434,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|406
+469595,S3_hard_benign,A0435,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v3_extension,Wednesday,Wednesday|BENIGN|1033
+155589,S3_hard_benign,A0436,BENIGN,BENIGN,0.9242,0.0758,0,23.13,v3_extension,Monday,Monday|BENIGN|336
+386324,S3_hard_benign,A0437,BENIGN,BENIGN,0.8126,0.1874,0,23.13,v3_extension,Wednesday,Wednesday|BENIGN|43
+195818,S2_ml_false_positive,A0438,BENIGN,Web Attack - XSS,0.5741,0.7854,0,43.29,v3_extension,Monday,Monday|BENIGN|767
+155645,S3_hard_benign,A0439,BENIGN,BENIGN,0.9242,0.0758,0,23.13,v3_extension,Monday,Monday|BENIGN|336
+225273,S3_hard_benign,A0440,BENIGN,BENIGN,0.9243,0.0757,0,23.13,v3_extension,Thursday,Thursday|BENIGN|40
+17216,S2_ml_false_positive,A0441,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Friday,Friday|BENIGN|173
+332774,S2_ml_false_positive,A0442,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|337
+230663,S2_ml_false_positive,A0443,BENIGN,PortScan,0.9997,0.9997,0,43.29,v3_extension,Thursday,Thursday|BENIGN|100
+276200,S3_hard_benign,A0444,BENIGN,BENIGN,0.9359,0.0641,0,23.13,v3_extension,Thursday,Thursday|BENIGN|65
+330287,S2_ml_false_positive,A0445,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|310
+198539,S2_ml_false_positive,A0446,BENIGN,Bot,0.9501,0.9501,0,43.29,v3_extension,Monday,Monday|BENIGN|799
+268145,S2_ml_false_positive,A0447,BENIGN,Bot,0.9887,0.9887,0,43.29,v3_extension,Thursday,Thursday|BENIGN|555
+280397,S2_ml_false_positive,A0448,BENIGN,Bot,0.9897,0.9898,0,43.29,v3_extension,Thursday,Thursday|BENIGN|110
+438228,S3_hard_benign,A0449,BENIGN,BENIGN,0.9408,0.0592,0,23.13,v3_extension,Wednesday,Wednesday|BENIGN|691
+80212,S2_ml_false_positive,A0450,BENIGN,Web Attack - Brute Force,0.543,0.9973,0,43.29,v3_extension,Friday,Friday|BENIGN|475
+334494,S2_ml_false_positive,A0451,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|356
+308424,S2_ml_false_positive,A0452,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|76
+312478,S2_ml_false_positive,A0453,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|121
+343223,S2_ml_false_positive,A0454,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|450
+486116,S2_ml_false_positive,A0455,BENIGN,Bot,0.9859,0.9859,0,43.29,v3_extension,Wednesday,Wednesday|BENIGN|1225
+375671,S3_hard_benign,A0456,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v3_extension,Tuesday,Tuesday|BENIGN|816
+110539,S2_ml_false_positive,A0457,BENIGN,Bot,0.9837,0.9837,0,43.29,v3_extension,Friday,Friday|BENIGN|245
+220112,S3_hard_benign,A0458,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v3_extension,Monday,Monday|BENIGN|1042
+207708,S3_hard_benign,A0459,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v3_extension,Monday,Monday|BENIGN|901
+141714,S3_hard_benign,A0460,BENIGN,BENIGN,0.845,0.155,0,23.13,v3_extension,Monday,Monday|BENIGN|193
+285183,S2_ml_false_positive,A0461,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Thursday,Thursday|BENIGN|162
+8082,S2_ml_false_positive,A0462,BENIGN,Web Attack - XSS,0.6383,0.9978,0,43.29,v3_extension,Friday,Friday|BENIGN|81
+431421,S4_ml_miss,A0463,DoS Hulk,BENIGN,0.8372,0.1628,1,1.0,v3_extension,Wednesday,Wednesday|DoS Hulk|609
+86987,S2_ml_false_positive,A0464,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Friday,Friday|BENIGN|570
+494809,S2_ml_false_positive,A0465,BENIGN,Bot,0.9859,0.9859,0,43.29,v3_extension,Wednesday,Wednesday|BENIGN|1328
+469260,S2_ml_false_positive,A0466,BENIGN,DoS GoldenEye,0.9919,0.9959,0,43.29,v3_extension,Wednesday,Wednesday|BENIGN|1029
+259344,S2_ml_false_positive,A0467,BENIGN,Bot,0.9091,0.9092,0,43.29,v3_extension,Thursday,Thursday|BENIGN|458
+451594,S3_hard_benign,A0468,BENIGN,BENIGN,0.8372,0.1628,0,23.13,v3_extension,Wednesday,Wednesday|BENIGN|839
+227949,S3_hard_benign,A0469,BENIGN,BENIGN,0.5268,0.4732,0,23.13,v3_extension,Thursday,Thursday|BENIGN|70
+482987,S2_ml_false_positive,A0470,BENIGN,Bot,0.9875,0.9875,0,43.29,v3_extension,Wednesday,Wednesday|BENIGN|1189
+305357,S3_hard_benign,A0471,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v3_extension,Tuesday,Tuesday|BENIGN|44
+80855,S3_hard_benign,A0472,BENIGN,BENIGN,0.8737,0.1263,0,23.13,v3_extension,Friday,Friday|BENIGN|481
+329085,S2_ml_false_positive,A0473,BENIGN,Web Attack - XSS,0.6478,0.9974,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|298
+392285,S2_ml_false_positive,A0474,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Wednesday,Wednesday|BENIGN|108
+350063,S2_ml_false_positive,A0475,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|524
+388927,S2_ml_false_positive,A0476,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Wednesday,Wednesday|BENIGN|71
+288513,S3_hard_benign,A0477,BENIGN,BENIGN,0.7688,0.2312,0,23.13,v3_extension,Thursday,Thursday|BENIGN|200
+469759,S2_ml_false_positive,A0478,BENIGN,Bot,0.9837,0.9837,0,43.29,v3_extension,Wednesday,Wednesday|BENIGN|1035
+114656,S3_hard_benign,A0479,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v3_extension,Friday,Friday|BENIGN|289
+107505,S4_ml_miss,A0480,Bot,BENIGN,0.7148,0.2852,1,1.0,v3_extension,Friday,Friday|Bot|213
+323730,S2_ml_false_positive,A0481,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|240
+89466,S2_ml_false_positive,A0482,BENIGN,Bot,0.9887,0.9887,0,43.29,v3_extension,Friday,Friday|BENIGN|24
+208942,S2_ml_false_positive,A0483,BENIGN,Bot,0.9881,0.9881,0,43.29,v3_extension,Monday,Monday|BENIGN|915
+197820,S2_ml_false_positive,A0484,BENIGN,Bot,0.9501,0.9501,0,43.29,v3_extension,Monday,Monday|BENIGN|791
+219270,S3_hard_benign,A0485,BENIGN,BENIGN,0.7057,0.2943,0,23.13,v3_extension,Monday,Monday|BENIGN|1033
+319435,S2_ml_false_positive,A0486,BENIGN,Web Attack - XSS,0.605,0.998,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|195
+167373,S3_hard_benign,A0487,BENIGN,BENIGN,0.7688,0.2312,0,23.13,v3_extension,Monday,Monday|BENIGN|460
+363978,S2_ml_false_positive,A0488,BENIGN,Web Attack - XSS,0.5741,0.7854,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|680
+98277,S3_hard_benign,A0489,BENIGN,BENIGN,0.9278,0.0722,0,23.13,v3_extension,Friday,Friday|BENIGN|116
+478492,S2_ml_false_positive,A0490,BENIGN,Bot,0.9428,0.9428,0,43.29,v3_extension,Wednesday,Wednesday|BENIGN|1137
+33271,S4_ml_miss,A0491,DDoS,BENIGN,0.6135,0.3865,1,1.0,v3_extension,Friday,Friday|DDoS|335
+320451,S2_ml_false_positive,A0492,BENIGN,Web Attack - XSS,0.6383,0.9978,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|206
+225420,S2_ml_false_positive,A0493,BENIGN,Bot,0.9887,0.9887,0,43.29,v3_extension,Thursday,Thursday|BENIGN|41
+284698,S2_ml_false_positive,A0494,BENIGN,Bot,0.9881,0.9881,0,43.29,v3_extension,Thursday,Thursday|BENIGN|157
+39060,S4_ml_miss,A0495,DDoS,BENIGN,0.7929,0.2071,1,1.0,v3_extension,Friday,Friday|DDoS|393
+431501,S4_ml_miss,A0496,DoS Hulk,BENIGN,0.7113,0.2887,1,1.0,v3_extension,Wednesday,Wednesday|DoS Hulk|611
+223176,S2_ml_false_positive,A0497,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Thursday,Thursday|BENIGN|17
+231293,S3_hard_benign,A0498,BENIGN,BENIGN,0.5931,0.4069,0,23.13,v3_extension,Thursday,Thursday|BENIGN|107
+271136,S2_ml_false_positive,A0499,BENIGN,Bot,0.9837,0.9837,0,43.29,v3_extension,Thursday,Thursday|BENIGN|10
+224043,S2_ml_false_positive,A0500,BENIGN,Bot,0.9807,0.9807,0,43.29,v3_extension,Thursday,Thursday|BENIGN|26
+112851,S2_ml_false_positive,A0501,BENIGN,PortScan,0.9011,0.9014,0,43.29,v3_extension,Friday,Friday|BENIGN|270
+302855,S2_ml_false_positive,A0502,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Tuesday,Tuesday|BENIGN|17
+436125,S2_ml_false_positive,A0503,BENIGN,Web Attack - XSS,0.5015,0.8872,0,43.29,v3_extension,Wednesday,Wednesday|BENIGN|668
+211661,S3_hard_benign,A0504,BENIGN,BENIGN,0.871,0.129,0,23.13,v3_extension,Monday,Monday|BENIGN|947
+483485,S4_ml_miss,A0505,Heartbleed,BENIGN,0.8385,0.1615,1,1.0,v3_extension,Wednesday,Wednesday|Heartbleed|1195
+225124,S2_ml_false_positive,A0506,BENIGN,Bot,0.9774,0.9774,0,43.29,v3_extension,Thursday,Thursday|BENIGN|38
+113683,S3_hard_benign,A0507,BENIGN,BENIGN,0.9076,0.0924,0,23.13,v3_extension,Friday,Friday|BENIGN|278

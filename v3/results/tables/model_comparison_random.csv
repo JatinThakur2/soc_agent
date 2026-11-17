@@ -1,0 +1,4 @@
+model,accuracy,weighted_precision,weighted_recall,weighted_f1,macro_precision,macro_recall,macro_f1,macro_f1_95ci_lo,macro_f1_95ci_hi,benign_flagged_as_attack
+XGBoost,98.16,99.71,98.16,98.88,70.75,88.69,71.17,65.56,74.35,8658
+Random Forest,98.27,99.73,98.27,98.95,72.8,87.05,72.68,67.3,75.85,8109
+DNN,91.46,96.33,91.46,93.27,51.97,87.84,57.7,54.24,61.18,42147

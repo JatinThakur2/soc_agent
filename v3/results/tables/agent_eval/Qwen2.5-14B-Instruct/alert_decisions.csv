@@ -1,0 +1,509 @@
+alert_id,stratum,ground_truth,gt_severity,Threshold-IDS|escalate,Threshold-IDS|severity,Threshold-IDS|techniques,ML-Only|escalate,ML-Only|severity,ML-Only|techniques,Triage-only|escalate,Triage-only|severity,Triage-only|techniques,No-Coordinator|escalate,No-Coordinator|severity,No-Coordinator|techniques,No-Investigation|escalate,No-Investigation|severity,No-Investigation|techniques,No-RAG|escalate,No-RAG|severity,No-RAG|techniques,No-SHAP|escalate,No-SHAP|severity,No-SHAP|techniques,SOC-Agent|escalate,SOC-Agent|severity,SOC-Agent|techniques
+A0000,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1003,0,Low,,1,High,T1498;T1496.002;T1584.005
+A0001,S1_attack_flagged,FTP-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1071.002;T1048,1,High,T1498,1,High,T1110,1,High,T1071.002;T1048,1,High,T1071.002;T1048
+A0002,S1_attack_flagged,DoS GoldenEye,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0003,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1499.002;T1189,1,High,T1498,1,High,T1186;T1187;T1188,1,High,T1584.006;T1189;T1499.002,1,High,T1498
+A0004,S1_attack_flagged,DDoS,Critical,1,,,1,,T1498,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498;T1499.002,1,High,T1498
+A0005,S1_attack_flagged,DoS Slowhttptest,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0006,S4_ml_miss,DDoS,Critical,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0007,S1_attack_flagged,DDoS,Critical,1,,,1,,T1498,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498;T1499.002,1,High,T1498;T1499.002
+A0008,S1_attack_flagged,Bot,High,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1583.005,1,High,T1498,1,High,T1086;T1071;T1090,1,High,T1498,1,High,T1498
+A0009,S1_attack_flagged,DDoS,Critical,1,,,1,,T1498,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498;T1499.002
+A0010,S1_attack_flagged,DDoS,Critical,1,,,1,,T1498,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498;T1499.002
+A0011,S1_attack_flagged,DoS Hulk,High,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0012,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1188.001,1,High,T1583.006;T1189,1,High,T1584.006;T1189;T1567
+A0013,S1_attack_flagged,DoS GoldenEye,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0014,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1095;T1071;T1090,0,Medium,T1498,1,High,T1498;T1496.002;T1584.005
+A0015,S1_attack_flagged,FTP-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1071.002;T1048,1,High,T1498,1,High,T1110,1,High,T1071.002;T1048,1,High,T1071.002;T1048
+A0016,S1_attack_flagged,PortScan,Low,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498,1,High,T1571;T1205;T1205.001,1,High,T1571;T1205;T1205.001
+A0017,S1_attack_flagged,DoS GoldenEye,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0018,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1584.006;T1189;T1499.002,1,High,T1584.006;T1189;T1499.002
+A0019,S1_attack_flagged,Web Attack - Brute Force,Medium,1,,,1,,T1190,1,High,,1,High,T1567;T1584.006;T1499.002,1,High,T1498,1,High,T1190;T1105;T1110,1,High,T1499.002,1,High,T1499.002
+A0020,S1_attack_flagged,FTP-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1071.002;T1048,1,High,T1498,1,High,T1110,1,High,T1071.002;T1048,1,High,T1071.002;T1048
+A0021,S1_attack_flagged,PortScan,Low,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498,1,High,T1571;T1205,1,High,T1571;T1205;T1205.001
+A0022,S1_attack_flagged,Infiltration,Critical,1,,,1,,T1190,1,High,,1,High,T1567;T1011;T1567.002,1,High,T1498,1,High,T1071;T1190,1,High,T1567,1,High,T1567;T1011;T1567.002
+A0023,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1187;T1188,1,High,T1584.006;T1189,1,High,T1584.006;T1189;T1499.002
+A0024,S1_attack_flagged,PortScan,Low,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498;T1499,1,High,T1571,1,High,T1571
+A0025,S1_attack_flagged,FTP-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1071.002;T1048,1,High,T1498,1,High,T1110,1,High,T1071.002;T1048,1,High,T1071.002;T1048
+A0026,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0027,S1_attack_flagged,DoS slowloris,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0028,S1_attack_flagged,DoS GoldenEye,High,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1584.006;T1189;T1499.002,1,High,T1584.006;T1189;T1499.002
+A0029,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,Medium,,1,Medium,T1498;T1584.005;T1496.002,1,Medium,T1498,1,Medium,T1090;T1071;T1003,0,Medium,,1,High,T1498;T1584.005;T1496.002
+A0030,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1090;T1071;T1095,0,Medium,T1498,1,High,T1498;T1584.005;T1496.002
+A0031,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1095,1,High,T1498;T1584.005;T1496.002,1,High,T1498;T1496.002;T1584.005
+A0032,S4_ml_miss,Web Attack - Brute Force,Medium,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0033,S1_attack_flagged,FTP-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1071.002;T1048,1,High,T1498,1,High,T1110,1,High,T1071.002;T1048,1,High,T1071.002;T1048
+A0034,S1_attack_flagged,DoS Hulk,High,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0035,S1_attack_flagged,Bot,High,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1003,0,Medium,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0036,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1499.002,1,High,T1110,1,High,T1110,1,High,T1499.002,1,High,T1499.002
+A0037,S1_attack_flagged,DoS slowloris,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0038,S1_attack_flagged,Infiltration,Critical,1,,,1,,T1190,1,High,,1,High,T1567;T1090.003;T1584.006,1,High,T1498,1,High,T1090;T1071,1,High,T1567,1,High,T1567;T1090.003;T1584.006
+A0039,S1_attack_flagged,Infiltration,Critical,1,,,1,,T1190,1,High,,1,High,T1567;T1090.003;T1584.006,1,High,T1498,1,High,T1090;T1071;T1003,1,High,T1048,1,High,T1567;T1090.003;T1584.006
+A0040,S1_attack_flagged,DoS Slowhttptest,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0041,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0042,S1_attack_flagged,DoS slowloris,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0043,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1187;T1188,1,High,T1189;T1567,1,High,T1584.006;T1189
+A0044,S1_attack_flagged,Web Attack - XSS,Medium,0,,,0,,,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1047,1,High,T1584.006;T1189;T1499.002,1,High,T1583.006;T1189;T1567
+A0045,S1_attack_flagged,Bot,High,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1090;T1071;T1003,1,Medium,T1498;T1496.002;T1584.005,1,High,T1498;T1584.005;T1496.002
+A0046,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0047,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0048,S1_attack_flagged,DoS slowloris,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0049,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0050,S1_attack_flagged,DoS GoldenEye,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0051,S1_attack_flagged,FTP-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1071.002;T1048,1,High,T1498,1,High,T1110,1,High,T1071.002;T1048,1,High,T1071.002;T1048
+A0052,S4_ml_miss,DoS Hulk,High,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0053,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0054,S1_attack_flagged,FTP-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1071.002;T1048,1,High,T1498,1,High,T1110,1,High,T1071.002;T1048,1,High,T1071.002;T1048
+A0055,S1_attack_flagged,Bot,High,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1003,0,Medium,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0056,S1_attack_flagged,DoS Hulk,High,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0057,S1_attack_flagged,DoS slowloris,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002;T1499,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0058,S1_attack_flagged,Web Attack - XSS,Medium,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1068,1,High,T1584.006;T1189;T1499.002,1,High,T1583.006;T1189
+A0059,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1003,0,Medium,,1,High,T1498;T1496.002;T1584.005
+A0060,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,Medium,,1,Medium,T1498;T1496.002;T1584.005,1,Medium,T1498,1,Medium,T1090;T1071;T1008,0,Medium,T1498,1,Medium,T1498;T1496.002;T1584.005
+A0061,S1_attack_flagged,DDoS,Critical,1,,,1,,T1498,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498;T1499.002,1,High,T1498
+A0062,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0063,S4_ml_miss,DoS Hulk,High,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0064,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0065,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1189;T1584.006;T1567,1,High,T1584.006;T1189;T1567
+A0066,S1_attack_flagged,Bot,High,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1583.005,1,High,T1498,1,High,T1071;T1003;T1090,1,High,T1498;T1584.005;T1496.002,1,High,T1498
+A0067,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1190,1,High,,1,High,T1567;T1584.006;T1499.002,1,High,T1498,1,High,T1190;T1105;T1113,1,High,T1499.002,1,High,T1498
+A0068,S1_attack_flagged,DoS Slowhttptest,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0069,S1_attack_flagged,Web Attack - XSS,Medium,1,,,1,,T1110,1,High,,1,High,T1499.002;T1584.006;T1056.003,1,High,T1110,1,High,T1110,1,High,T1499.002,1,High,T1499.002;T1584.006;T1056.003
+A0070,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0071,S1_attack_flagged,DoS slowloris,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0072,S1_attack_flagged,SSH-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1563.001;T1021.004;T1498.002,1,High,T1110,1,High,T1110;T1110.001;T1124,1,High,T1563.001;T1021.004;T1563,1,High,T1563.001;T1021.004;T1498.002
+A0073,S4_ml_miss,DoS Hulk,High,0,,,0,,,1,Medium,,1,Medium,T1499;T1499.002,1,Medium,T1498,1,Medium,,0,Low,,1,Medium,T1499;T1499.002
+A0074,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1188.001,1,High,T1584.006;T1189;T1499.002,1,High,T1584.006;T1189;T1567
+A0075,S1_attack_flagged,SSH-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1563;T1021.004;T1498.002,1,High,T1110,1,High,T1110;T1110.001;T1124,1,High,T1498.002,1,High,T1498.002
+A0076,S1_attack_flagged,DoS Hulk,High,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0077,S1_attack_flagged,PortScan,Low,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498,1,High,T1571;T1205;T1205.001,1,High,T1571;T1205;T1205.001
+A0078,S4_ml_miss,Bot,High,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0079,S1_attack_flagged,Web Attack - Brute Force,Medium,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1584.006;T1189;T1499.002,1,High,T1583.006;T1189;T1499.002
+A0080,S1_attack_flagged,DoS slowloris,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0081,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1499.002;T1584.006;T1567,1,High,T1584.006;T1189
+A0082,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1068,1,High,T1189;T1499.002,1,High,T1584.006;T1189
+A0083,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1095;T1071,0,Medium,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0084,S1_attack_flagged,SSH-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1563;T1021.004;T1498.002,1,High,T1110,1,High,T1110;T1110.001,1,High,T1498.002,1,High,T1563;T1021.004;T1498.002
+A0085,S1_attack_flagged,DDoS,Critical,1,,,1,,T1498,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0086,S1_attack_flagged,SSH-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1563.001;T1021.004;T1498.002,1,High,T1110,1,High,T1110,1,High,T1498.002,1,High,T1498.002
+A0087,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1110;T1499.002,1,High,T1110,1,High,T1110,1,High,T1499.002;T1584.006;T1056.003,1,High,T1110
+A0088,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1090;T1071;T1095,0,Medium,,1,High,T1498;T1584.005;T1496.002
+A0089,S1_attack_flagged,Bot,High,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1583.005,1,High,T1498,1,High,T1090;T1071;T1003,1,High,T1498,1,High,T1498
+A0090,S1_attack_flagged,Web Attack - XSS,Medium,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1188.001,1,High,T1584.006;T1189,1,High,T1583.006;T1189;T1567
+A0091,S1_attack_flagged,DoS Slowhttptest,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0092,S1_attack_flagged,Bot,High,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1095;T1105,0,Medium,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0093,S4_ml_miss,Web Attack - Brute Force,Medium,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0094,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1095,0,Medium,,1,High,T1498;T1496.002;T1584.005
+A0095,S1_attack_flagged,PortScan,Low,1,,,1,,T1046,1,High,,1,High,T1205.001;T1563.001;T1571,1,High,T1498,1,High,T1190;T1498,1,High,T1205;T1563.001;T1562.004,1,High,T1205.001;T1563.001;T1571
+A0096,S1_attack_flagged,DoS GoldenEye,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0097,S1_attack_flagged,PortScan,Low,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498,1,High,T1571;T1205;T1205.001,1,High,T1571;T1205;T1205.001
+A0098,S1_attack_flagged,SSH-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1563.001;T1021.004;T1498.002,1,High,T1110,1,High,T1110;T1110.001,1,High,T1498.002,1,High,T1498
+A0099,S1_attack_flagged,Web Attack - XSS,Medium,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1188.001,1,High,T1189;T1584.006,1,High,T1584.006;T1189;T1567
+A0100,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1110;T1499.002,1,High,T1110,1,High,T1110,1,High,T1499.002,1,High,T1110
+A0101,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0102,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1584.006;T1189;T1499.002,1,High,T1584.006;T1189;T1567
+A0103,S1_attack_flagged,SSH-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1563;T1021.004;T1498.002,1,High,T1110,1,High,T1110;T1110.001;T1124,1,High,T1498.002,1,High,T1498.002
+A0104,S1_attack_flagged,DoS GoldenEye,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0105,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0106,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0107,S1_attack_flagged,Web Attack - XSS,Medium,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1584.006;T1189;T1499.002,1,High,T1583.006;T1189;T1567
+A0108,S1_attack_flagged,PortScan,Low,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498;T1499,1,High,T1571;T1205;T1205.001,1,High,T1571;T1205;T1205.001
+A0109,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1189;T1499.002,1,High,T1584.006;T1189;T1567
+A0110,S4_ml_miss,DoS slowloris,High,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0111,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498;T1498.001
+A0112,S1_attack_flagged,Web Attack - XSS,Medium,1,,,1,,T1059,1,High,,1,High,T1499.002;T1584.006;T1189,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1584.006;T1189,1,High,T1499.002;T1584.006;T1189
+A0113,S1_attack_flagged,DoS Slowhttptest,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0114,S4_ml_miss,PortScan,Low,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0115,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1095;T1071;T1003,0,Medium,,1,High,T1498;T1496.002;T1584.005
+A0116,S1_attack_flagged,DoS slowloris,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0117,S1_attack_flagged,DoS Slowhttptest,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0118,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0119,S1_attack_flagged,Web Attack - Brute Force,Medium,1,,,1,,T1110,1,High,,1,High,T1110,1,High,T1110,1,High,T1110,1,High,T1499.002;T1584.006;T1056.003,1,High,T1110
+A0120,S1_attack_flagged,DDoS,Critical,1,,,1,,T1498,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498;T1499.002,1,High,T1498
+A0121,S1_attack_flagged,SSH-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1563.001;T1021.004;T1498.002,1,High,T1110,1,High,T1110;T1110.001;T1124,1,High,T1563.001;T1021.004;T1563,1,High,T1498
+A0122,S1_attack_flagged,FTP-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1071.002;T1048,1,High,T1498,1,High,T1110;T1069;T1071,1,High,T1071.002;T1048,1,High,T1071.002;T1048
+A0123,S1_attack_flagged,DoS slowloris,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0124,S1_attack_flagged,DoS Hulk,High,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0125,S1_attack_flagged,DoS slowloris,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002;T1499,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0126,S1_attack_flagged,Web Attack - Brute Force,Medium,1,,,1,,T1110,1,High,,1,High,T1499.002;T1584.006;T1567,1,High,T1110,1,High,T1110,1,High,T1499.002,1,High,T1499.002;T1584.006
+A0127,S1_attack_flagged,DoS Hulk,High,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0128,S1_attack_flagged,Web Attack - Brute Force,Medium,1,,,1,,T1110,1,High,,1,High,T1110,1,High,T1110,1,High,T1110,1,High,T1499.002,1,High,T1110
+A0129,S1_attack_flagged,FTP-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1071.002;T1048,1,High,T1498,1,High,T1110,1,High,T1071.002;T1048,1,High,T1071.002;T1048
+A0130,S1_attack_flagged,Bot,High,1,,,1,,T1583,1,High,,1,High,T1584.005;T1498;T1583.005,1,High,T1498,1,High,T1071;T1003;T1090,1,Medium,T1498,1,High,T1498
+A0131,S1_attack_flagged,DoS slowloris,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0132,S1_attack_flagged,Bot,High,1,,,1,,T1583,1,High,,1,High,T1584.005;T1498;T1583.005,1,High,T1498,1,High,T1071;T1003;T1090,1,Medium,T1498,1,High,T1498
+A0133,S1_attack_flagged,Bot,High,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1095,0,Medium,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0134,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1003,0,Low,,1,High,T1498;T1496.002;T1584.005
+A0135,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1003,0,Medium,,1,High,T1498;T1496.002;T1584.005
+A0136,S4_ml_miss,DDoS,Critical,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0137,S1_attack_flagged,DoS Slowhttptest,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0138,S1_attack_flagged,Web Attack - Brute Force,Medium,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1188.001,1,High,T1499.002;T1584.006;T1567,1,High,T1583.006;T1189;T1567
+A0139,S1_attack_flagged,DDoS,Critical,1,,,1,,T1498,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498;T1499.002
+A0140,S1_attack_flagged,PortScan,Low,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498,1,High,T1571;T1205,1,High,T1571;T1205;T1205.001
+A0141,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0142,S1_attack_flagged,PortScan,Low,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498,1,High,T1571,1,High,T1571;T1205;T1205.001
+A0143,S1_attack_flagged,Bot,High,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1583.005,1,High,T1498,1,High,T1003;T1071;T1090,1,High,T1498,1,High,T1498
+A0144,S1_attack_flagged,SSH-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1563.001;T1021.004;T1498.002,1,High,T1110,1,High,T1110;T1110.001;T1124,1,High,T1498.002,1,High,T1563.001;T1021.004;T1498.002
+A0145,S1_attack_flagged,Web Attack - Brute Force,Medium,1,,,1,,T1110,1,High,,1,High,T1110,1,High,T1110,1,High,T1110,1,High,T1110,1,High,T1110
+A0146,S1_attack_flagged,Infiltration,Critical,1,,,1,,T1190,1,High,,1,High,T1567;T1090.003;T1584.006,1,High,T1498,1,High,T1046;T1008;T1071,1,High,T1567;T1090.003;T1584.006,1,High,T1567;T1090.003;T1584.006
+A0147,S1_attack_flagged,DoS Slowhttptest,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0148,S4_ml_miss,DoS Hulk,High,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0149,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0150,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,Medium,,1,Medium,T1498;T1496.002;T1584.005,1,Medium,T1498,1,Medium,T1090;T1071,0,Low,,1,High,T1498;T1496.002;T1584.005
+A0151,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0152,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1008,0,Medium,T1498,1,High,T1498;T1496.002;T1584.005
+A0153,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0154,S1_attack_flagged,DoS slowloris,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002;T1499,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0155,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,0,Medium,,0,Medium,T1498;T1496.002;T1584.005,0,Medium,,0,Medium,,0,Medium,,0,Medium,T1498;T1496.002;T1584.005
+A0156,S1_attack_flagged,DDoS,Critical,1,,,1,,T1498,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498;T1499.002,1,High,T1498;T1499.002
+A0157,S1_attack_flagged,FTP-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1071.002;T1048,1,High,T1498,1,High,T1110;T1069;T1021,1,High,T1071.002;T1048,1,High,T1071.002;T1048
+A0158,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1008,0,Medium,T1498,1,High,T1498;T1496.002;T1584.005
+A0159,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1499.002;T1189;T1584.006,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1584.006;T1189;T1499.002,1,High,T1499.002;T1189;T1584.006
+A0160,S1_attack_flagged,DDoS,Critical,1,,,1,,T1498,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498;T1499.002,1,High,T1498;T1499.002
+A0161,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1188.001,1,High,T1499.002;T1189;T1584.006,1,High,T1584.006;T1189;T1567
+A0162,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1188.001,1,High,T1584.006;T1189;T1499.002,1,High,T1584.006;T1189;T1567
+A0163,S4_ml_miss,DDoS,Critical,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0164,S4_ml_miss,DoS Hulk,High,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0165,S1_attack_flagged,DDoS,Critical,1,,,1,,T1498,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498;T1499.002
+A0166,S4_ml_miss,DoS Hulk,High,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0167,S1_attack_flagged,Web Attack - Sql Injection,High,1,,,1,,T1190,1,High,,1,High,T1584.006;T1659,1,High,T1498,1,High,T1190;T1105;T1113,1,High,T1498,1,High,T1584.006;T1659
+A0168,S1_attack_flagged,SSH-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1563.001;T1021.004;T1498.002,1,High,T1110,1,High,T1110,1,High,T1498.002,1,High,T1563.001;T1021.004;T1498.002
+A0169,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0170,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1110,1,High,T1110,1,High,T1110;T1190,1,High,T1499.002;T1056.003;T1584.006,1,High,T1110
+A0171,S1_attack_flagged,DoS Slowhttptest,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0172,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1499.002;T1584.006;T1189,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1189;T1584.006,1,High,T1499.002;T1584.006;T1189
+A0173,S1_attack_flagged,PortScan,Low,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498,1,High,T1571;T1205;T1205.001,1,High,T1571;T1205;T1205.001
+A0174,S1_attack_flagged,DDoS,Critical,1,,,1,,T1498,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498;T1499.002,1,High,T1498
+A0175,S1_attack_flagged,DoS Hulk,High,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498;T1498.001
+A0176,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1498,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,0,Medium,T1498,1,High,T1498
+A0177,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1499.002;T1584.006;T1056.003,1,High,T1110,1,High,T1110,1,High,T1499.002;T1056.003;T1584.006,1,High,T1499.002;T1584.006;T1056.003
+A0178,S1_attack_flagged,DoS Hulk,High,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0179,S1_attack_flagged,DoS GoldenEye,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0180,S1_attack_flagged,Web Attack - Brute Force,Medium,1,,,1,,T1110,1,High,,1,High,T1499.002;T1584.006;T1056.003,1,High,T1110,1,High,T1110,1,High,T1499.002;T1056.003;T1584.006,1,High,T1499.002;T1584.006;T1056.003
+A0181,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498;T1498.001
+A0182,S1_attack_flagged,DoS GoldenEye,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0183,S1_attack_flagged,SSH-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1563;T1021.004;T1498.002,1,High,T1110,1,High,T1110;T1110.001,1,High,T1563.001;T1021.004;T1563,1,High,T1498.002
+A0184,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1499.002;T1584.006;T1189,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1584.006;T1189;T1567,1,High,T1499.002;T1584.006;T1189
+A0185,S1_attack_flagged,DoS GoldenEye,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0186,S1_attack_flagged,DoS Slowhttptest,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0187,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1188.001,1,High,T1499.002;T1584.006;T1567,1,High,T1584.006;T1189;T1567
+A0188,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1071;T1090;T1095,0,Medium,T1498;T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0189,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0190,S1_attack_flagged,Heartbleed,Critical,1,,,1,,T1190,1,High,,1,High,T1499.002;T1563;T1489,1,Critical,T1498,1,High,T1498,1,High,T1499.002;T1563;T1489,1,High,T1499.002;T1563;T1489
+A0191,S1_attack_flagged,SSH-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1563;T1021.004;T1498.002,1,High,T1498,1,High,T1110;T1110.001;T1124,1,High,T1498.002,1,High,T1498.002
+A0192,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0193,S1_attack_flagged,SSH-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1563.001;T1021.004;T1498.002,1,High,T1110,1,High,T1110;T1110.001,1,High,T1498.002,1,High,T1498
+A0194,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1071;T1090;T1003,0,Medium,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0195,S1_attack_flagged,DoS Hulk,High,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498;T1498.001,1,High,T1498;T1498.001
+A0196,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1584.006;T1189;T1499.002,1,High,T1584.006;T1189;T1567
+A0197,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1068,1,High,T1584.006;T1189,1,High,T1189;T1584.006
+A0198,S1_attack_flagged,DoS Hulk,High,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498;T1498.001
+A0199,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1095;T1071;T1090,0,Medium,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0200,S4_ml_miss,DDoS,Critical,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0201,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0202,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1499.002;T1584.006;T1189,1,High,T1583.006;T1189;T1567
+A0203,S1_attack_flagged,DDoS,Critical,1,,,1,,T1498,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498;T1499.002,1,High,T1498;T1499.002
+A0204,S1_attack_flagged,Web Attack - Sql Injection,High,1,,,1,,T1190,1,High,,1,High,T1499.002;T1584.006;T1567,1,High,T1498,1,High,T1190,1,High,T1499.002,1,High,T1499.002;T1584.006;T1567
+A0205,S4_ml_miss,Bot,High,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0206,S1_attack_flagged,Web Attack - XSS,Medium,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1188.001,1,High,T1584.006;T1189;T1499.002,1,High,T1584.006;T1189;T1567
+A0207,S1_attack_flagged,PortScan,Low,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498;T1499,1,High,T1571;T1205.001;T1205,1,High,T1571;T1205;T1205.001
+A0208,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0209,S1_attack_flagged,Web Attack - Sql Injection,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0210,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0211,S1_attack_flagged,Web Attack - XSS,Medium,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1188.001,1,High,T1499.002;T1584.006;T1189,1,High,T1584.006;T1189;T1567
+A0212,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0213,S1_attack_flagged,Web Attack - Brute Force,Medium,1,,,1,,T1190,1,High,,1,High,T1567;T1584.006;T1499.002,1,High,T1498,1,High,T1190;T1105;T1110,1,High,T1498,1,High,T1498
+A0214,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1095,0,Medium,T1498,1,High,T1498;T1496.002;T1584.005
+A0215,S1_attack_flagged,Web Attack - XSS,Medium,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1499.002;T1584.006;T1567,1,High,T1583.006;T1189;T1567
+A0216,S1_attack_flagged,Bot,High,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1583.005,1,High,T1498,1,High,T1086;T1071;T1090,1,High,T1498,1,High,T1498;T1584.005;T1583.005
+A0217,S1_attack_flagged,PortScan,Low,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498,1,High,T1571;T1205;T1205.001,1,High,T1571;T1205;T1205.001
+A0218,S1_attack_flagged,Bot,High,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1090;T1071;T1003,1,Medium,T1496.002;T1584.005,1,High,T1498;T1584.005;T1496.002
+A0219,S1_attack_flagged,DoS GoldenEye,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0220,S1_attack_flagged,DoS Hulk,High,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0221,S1_attack_flagged,DoS GoldenEye,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0222,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0223,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1499.002;T1584.006;T1189,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1189;T1584.006;T1499.002,1,High,T1499.002;T1584.006;T1189
+A0224,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0225,S1_attack_flagged,Web Attack - Brute Force,Medium,1,,,1,,T1110,1,High,,1,High,T1110;T1499.002,1,High,T1110,1,High,T1110,1,High,T1499.002;T1056.003;T1584.006,1,High,T1110
+A0226,S1_attack_flagged,DoS slowloris,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0227,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0228,S1_attack_flagged,SSH-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1563.001;T1021.004;T1498.002,1,High,T1110,1,High,T1110;T1110.001,1,High,T1498.002,1,High,T1498
+A0229,S1_attack_flagged,FTP-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1071.002;T1048,1,High,T1498,1,High,T1110,1,High,T1071.002;T1048,1,High,T1071.002;T1048
+A0230,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1068,1,High,T1584.006;T1189;T1567,1,High,T1584.006;T1189;T1499.002
+A0231,S1_attack_flagged,Web Attack - XSS,Medium,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1583.006;T1189;T1499.002,1,High,T1584.006;T1189;T1499.002
+A0232,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,Medium,,1,Medium,T1498;T1584.005;T1496.002,1,Medium,T1498,1,Medium,T1090;T1071;T1003,0,Medium,T1498,1,Medium,T1498;T1584.005;T1496.002
+A0233,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1095;T1071;T1003,0,Medium,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0234,S1_attack_flagged,Infiltration,Critical,1,,,1,,T1190,1,High,,1,High,T1567;T1011;T1584.006,1,High,T1498,1,High,T1090;T1071;T1003,1,High,T1567,1,High,T1567;T1011;T1584.006
+A0235,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0236,S1_attack_flagged,Bot,High,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1583.005,1,High,T1498,1,High,T1086;T1071;T1090,0,Medium,T1584.005;T1496.002,1,High,T1498
+A0237,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1189;T1499.002,1,High,T1583.006;T1189;T1567
+A0238,S4_ml_miss,DoS Hulk,High,0,,,0,,,1,Medium,,1,Medium,T1499;T1499.002,1,Medium,T1498,1,Medium,,0,Low,,1,Medium,T1499;T1499.002
+A0239,S1_attack_flagged,Web Attack - Brute Force,Medium,1,,,1,,T1110,1,High,,1,High,T1499.002;T1584.006;T1567,1,High,T1110,1,High,T1110,1,High,T1499.002;T1056.003;T1584.006,1,High,T1499.002;T1584.006
+A0240,S1_attack_flagged,DoS Slowhttptest,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0241,S1_attack_flagged,DDoS,Critical,1,,,1,,T1498,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498;T1499.002,1,High,T1498
+A0242,S1_attack_flagged,PortScan,Low,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498;T1046,1,High,T1571;T1205;T1205.001,1,High,T1571;T1205;T1205.001
+A0243,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0244,S1_attack_flagged,Web Attack - XSS,Medium,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1187;T1188,1,High,T1584.006;T1189;T1499.002,1,High,T1583.006;T1189;T1499.002
+A0245,S4_ml_miss,Bot,High,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0246,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1499.002;T1584.006;T1189,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1499.002;T1584.006;T1189,1,High,T1499.002;T1584.006;T1189
+A0247,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0248,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0249,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0250,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1046,1,High,,1,High,T1562.004;T1205;T1571,1,High,T1498,1,High,T1190;T1498,1,High,T1571;T1205;T1205.001,1,High,T1562.004;T1205;T1571
+A0251,S1_attack_flagged,DDoS,Critical,1,,,1,,T1498,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498;T1499.002,1,High,T1498;T1499.002
+A0252,S1_attack_flagged,DoS Hulk,High,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0253,S1_attack_flagged,Web Attack - Brute Force,Medium,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1499.002;T1584.006;T1189,1,High,T1584.006;T1189;T1567
+A0254,S1_attack_flagged,Web Attack - Brute Force,Medium,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1584.006;T1189;T1499.002,1,High,T1584.006;T1189;T1567
+A0255,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0256,S1_attack_flagged,FTP-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1071.002;T1048,1,High,T1498,1,High,T1110,1,High,T1071.002;T1048,1,High,T1071.002;T1048
+A0257,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0258,S1_attack_flagged,PortScan,Low,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498,1,High,T1571;T1205;T1205.001,1,High,T1571;T1205;T1205.001
+A0259,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1499.002;T1584.006;T1567,1,High,T1583.006;T1189
+A0260,S1_attack_flagged,Bot,High,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1583.005,1,High,T1498,1,High,T1090;T1071;T1003,1,High,T1584.005;T1496.002;T1583.005,1,High,T1498
+A0261,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1584.006;T1189;T1567,1,High,T1584.006;T1189;T1567
+A0262,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,Medium,,1,Medium,T1498;T1584.005;T1496.002,1,Medium,T1498,1,High,T1090;T1071;T1003,0,Low,,1,Medium,T1498;T1584.005
+A0263,S1_attack_flagged,DoS slowloris,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0264,S1_attack_flagged,FTP-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1071.002;T1048,1,High,T1110,1,High,T1110,1,High,T1071.002;T1048,1,High,T1071.002;T1048
+A0265,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1110,1,High,T1110,1,High,T1110,1,High,T1499.002;T1056.003;T1584.006,1,High,T1110
+A0266,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498,1,High,T1571;T1205;T1205.001,1,High,T1571;T1205;T1205.001
+A0267,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,Medium,,1,Medium,T1498;T1496.002;T1584.005,1,Medium,T1498,1,Medium,T1071;T1090;T1003,0,Medium,T1498,1,High,T1498;T1496.002;T1584.005
+A0268,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0269,S1_attack_flagged,SSH-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1563.001;T1021.004;T1498.002,1,High,T1110,1,High,T1110;T1110.001;T1124,1,High,T1498.002,1,High,T1498.002
+A0270,S1_attack_flagged,Web Attack - Brute Force,Medium,1,,,1,,T1110,1,High,,1,High,T1499.002,1,High,T1110,1,High,T1110,1,High,T1499.002,1,High,T1499.002
+A0271,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0272,S1_attack_flagged,DoS Slowhttptest,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0273,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1095;T1071;T1003,0,Medium,,1,High,T1498;T1584.005;T1496.002
+A0274,S1_attack_flagged,DoS Hulk,High,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498;T1498.001
+A0275,S1_attack_flagged,FTP-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1071.002;T1048,1,High,T1498,1,High,T1110,1,High,T1071.002;T1048,1,High,T1071.002;T1048
+A0276,S1_attack_flagged,DoS slowloris,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0277,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0278,S1_attack_flagged,DoS Slowhttptest,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0279,S1_attack_flagged,Infiltration,Critical,1,,,1,,T1190,1,High,,1,High,T1567;T1011;T1567.002,1,High,T1498,1,High,T1090;T1071;T1096,1,High,T1567;T1090.003;T1584.006,1,High,T1567;T1011;T1567.002
+A0280,S1_attack_flagged,DoS Slowhttptest,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0281,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1003,0,Medium,T1498;T1584.005;T1496.002,1,High,T1498;T1496.002;T1584.005
+A0282,S4_ml_miss,Bot,High,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0283,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1028;T1021;T1022,0,Low,,1,High,T1498;T1496.002;T1584.005
+A0284,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1095,0,Medium,,1,High,T1498;T1496.002;T1584.005
+A0285,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1110,1,High,T1110,1,High,T1110,1,High,T1499.002;T1584.006;T1056.003,1,High,T1110
+A0286,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1095;T1071;T1003,0,Low,,1,High,T1498;T1496.002;T1584.005
+A0287,S1_attack_flagged,Web Attack - Brute Force,Medium,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1184;T1185,1,High,T1584.006;T1189,1,High,T1584.006;T1189;T1567
+A0288,S4_ml_miss,DoS Hulk,High,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0289,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0290,S1_attack_flagged,SSH-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1563.001;T1021.004;T1498.002,1,High,T1110,1,High,T1110;T1110.001;T1124,1,High,T1498.002,1,High,T1563.001;T1021.004;T1498.002
+A0291,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,Medium,,1,Medium,T1498;T1496.002;T1584.005,1,Medium,T1498,1,Medium,T1090;T1071;T1008,0,Medium,T1498,1,High,T1498;T1496.002;T1584.005
+A0292,S1_attack_flagged,Web Attack - XSS,Medium,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1584.006;T1189,1,High,T1583.006;T1189
+A0293,S1_attack_flagged,DoS GoldenEye,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0294,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1189;T1499.002,1,High,T1583.006;T1189;T1499.002
+A0295,S1_attack_flagged,Web Attack - XSS,Medium,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188,1,High,T1584.006;T1189,1,High,T1583.006;T1189
+A0296,S1_attack_flagged,Web Attack - Sql Injection,High,1,,,1,,T1190,1,High,,1,High,T1567;T1584.006;T1499.002,1,High,T1498,1,High,T1190;T1106;T1115,1,High,T1498,1,High,T1567;T1584.006;T1499.002
+A0297,S1_attack_flagged,FTP-Patator,Medium,1,,,1,,T1110,1,High,,1,High,T1071.002;T1048,1,High,T1110,1,High,T1110,1,High,T1071.002;T1048,1,High,T1071.002;T1048
+A0298,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1095,1,Medium,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0299,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001;T1499.002,1,High,T1498,1,High,T1498,0,Medium,T1498,1,High,T1498
+A0300,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0301,S1_attack_flagged,DoS Hulk,High,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0302,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1187;T1188,1,High,T1584.006;T1189;T1567,1,High,T1584.006;T1189;T1499.002
+A0303,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0304,S1_attack_flagged,DoS GoldenEye,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0305,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0306,S1_attack_flagged,DoS GoldenEye,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0307,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1499.002;T1189;T1584.006,1,High,T1584.006;T1189;T1567
+A0308,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1110,1,High,T1110,1,High,T1110,1,High,T1499.002,1,High,T1110
+A0309,S1_attack_flagged,DoS Hulk,High,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498;T1498.001
+A0310,S1_attack_flagged,DoS Slowhttptest,High,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0311,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1584.006;T1189;T1499.002,1,High,T1583.006;T1189;T1567
+A0312,S1_attack_flagged,Web Attack - XSS,Medium,1,,,1,,T1059,1,High,,1,High,T1499.002;T1584.006;T1189,1,High,T1498,1,High,T1186;T1188;T1188.001,1,High,T1189;T1567,1,High,T1499.002;T1584.006;T1189
+A0313,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1110;T1499.002;T1584.006,1,High,T1110,1,High,T1110,1,High,T1499.002;T1584.006;T1056.003,1,High,T1110
+A0314,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0315,S1_attack_flagged,PortScan,Low,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498,1,High,T1571;T1205;T1205.001,1,High,T1571;T1205;T1205.001
+A0316,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0317,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1499.002;T1584.006;T1056.003,1,High,T1110,1,High,T1110,1,High,T1499.002;T1584.006;T1056.003,1,High,T1499.002;T1584.006;T1056.003
+A0318,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1071;T1090;T1003,0,Medium,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0319,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1003,0,Medium,,1,High,T1498;T1496.002;T1584.005
+A0320,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1499.002;T1584.006;T1567,1,High,T1584.006;T1189;T1499.002
+A0321,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1499.002;T1584.006;T1056.003,1,High,T1110,1,High,T1110,1,High,T1499.002,1,High,T1499.002;T1584.006
+A0322,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,Medium,,1,Medium,T1498;T1584.005;T1496.002,1,Medium,T1498,1,Medium,T1090;T1071;T1095,0,Medium,,1,Medium,T1498;T1584.005;T1496.002
+A0323,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0324,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1028,0,Medium,,1,High,T1498;T1496.002;T1584.005
+A0325,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0326,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0327,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1189;T1584.006,1,High,T1583.006;T1189;T1567
+A0328,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1189;T1584.006,1,High,T1583.006;T1189;T1567
+A0329,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1071;T1090;T1095,0,Medium,,1,High,T1498;T1584.005
+A0330,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,Medium,,1,Medium,T1498;T1496.002;T1584.005,1,Medium,T1498,1,Medium,T1090;T1071,0,Medium,T1498,1,High,T1498;T1496.002;T1584.005
+A0331,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0332,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1003,0,Medium,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0333,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0334,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1188.001,1,High,T1189;T1567,1,High,T1584.006;T1189;T1499.002
+A0335,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1090;T1071;T1095,1,High,T1496.002;T1584.005,1,High,T1498;T1584.005;T1496.002
+A0336,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0337,S4_ml_miss,Bot,High,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0338,S2_ml_false_positive,BENIGN,Informational,0,,,0,,,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1189;T1584.006;T1499.002,1,High,T1583.006;T1189;T1567
+A0339,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0340,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0341,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,Medium,,1,Medium,T1498;T1584.005;T1496.002,1,Medium,T1498,1,Medium,T1090;T1071;T1003,0,Medium,,1,Medium,T1498;T1584.005;T1496.002
+A0342,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1499.002;T1584.006;T1189,1,High,T1584.006;T1189;T1499.002
+A0343,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1110,1,High,T1110,1,High,T1110,1,High,T1499.002;T1056.003;T1584.006,1,High,T1110
+A0344,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1095,0,Medium,,1,High,T1498;T1496.002;T1584.005
+A0345,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0346,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1071;T1090;T1003,0,Low,,1,High,T1498;T1496.002;T1584.005
+A0347,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1499.002;T1584.006;T1189,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1189;T1567,1,High,T1499.002;T1584.006;T1189
+A0348,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1071;T1028;T1022,0,Medium,,1,High,T1498;T1496.002;T1584.005
+A0349,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1068,1,High,T1189;T1567,1,High,T1584.006;T1189
+A0350,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0351,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0352,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1584.006;T1189;T1499.002,1,High,T1584.006;T1189;T1567
+A0353,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1068,1,High,T1584.006;T1189;T1499.002,1,High,T1584.006;T1189
+A0354,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1499.002,1,High,T1110,1,High,T1110,1,High,T1499.002,1,High,T1499.002
+A0355,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1095;T1071;T1003,0,Low,,1,High,T1498;T1496.002;T1584.005
+A0356,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0357,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0358,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1584.006;T1189;T1499.002,1,High,T1189
+A0359,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0360,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0361,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1090;T1071;T1003,1,Medium,T1498;T1496.002;T1584.005,1,High,T1498;T1584.005;T1496.002
+A0362,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0363,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0364,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1095,0,Medium,T1498,1,High,T1498;T1496.002;T1584.005
+A0365,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1499.002;T1584.006;T1189,1,High,T1189;T1584.006
+A0366,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0367,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1095;T1071;T1003,0,Medium,T1498,1,High,T1498;T1496.002;T1584.005
+A0368,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1090;T1071;T1008,0,Medium,T1498,1,High,T1498;T1584.005;T1496.002
+A0369,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1095;T1071,0,Medium,,1,High,T1498;T1496.002;T1584.005
+A0370,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1110;T1499.002;T1584.006,1,High,T1110,1,High,T1110,1,High,T1499.002;T1056.003;T1584.006,1,High,T1110
+A0371,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498,1,High,T1571;T1205;T1205.001,1,High,T1571;T1205;T1205.001
+A0372,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0373,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0374,S3_hard_benign,BENIGN,Informational,0,,,0,,,1,Medium,,1,Medium,T1499;T1499.002,1,Medium,T1498,1,Medium,,0,Low,,1,Medium,T1499;T1499.002
+A0375,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1188.001,1,High,T1584.006;T1189;T1499.002,1,High,T1584.006;T1189;T1567
+A0376,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071,0,Low,,1,High,T1498;T1496.002;T1584.005
+A0377,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1090;T1071;T1003,1,High,T1498;T1496.002;T1584.005,1,High,T1498;T1584.005;T1496.002
+A0378,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0379,S4_ml_miss,Web Attack - XSS,Medium,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0380,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1110,1,High,T1110,1,High,T1110,1,High,T1499.002;T1584.006;T1056.003,1,High,T1110
+A0381,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1090;T1071;T1095,0,Medium,,1,High,T1498;T1584.005;T1496.002
+A0382,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1190,1,High,,1,High,T1567;T1584.006;T1499.002,1,High,T1498,1,High,T1190;T1105;T1113,1,High,T1498,1,High,T1498
+A0383,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1095;T1071;T1008,0,Medium,T1498,1,High,T1498;T1496.002;T1584.005
+A0384,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0385,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1090;T1071;T1095,0,Medium,T1498,1,High,T1498;T1584.005;T1496.002
+A0386,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0387,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0388,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1090;T1071;T1095,0,Medium,,1,High,T1498;T1584.005;T1496.002
+A0389,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1090;T1071;T1003,0,Low,,1,High,T1498;T1584.005;T1496.002
+A0390,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1499,1,High,,1,High,T1498;T1498.001,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0391,S4_ml_miss,DoS Hulk,High,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0392,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0393,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0394,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1499,1,High,,1,High,T1498;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0395,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0396,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,Medium,,1,Medium,T1498;T1496.002;T1584.005,1,Medium,T1498,1,Medium,T1090;T1071;T1095,0,Medium,,1,Medium,T1498;T1496.002;T1584.005
+A0397,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1187;T1188,1,High,T1584.006;T1189;T1567,1,High,T1583.006;T1189;T1567
+A0398,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0399,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1563;T1021.004;T1498.002,1,High,T1110,1,High,T1110;T1110.001,1,High,T1498.002,1,High,T1498.002
+A0400,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090,0,Medium,,1,High,T1498;T1496.002;T1584.005
+A0401,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1187,1,High,T1499.002;T1189;T1584.006,1,High,T1584.006;T1189;T1567
+A0402,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1499.002;T1584.006;T1189,1,High,T1584.006;T1189;T1499.002
+A0403,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1189;T1567,1,High,T1583.006;T1189;T1567
+A0404,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1499.002;T1584.006;T1567,1,High,T1584.006;T1189
+A0405,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1499.002;T1189;T1584.006,1,High,T1584.006;T1189;T1567
+A0406,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1110;T1499.002,1,High,T1110,1,High,T1110,1,High,T1499.002;T1056.003;T1584.006,1,High,T1110
+A0407,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0408,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0409,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1095,0,Low,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0410,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1068,1,High,T1584.006;T1189;T1499.002,1,High,T1584.006;T1189;T1567
+A0411,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1188.001,1,High,T1499.002;T1584.006;T1567,1,High,T1583.006;T1189;T1567
+A0412,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0413,S4_ml_miss,DDoS,Critical,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0414,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1003,0,Low,,1,High,T1498;T1496.002;T1584.005
+A0415,S4_ml_miss,Infiltration,Critical,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0416,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1584.006;T1189;T1499.002,1,High,T1584.006;T1189;T1499.002
+A0417,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1090;T1071;T1095,0,Medium,,1,High,T1498;T1584.005;T1496.002
+A0418,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188,1,High,T1189;T1567,1,High,T1584.006;T1189;T1567
+A0419,S4_ml_miss,Bot,High,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0420,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0421,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1499.002;T1189;T1584.006,1,High,T1583.006;T1189;T1567
+A0422,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1003,0,Medium,,1,High,T1498;T1496.002;T1584.005
+A0423,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0424,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1499.002;T1584.006;T1189,1,High,T1583.006;T1189;T1499.002
+A0425,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,Medium,,1,Medium,T1498;T1496.002;T1584.005,1,Medium,T1498,1,Medium,T1090;T1071;T1003,0,Medium,T1498,1,Medium,T1498
+A0426,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1071;T1003;T1090,0,Medium,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0427,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0428,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1068,1,High,T1189;T1567,1,High,T1584.006;T1189;T1567
+A0429,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0430,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,Medium,,1,Medium,T1498;T1496.002;T1584.005,1,Medium,T1498,1,Medium,T1090;T1071;T1008,0,Low,,1,Medium,T1498;T1496.002;T1584.005
+A0431,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1499.002;T1584.006;T1189,1,High,T1583.006;T1189;T1567
+A0432,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0433,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1008,0,Medium,T1498;T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0434,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1499.002;T1584.006;T1189,1,High,T1498,1,High,T1186;T1188;T1188.001,1,High,T1499.002;T1584.006;T1189,1,High,T1499.002;T1584.006;T1189
+A0435,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0436,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0437,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0438,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1189;T1499.002,1,High,T1584.006;T1189;T1567
+A0439,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0440,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0441,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1189;T1567,1,High,T1584.006;T1189;T1567
+A0442,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1584.006;T1189;T1567,1,High,T1584.006;T1189;T1499.002
+A0443,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498;T1499,1,High,T1571;T1205;T1205.001,1,High,T1571;T1205;T1205.001
+A0444,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0445,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1499.002;T1584.006;T1189,1,High,T1498,1,High,T1186;T1188;T1188.001,1,High,T1189;T1567,1,High,T1499.002;T1584.006;T1189
+A0446,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1003,0,Medium,,1,High,T1498;T1496.002;T1584.005
+A0447,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1008,0,Medium,T1498,1,High,T1498;T1496.002;T1584.005
+A0448,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1008,0,Medium,T1498,1,High,T1498;T1496.002;T1584.005
+A0449,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0450,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1110,1,High,,1,High,T1499.002;T1584.006;T1567,1,High,T1110,1,High,T1110,1,High,T1499.002,1,High,T1499.002;T1584.006
+A0451,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1499.002;T1584.006;T1189,1,High,T1498,1,High,T1186;T1187;T1188,1,High,T1499.002;T1584.006;T1189,1,High,T1499.002;T1584.006;T1189
+A0452,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1187;T1188,1,High,T1189;T1584.006;T1567,1,High,T1584.006;T1189;T1567
+A0453,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1068,1,High,T1189;T1567,1,High,T1584.006;T1189;T1567
+A0454,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1068,1,High,T1584.006;T1189;T1567,1,High,T1189;T1567
+A0455,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1071;T1090;T1003,0,Medium,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0456,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0457,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1071;T1090;T1003,0,Medium,T1498;T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0458,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0459,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0460,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0461,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1584.006;T1499.002;T1189,1,High,T1584.006;T1189
+A0462,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1499.002;T1189;T1584.006,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1189;T1584.006,1,High,T1499.002;T1189;T1584.006
+A0463,S4_ml_miss,DoS Hulk,High,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0464,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1584.006;T1189;T1567,1,High,T1584.006;T1189
+A0465,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1095;T1003;T1090,0,Medium,T1498,1,High,T1498;T1496.002;T1584.005
+A0466,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1499,1,High,,1,High,T1498;T1499;T1499.002,1,High,T1498,1,High,T1498,1,High,T1498,1,High,T1498
+A0467,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1095;T1071;T1090,0,Medium,,1,High,T1498;T1584.005;T1496.002
+A0468,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0469,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0470,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1003,0,Medium,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0471,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0472,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0473,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1499.002;T1584.006;T1189,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1499.002;T1584.006;T1189,1,High,T1499.002;T1584.006;T1189
+A0474,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1068,1,High,T1499.002;T1584.006;T1567,1,High,T1583.006;T1189;T1567
+A0475,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1187;T1188,1,High,T1189;T1567,1,High,T1584.006;T1189;T1567
+A0476,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1499.002;T1584.006;T1189,1,High,T1584.006;T1189
+A0477,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0478,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1090;T1071;T1095,0,Medium,T1496.002;T1584.005,1,High,T1498;T1584.005;T1496.002
+A0479,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0480,S4_ml_miss,Bot,High,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0481,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1189;T1567,1,High,T1584.006;T1189
+A0482,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1071;T1090;T1003,0,Low,T1584.005,1,High,T1498;T1496.002;T1584.005
+A0483,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1584.005;T1496.002,1,High,T1498,1,High,T1090;T1071;T1003,1,Medium,T1498;T1584.005;T1496.002,1,High,T1498;T1584.005;T1496.002
+A0484,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1003,0,Medium,,1,High,T1498;T1496.002;T1584.005
+A0485,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0486,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1499.002;T1189;T1584.006,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1583.006;T1189;T1567,1,High,T1499.002;T1189;T1584.006
+A0487,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0488,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1499.002;T1584.006;T1189,1,High,T1498,1,High,T1186;T1188;T1184,1,High,T1584.006;T1189;T1499.002,1,High,T1499.002;T1584.006;T1189
+A0489,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0490,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,Medium,,1,Medium,T1498;T1584.005;T1496.002,1,Medium,T1498,1,Medium,T1090;T1071,0,Low,,1,Medium,T1498;T1584.005;T1496.002
+A0491,S4_ml_miss,DDoS,Critical,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0492,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1188.001,1,High,T1584.006;T1189;T1499.002,1,High,T1584.006;T1189;T1567
+A0493,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1095;T1071,0,Medium,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0494,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1095;T1499,1,High,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0495,S4_ml_miss,DDoS,Critical,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0496,S4_ml_miss,DoS Hulk,High,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0497,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1583.006;T1189;T1499.002,1,High,T1498,1,High,T1186;T1188;T1068,1,High,T1584.006;T1189;T1567,1,High,T1583.006;T1189
+A0498,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,,0,Low,
+A0499,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071,0,Medium,T1496.002;T1584.005,1,High,T1498;T1496.002;T1584.005
+A0500,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1090;T1071;T1095,0,Low,,1,High,T1498;T1496.002;T1584.005
+A0501,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1046,1,High,,1,High,T1571;T1205;T1205.001,1,High,T1498,1,High,T1190;T1498;T1046,1,High,T1571;T1205,1,High,T1571;T1205;T1205.001
+A0502,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1584.006;T1189;T1567,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1584.006;T1189;T1567,1,High,T1584.006;T1189;T1567
+A0503,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1059,1,High,,1,High,T1499.002;T1584.006;T1189,1,High,T1498,1,High,T1186;T1188;T1187,1,High,T1584.006;T1189;T1567,1,High,T1499.002;T1584.006
+A0504,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Low,,0,Low,,0,Low,,0,Low,,0,Informational,,0,Low,
+A0505,S4_ml_miss,Heartbleed,Critical,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,
+A0506,S2_ml_false_positive,BENIGN,Informational,1,,,1,,T1583,1,High,,1,High,T1498;T1496.002;T1584.005,1,High,T1498,1,High,T1071;T1090;T1095,0,Medium,T1498,1,High,T1498;T1496.002;T1584.005
+A0507,S3_hard_benign,BENIGN,Informational,0,,,0,,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,,0,Informational,

@@ -1,0 +1,13 @@
+comparison,what,only_first_correct,only_second_correct,p_mcnemar,dF1,dF1_95ci,dF1_95ci_episode,dRecall,dRecall_95ci,dFPR,dFPR_95ci,p_holm,significant_holm_0.05
+pred vs raw,detector output added to raw measurements,60,39,0.043875293587015265,11.43,"[7.4, 15.9]","[6.8, 16.5]",25.0,"[19.2, 30.8]",10.33,"[6.7, 14.0]",0.30713,False
+pred_shap vs pred,genuine SHAP added,20,32,0.12634707581392135,1.15,"[-0.6, 2.7]","[-0.5, 2.8]",9.62,"[7.2, 12.0]",10.67,"[7.7, 14.0]",0.53493,False
+pred_shuffled vs pred,uninformative (shuffled) attributions added,22,10,0.050102459732443094,2.02,"[0.1, 3.9]","[0.0, 3.8]",1.92,"[-1.4, 4.8]",-2.67,"[-5.3, 0.0]",0.30713,False
+pred_shap vs pred_shuffled,genuine vs shuffled attributions,17,41,0.0022325516199429235,-0.87,"[-3.2, 1.3]","[-3.0, 1.4]",7.69,"[4.3, 11.1]",13.33,"[9.7, 17.3]",0.02009,True
+pred_shap_explicit vs pred_shap,explicit SHAP wording,31,19,0.11892045255943628,-1.01,"[-2.6, 0.8]","[-2.6, 0.5]",-9.13,"[-11.5, -6.2]",-10.33,"[-13.7, -7.3]",0.53493,False
+flipped vs pred,detector decision inverted,140,168,0.12379531610217533,-23.26,"[-29.1, -17.3]","[-29.4, -16.3]",-45.19,"[-51.4, -38.9]",-22.0,"[-27.7, -16.7]",0.53493,False
+raw vs Threshold-IDS,vs. Threshold-IDS,96,74,0.10698657283154843,-7.43,"[-12.2, -2.8]","[-13.0, -2.2]",-27.88,"[-34.1, -21.6]",-26.67,"[-31.7, -21.7]",0.53493,False
+pred vs Threshold-IDS,vs. Threshold-IDS,58,15,4.0931991166650604e-07,4.0,"[1.7, 6.4]","[1.7, 6.3]",-2.88,"[-6.2, 0.0]",-16.33,"[-20.7, -12.0]",0.0,True
+pred_shap vs Threshold-IDS,vs. Threshold-IDS,75,44,0.005726861906884233,5.15,"[2.7, 7.7]","[2.7, 7.6]",6.73,"[2.9, 10.1]",-5.67,"[-10.7, -0.7]",0.04581,True
+pred_shuffled vs Threshold-IDS,vs. Threshold-IDS,78,23,3.552056811614334e-08,6.02,"[3.3, 8.6]","[3.1, 9.1]",-0.96,"[-4.8, 2.9]",-19.0,"[-23.7, -14.0]",0.0,True
+pred_shap_explicit vs Threshold-IDS,vs. Threshold-IDS,58,15,4.0931991166650604e-07,4.13,"[1.8, 6.6]","[1.8, 6.5]",-2.4,"[-5.8, 1.0]",-16.0,"[-20.3, -11.7]",0.0,True
+flipped vs Threshold-IDS,vs. Threshold-IDS,196,181,0.47093440155637667,-19.27,"[-24.9, -13.5]","[-25.6, -12.1]",-48.08,"[-54.3, -41.8]",-38.33,"[-43.0, -34.0]",0.53493,False

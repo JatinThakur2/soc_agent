@@ -1,0 +1,5 @@
+held_out_day,unseen_attack_classes,test_attacks,test_benign,attack_recall,benign_fpr,precision,auc
+Friday,"Bot, DDoS, PortScan",220656,394764,0.38,0.25,45.95,0.7335
+Thursday,"Infiltration, Web Attack - Brute Force, Web Attack - Sql Injection, Web Attack - XSS",2179,394718,4.18,0.35,6.18,0.9273
+Tuesday,"FTP-Patator, SSH-Patator",9150,397317,0.01,0.89,0.03,0.8909
+Wednesday,"DoS GoldenEye, DoS Hulk, DoS Slowhttptest, DoS slowloris, Heartbleed",193741,392850,2.95,0.25,85.16,0.9813

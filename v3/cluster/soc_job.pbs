@@ -1,0 +1,32 @@
+#!/bin/bash
+# Runs the SOC-Agent notebook for ONE model on one GPU.
+# Variables (passed with qsub -v): MODEL, V3ONLY (0/1), BATCH (optional)
+#PBS -N soc_agent
+#PBS -q gpu
+#PBS -l select=1:ncpus=4:ngpus=1:mem=64gb
+#PBS -l walltime=24:00:00
+#PBS -j oe
+
+cd "$PBS_O_WORKDIR"
+echo "Job $PBS_JOBID on $(hostname) at $(date)  model=${MODEL:-auto} v3only=${V3ONLY:-0} batch=${BATCH:-auto}"
+
+# PBS here does not isolate GPUs. Use the GPU number in gpu_choice (read when
+# the job starts, so it can be changed for queued jobs); "auto" or no file =
+# pick the least-busy GPU.
+CHOICE=$(tr -d '[:space:]' < "$PBS_O_WORKDIR/gpu_choice" 2>/dev/null)
+if [[ "$CHOICE" =~ ^[0-7]$ ]]; then
+  export CUDA_VISIBLE_DEVICES=$CHOICE
+else
+  export CUDA_VISIBLE_DEVICES=$(nvidia-smi --query-gpu=index,utilization.gpu,memory.used \
+      --format=csv,noheader,nounits | sort -t, -k2n -k3n | head -1 | cut -d, -f1)
+fi
+echo "Using GPU: $CUDA_VISIBLE_DEVICES"
+nvidia-smi --query-gpu=index,name,utilization.gpu,memory.used,memory.total --format=csv
+
+export OMP_NUM_THREADS=4
+# export HF_TOKEN=hf_xxx        # needed only for meta-llama models (gated)
+
+SOC_LLM_MODEL="${MODEL:-auto}" SOC_V3_ONLY="${V3ONLY:-0}" SOC_LLM_BATCH="${BATCH:-}" \
+    bash ./run_notebook.sh
+
+echo "Finished at $(date)"

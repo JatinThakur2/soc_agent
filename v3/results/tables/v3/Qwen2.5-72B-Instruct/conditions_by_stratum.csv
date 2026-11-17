@@ -1,0 +1,5 @@
+,Threshold-IDS,raw|P1|triage,pred|P1|triage,pred_shap|P1|triage,pred_shuffled|P1|triage,pred_shap_explicit|P1|triage,flipped|P1|triage,raw|P2|triage,pred|P2|triage,pred_shap|P2|triage
+S1_attack_flagged,99.4,22.2,91.5,86.9,64.8,76.1,0.0,4.0,92.0,88.1
+S2_ml_false_positive,99.5,0.5,65.5,47.5,15.5,24.0,0.0,0.0,70.0,66.0
+S3_hard_benign,0.0,3.0,1.0,1.0,0.0,1.0,11.0,3.0,1.0,2.0
+S4_ml_miss,0.0,6.2,0.0,0.0,0.0,0.0,40.6,6.2,0.0,3.1

@@ -1,0 +1,6 @@
+tier,support,precision_%,recall_%,f1_%
+Informational,300,67.5,9.0,15.88
+Low,16,0.0,0.0,0.0
+Medium,63,0.0,0.0,0.0
+High,98,21.58,80.61,34.05
+Critical,31,0.0,0.0,0.0

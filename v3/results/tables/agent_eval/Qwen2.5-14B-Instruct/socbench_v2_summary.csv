@@ -1,0 +1,16 @@
+metric,value
+Escalation recall (attacks forwarded),"85.6% [80.1, 90.6]"
+Benign false-positive rate,"66.7% [61.4, 71.9]"
+Escalation precision (cohort / test prevalence),47.1% / 90.8%
+Escalation F1,"60.8% [55.9, 65.1]"
+FP reduction vs Threshold-IDS (FPRR),-0.5%
+Severity: exact / within 1 tier,20.9% / 52.0%
+Severity: MAE (tiers) / quadratic kappa,1.68 / 0.092
+Severity: under-triage rate,10.6%
+Technique output rate (was: ATT&CK coverage),85.6%
+Technique top-1 / hit@3 / precision,17.3% / 30.3% / 25.8%
+Retrieval recall@k (gold technique retrieved),69.7%
+Techniques per alert (was: kill-chain depth),1.55
+Inter-stage severity agreement (was: ACR; not correctness),99.0%
+"Automated pipeline latency, sequential (was: MTTI)",17.5 s/alert
+Severity reference / technique reference,draft rubric / draft (not yet expert-reviewed)

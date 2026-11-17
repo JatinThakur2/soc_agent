@@ -1,0 +1,15 @@
+,raw,after removing NaN/Inf rows,after removing exact duplicates,after keeping classes known to the model
+rows,286555,285509,241217,241217
+BENIGN,173118,172125,160135,160135
+DDoS,52004,52004,47635,47635
+Bot,14298,14298,7832,7832
+DoS Hulk,13191,13191,10642,10642
+FTP-Patator,9706,9705,39,39
+SSH-Patator,9345,9345,4705,4705
+Infiltration,7748,7696,7596,7596
+DoS Slowhttptest,4523,4523,44,44
+DoS GoldenEye,1989,1989,1989,1989
+DoS slowloris,600,600,567,567
+Web Attack - Brute Force,20,20,20,20
+Web Attack - XSS,9,9,9,9
+Web Attack - Sql Injection,4,4,4,4

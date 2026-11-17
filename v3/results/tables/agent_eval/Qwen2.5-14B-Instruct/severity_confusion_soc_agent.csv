@@ -1,0 +1,6 @@
+,Pred Informational,Pred Low,Pred Medium,Pred High,Pred Critical
+GT Informational,27,72,11,190,0
+GT Low,1,0,0,15,0
+GT Medium,2,1,0,60,0
+GT High,7,10,2,79,0
+GT Critical,3,6,0,22,0

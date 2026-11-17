@@ -1,0 +1,7 @@
+system,technique_output_rate_%,top1_accuracy_%,top1_strict_%,hit_at_3_%,precision_%,primary_technique_recall_%,techniques_per_alert,invalid_id_rate_%,benign_alerts_given_techniques_%,grounded_in_retrieved_context_%,retrieval_recall_at_5_%
+ML-Only,84.13,76.44,69.23,76.44,90.86,69.23,0.84,0.0,66.33,,
+No-Coordinator,85.58,18.27,18.27,60.1,44.01,31.73,2.16,0.0,67.0,95.78,69.71
+No-Investigation,85.58,26.92,26.92,26.92,31.46,18.75,0.86,0.0,66.67,,
+No-RAG,84.62,36.54,36.54,45.67,42.33,35.1,1.47,18.63,66.33,,
+No-SHAP,84.62,16.83,16.83,27.4,23.86,8.17,1.4,0.0,53.33,95.53,69.71
+SOC-Agent,85.58,17.31,17.31,30.29,25.75,10.58,1.55,0.0,67.0,93.81,69.71

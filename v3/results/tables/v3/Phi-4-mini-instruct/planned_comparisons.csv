@@ -1,0 +1,13 @@
+comparison,what,only_first_correct,only_second_correct,p_mcnemar,dF1,dF1_95ci,dF1_95ci_episode,dRecall,dRecall_95ci,dFPR,dFPR_95ci,p_holm,significant_holm_0.05
+pred vs raw,detector output added to raw measurements,98,155,0.0004091000468842786,8.44,"[2.8, 14.7]","[1.8, 14.9]",39.42,"[32.7, 46.2]",46.33,"[42.0, 50.7]",0.0045,True
+pred_shap vs pred,genuine SHAP added,0,5,0.0625,-1.21,"[-2.2, -0.2]","[-2.3, -0.2]",-2.4,"[-4.3, -0.5]",0.0,"[0.0, 0.0]",0.375,False
+pred_shuffled vs pred,uninformative (shuffled) attributions added,0,6,0.03125,-1.31,"[-2.4, -0.3]","[-2.4, -0.3]",-2.4,"[-4.8, -0.5]",0.33,"[0.0, 1.0]",0.28125,False
+pred_shap vs pred_shuffled,genuine vs shuffled attributions,2,1,1.0,0.1,"[-0.6, 0.8]","[-0.7, 0.7]",0.0,"[-1.4, 1.4]",-0.33,"[-1.0, 0.0]",1.0,False
+pred_shap_explicit vs pred_shap,explicit SHAP wording,7,0,0.015625,1.42,"[0.6, 2.5]","[0.5, 2.5]",2.4,"[0.5, 4.3]",-0.67,"[-1.7, 0.0]",0.15625,False
+flipped vs pred,detector decision inverted,225,274,0.03154913648160805,-40.84,"[-42.0, -39.3]","[-43.7, -37.7]",-68.27,"[-69.2, -66.8]",-31.0,"[-32.7, -29.3]",0.28125,False
+raw vs Threshold-IDS,vs. Threshold-IDS,155,97,0.00031209212694562023,-8.2,"[-14.4, -2.5]","[-14.6, -1.7]",-38.94,"[-45.7, -32.2]",-46.33,"[-50.7, -42.0]",0.00375,True
+pred vs Threshold-IDS,vs. Threshold-IDS,2,1,1.0,0.24,"[-0.2, 1.0]","[-0.2, 0.9]",0.48,"[0.0, 1.9]",0.0,"[-1.0, 1.0]",1.0,False
+pred_shap vs Threshold-IDS,vs. Threshold-IDS,2,6,0.2890625,-0.97,"[-2.2, 0.1]","[-2.2, 0.1]",-1.92,"[-4.3, 0.0]",0.0,"[-1.0, 1.0]",1.0,False
+pred_shuffled vs Threshold-IDS,vs. Threshold-IDS,1,6,0.125,-1.07,"[-2.3, 0.0]","[-2.2, 0.0]",-1.92,"[-4.3, 0.0]",0.33,"[0.0, 1.0]",0.625,False
+pred_shap_explicit vs Threshold-IDS,vs. Threshold-IDS,4,1,0.375,0.45,"[-0.1, 1.2]","[-0.1, 1.1]",0.48,"[0.0, 1.9]",-0.67,"[-2.0, 0.7]",1.0,False
+flipped vs Threshold-IDS,vs. Threshold-IDS,225,273,0.0350885967863091,-40.6,"[-41.9, -38.9]","[-43.4, -37.5]",-67.79,"[-69.2, -65.9]",-31.0,"[-32.7, -29.0]",0.28125,False

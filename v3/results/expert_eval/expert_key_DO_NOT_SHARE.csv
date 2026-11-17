@@ -1,0 +1,61 @@
+blind_id,alert_id,ground_truth,stratum,run
+R001,A0358,BENIGN,S2_ml_false_positive,full_s42
+R002,A0071,DoS slowloris,S1_attack_flagged,full_s42
+R003,A0160,DDoS,S1_attack_flagged,full_s42
+R004,A0005,DoS Slowhttptest,S1_attack_flagged,full_s42
+R005,A0453,BENIGN,S2_ml_false_positive,full_s42
+R006,A0002,DoS GoldenEye,S1_attack_flagged,full_s42
+R007,A0130,Bot,S1_attack_flagged,full_s42
+R008,A0320,BENIGN,S2_ml_false_positive,full_s42
+R009,A0242,PortScan,S1_attack_flagged,full_s42
+R010,A0215,Web Attack - XSS,S1_attack_flagged,full_s42
+R011,A0203,DDoS,S1_attack_flagged,full_s42
+R012,A0004,DDoS,S1_attack_flagged,full_s42
+R013,A0292,Web Attack - XSS,S1_attack_flagged,full_s42
+R014,A0010,DDoS,S1_attack_flagged,full_s42
+R015,A0089,Bot,S1_attack_flagged,full_s42
+R016,A0216,Bot,S1_attack_flagged,full_s42
+R017,A0166,DoS Hulk,S4_ml_miss,full_s42
+R018,A0091,DoS Slowhttptest,S1_attack_flagged,full_s42
+R019,A0042,DoS slowloris,S1_attack_flagged,full_s42
+R020,A0027,DoS slowloris,S1_attack_flagged,full_s42
+R021,A0309,DoS Hulk,S1_attack_flagged,full_s42
+R022,A0256,FTP-Patator,S1_attack_flagged,full_s42
+R023,A0352,BENIGN,S2_ml_false_positive,full_s42
+R024,A0080,DoS slowloris,S1_attack_flagged,full_s42
+R025,A0311,BENIGN,S2_ml_false_positive,full_s42
+R026,A0286,BENIGN,S2_ml_false_positive,full_s42
+R027,A0171,DoS Slowhttptest,S1_attack_flagged,full_s42
+R028,A0326,BENIGN,S3_hard_benign,full_s42
+R029,A0184,BENIGN,S2_ml_false_positive,full_s42
+R030,A0145,Web Attack - Brute Force,S1_attack_flagged,full_s42
+R031,A0108,PortScan,S1_attack_flagged,full_s42
+R032,A0251,DDoS,S1_attack_flagged,full_s42
+R033,A0099,Web Attack - XSS,S1_attack_flagged,full_s42
+R034,A0250,BENIGN,S2_ml_false_positive,full_s42
+R035,A0162,BENIGN,S2_ml_false_positive,full_s42
+R036,A0237,BENIGN,S2_ml_false_positive,full_s42
+R037,A0154,DoS slowloris,S1_attack_flagged,full_s42
+R038,A0423,BENIGN,S3_hard_benign,full_s42
+R039,A0294,BENIGN,S2_ml_false_positive,full_s42
+R040,A0492,BENIGN,S2_ml_false_positive,full_s42
+R041,A0069,Web Attack - XSS,S1_attack_flagged,full_s42
+R042,A0015,FTP-Patator,S1_attack_flagged,full_s42
+R043,A0290,SSH-Patator,S1_attack_flagged,full_s42
+R044,A0225,Web Attack - Brute Force,S1_attack_flagged,full_s42
+R045,A0263,DoS slowloris,S1_attack_flagged,full_s42
+R046,A0505,Heartbleed,S4_ml_miss,full_s42
+R047,A0018,BENIGN,S2_ml_false_positive,full_s42
+R048,A0380,BENIGN,S2_ml_false_positive,full_s42
+R049,A0009,DDoS,S1_attack_flagged,full_s42
+R050,A0456,BENIGN,S3_hard_benign,full_s42
+R051,A0039,Infiltration,S1_attack_flagged,full_s42
+R052,A0463,DoS Hulk,S4_ml_miss,full_s42
+R053,A0314,BENIGN,S3_hard_benign,full_s42
+R054,A0392,BENIGN,S3_hard_benign,full_s42
+R055,A0219,DoS GoldenEye,S1_attack_flagged,full_s42
+R056,A0126,Web Attack - Brute Force,S1_attack_flagged,full_s42
+R057,A0213,Web Attack - Brute Force,S1_attack_flagged,full_s42
+R058,A0136,DDoS,S4_ml_miss,full_s42
+R059,A0477,BENIGN,S3_hard_benign,full_s42
+R060,A0178,DoS Hulk,S1_attack_flagged,full_s42

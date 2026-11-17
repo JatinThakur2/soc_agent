@@ -1,0 +1,3 @@
+model,test,rows,accuracy,weighted_f1,macro_f1_over_present_classes,share_predicted_BENIGN_%
+XGBoost,cic-ids-2018 (cross-dataset),241217,66.54,63.23,21.4,75.23
+Random Forest,cic-ids-2018 (cross-dataset),241217,69.11,68.44,23.17,74.7

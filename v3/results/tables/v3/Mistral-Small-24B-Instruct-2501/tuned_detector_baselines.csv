@@ -1,0 +1,31 @@
+agent,policy,tau,TP,FP,recall,fpr,f1,pop_recall_%,pop_FP,p_mcnemar_vs_agent,dF1_vs_agent_95ci
+raw|P1|triage,agent itself,,111.0,117.0,53.4,39.0,50.9,55.9,4561,,
+raw|P1|triage,"threshold, matched recall",1.0,118.0,0.0,56.7,0.0,72.4,81.12,0,7.409130807174074e-20,"+21.5 [15.5, 27.8]"
+raw|P1|triage,"threshold, matched workload",1.0,118.0,0.0,56.7,0.0,72.4,81.12,0,7.409130807174074e-20,"+21.5 [15.5, 27.8]"
+raw|P1|triage,"per-class thresholds, matched recall",,126.0,2.0,60.6,0.7,75.0,88.54,87,6.42981346681307e-23,"+24.1 [18.2, 29.7]"
+raw|P1|triage,threshold (matched recall) AND agent,1.0,75.0,0.0,36.1,0.0,53.0,39.89,0,3.4020442174071396e-11,"+2.1 [-2.8, 6.8]"
+pred|P1|triage,agent itself,,179.0,157.0,86.1,52.3,65.8,99.78,6696,,
+pred|P1|triage,"threshold, matched recall",0.8872,176.0,179.0,84.6,59.7,62.5,99.96,7749,0.0035448128470210523,"-3.3 [-5.6, -0.9]"
+pred|P1|triage,"threshold, matched workload",0.8872,176.0,179.0,84.6,59.7,62.5,99.96,7749,0.0035448128470210523,"-3.3 [-5.6, -0.9]"
+pred|P1|triage,"per-class thresholds, matched recall",,170.0,107.0,81.7,35.7,70.1,99.82,4632,0.0009833332636449206,"+4.3 [0.5, 7.9]"
+pred|P1|triage,threshold (matched recall) AND agent,0.8872,173.0,138.0,83.2,46.0,66.7,99.77,5974,0.01463329792022705,"+0.9 [-0.6, 2.4]"
+pred_shap|P1|triage,agent itself,,172.0,152.0,82.7,50.7,64.7,86.46,6177,,
+pred_shap|P1|triage,"threshold, matched recall",0.9998,127.0,0.0,61.1,0.0,75.8,88.54,0,6.239126209293111e-14,"+11.2 [6.3, 15.2]"
+pred_shap|P1|triage,"threshold, matched workload",0.9993,134.0,3.0,64.4,1.0,77.7,94.27,130,1.0692982222738554e-15,"+13.0 [8.3, 16.7]"
+pred_shap|P1|triage,"per-class thresholds, matched recall",,126.0,2.0,60.6,0.7,75.0,88.54,87,2.891314918744459e-13,"+10.3 [5.4, 14.4]"
+pred_shap|P1|triage,threshold (matched recall) AND agent,0.9998,121.0,0.0,58.2,0.0,73.6,80.02,0,7.41158888617616e-13,"+8.9 [4.3, 12.7]"
+pred_shuffled|P1|triage,agent itself,,128.0,64.0,61.5,21.3,64.0,75.14,2367,,
+pred_shuffled|P1|triage,"threshold, matched recall",1.0,118.0,0.0,56.7,0.0,72.4,81.12,0,4.253744081497799e-07,"+8.4 [2.8, 13.6]"
+pred_shuffled|P1|triage,"threshold, matched workload",0.9999,118.0,0.0,56.7,0.0,72.4,81.12,0,4.253744081497799e-07,"+8.4 [2.8, 13.6]"
+pred_shuffled|P1|triage,"per-class thresholds, matched recall",,126.0,2.0,60.6,0.7,75.0,88.54,87,1.5261651463770288e-08,"+11.0 [5.4, 16.2]"
+pred_shuffled|P1|triage,threshold (matched recall) AND agent,1.0,98.0,0.0,47.1,0.0,64.1,67.48,0,0.0005879022254125642,"+0.1 [-4.6, 4.3]"
+pred_shap_explicit|P1|triage,agent itself,,158.0,137.0,76.0,45.7,62.8,78.05,5669,,
+pred_shap_explicit|P1|triage,"threshold, matched recall",0.9999,118.0,0.0,56.7,0.0,72.4,81.12,0,8.943489692418166e-13,"+9.6 [4.6, 13.6]"
+pred_shap_explicit|P1|triage,"threshold, matched workload",0.9998,125.0,0.0,60.1,0.0,75.1,86.96,0,1.159972341928887e-14,"+12.3 [7.5, 16.5]"
+pred_shap_explicit|P1|triage,"per-class thresholds, matched recall",,126.0,2.0,60.6,0.7,75.0,88.54,87,3.633407829649534e-14,"+12.2 [7.5, 16.2]"
+pred_shap_explicit|P1|triage,threshold (matched recall) AND agent,0.9999,112.0,0.0,53.8,0.0,70.0,72.76,0,1.0670282385724535e-11,"+7.2 [2.4, 11.3]"
+flipped|P1|triage,agent itself,,51.0,98.0,24.5,32.7,28.6,20.43,2811,,
+flipped|P1|triage,"threshold, matched recall",1.0,118.0,0.0,56.7,0.0,72.4,81.12,0,1.699868790301168e-30,"+43.8 [37.0, 50.1]"
+flipped|P1|triage,"threshold, matched workload",1.0,118.0,0.0,56.7,0.0,72.4,81.12,0,1.699868790301168e-30,"+43.8 [37.0, 50.1]"
+flipped|P1|triage,"per-class thresholds, matched recall",,126.0,2.0,60.6,0.7,75.0,88.54,87,2.7895323495738465e-31,"+46.4 [40.2, 52.6]"
+flipped|P1|triage,threshold (matched recall) AND agent,1.0,20.0,0.0,9.6,0.0,17.5,14.72,0,2.7232913544943163e-09,"-11.0 [-15.4, -6.6]"

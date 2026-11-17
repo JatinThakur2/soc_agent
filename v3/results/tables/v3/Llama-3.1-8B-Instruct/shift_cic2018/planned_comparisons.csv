@@ -1,0 +1,7 @@
+comparison,only_first_correct,only_second_correct,p_mcnemar,dF1,dF1_95ci,dRecall,p_holm
+pred vs raw,32,69,0.0002959601961545845,-31.1,"[-35.2, -26.8]",-35.03,0.00178
+pred_shap vs pred,79,54,0.03702851006414864,32.16,"[26.7, 37.9]",40.1,0.14811
+pred_shap_explicit vs pred_shap,25,29,0.6834892282353371,-3.8,"[-7.8, 0.9]",-6.6,1.0
+raw vs Threshold-IDS,109,109,1.0,-0.79,"[-5.9, 4.6]",-1.52,1.0
+pred vs Threshold-IDS,42,79,0.0009830284971268928,-31.88,"[-37.5, -26.2]",-36.55,0.00492
+pred_shap vs Threshold-IDS,66,78,0.35936440328775493,0.28,"[-5.5, 4.7]",3.55,1.0

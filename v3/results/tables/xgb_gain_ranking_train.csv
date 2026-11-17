@@ -1,0 +1,70 @@
+,gain
+port_category_registered,0.09801876
+service_FTP,0.086786404
+Packet Length Variance,0.08622387
+Fwd IAT Std,0.073024675
+Fwd PSH Flags,0.053661235
+Active Mean,0.052289784
+Total Fwd Packets,0.050383765
+Total Length of Fwd Packets,0.0384889
+service_HTTP,0.033431042
+Min Packet Length,0.03226867
+service_SSH,0.030659687
+act_data_pkt_fwd,0.030219207
+Flow Bytes/s,0.029779008
+service_HTTP-Alt,0.02739197
+Fwd Packet Length Max,0.021021616
+duration_bucket_short,0.020324752
+Bwd IAT Mean,0.019540617
+Init_Win_bytes_backward,0.018748375
+Active Std,0.018625418
+duration_bucket_long,0.018274382
+Fwd IAT Min,0.012867376
+Flow IAT Min,0.012662063
+PSH Flag Count,0.011973799
+Idle Std,0.011494037
+Fwd Packet Length Mean,0.009500424
+Packet Length Mean,0.009095545
+Bwd Packet Length Max,0.008664014
+Bwd IAT Std,0.00852237
+Flow IAT Std,0.007223246
+Flow IAT Mean,0.006601888
+Bwd Header Length,0.005781506
+Fwd Header Length,0.0056469045
+Active Min,0.0053621023
+Flow Packets/s,0.0050559477
+duration_bucket_medium,0.004578997
+ACK Flag Count,0.004288008
+Max Packet Length,0.0042551155
+Destination Port,0.00390787
+Bwd IAT Total,0.0027695007
+Flow IAT Max,0.0025372102
+service_HTTPS,0.0024516662
+FIN Flag Count,0.0023425855
+Init_Win_bytes_forward,0.00219775
+Down/Up Ratio,0.0017868972
+Fwd IAT Mean,0.0013617128
+min_seg_size_forward,0.0012777863
+Bwd IAT Max,0.0011623184
+Bwd Packets/s,0.00085556105
+Flow Duration,0.0007371053
+Bwd IAT Min,0.00072765606
+Fwd Packet Length Min,0.0006065095
+Active Max,0.0006033305
+service_MySQL,0.00049665384
+service_RDP,0.00047772445
+Bwd Packet Length Min,0.0002873009
+URG Flag Count,0.00023130557
+port_category_well_known,0.0001320389
+service_Other,0.000109334534
+port_category_ephemeral,8.659539e-05
+duration_bucket_micro,6.85421e-05
+service_DNS,4.9533977e-05
+RST Flag Count,0.0
+Fwd URG Flags,0.0
+service_Telnet,0.0
+service_SMTP,0.0
+service_POP3,0.0
+service_IMAP,0.0
+service_IMAPS,0.0
+service_PostgreSQL,0.0

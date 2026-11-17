@@ -1,0 +1,17 @@
+raw_label,rows_sampled,mapped_to,used
+Benign,173118,BENIGN,True
+DDoS attacks-LOIC-HTTP,28780,DDoS,True
+DDOS attack-HOIC,23137,DDoS,True
+Bot,14298,Bot,True
+DoS attacks-Hulk,13191,DoS Hulk,True
+FTP-BruteForce,9706,FTP-Patator,True
+SSH-Bruteforce,9345,SSH-Patator,True
+Infilteration,7748,Infiltration,True
+DoS attacks-SlowHTTPTest,4523,DoS Slowhttptest,True
+DoS attacks-GoldenEye,1989,DoS GoldenEye,True
+DoS attacks-Slowloris,600,DoS slowloris,True
+DDOS attack-LOIC-UDP,87,DDoS,True
+Brute Force -Web,20,Web Attack - Brute Force,True
+Brute Force -XSS,9,Web Attack - XSS,True
+SQL Injection,4,Web Attack - Sql Injection,True
+Label,1,Label,False

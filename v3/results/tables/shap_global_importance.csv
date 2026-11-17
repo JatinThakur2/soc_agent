@@ -1,0 +1,33 @@
+,mean_abs_shap
+Init_Win_bytes_backward,1.2550604
+service_HTTP,1.1892123
+Flow Bytes/s,0.9034606
+Total Fwd Packets,0.6339703
+Fwd IAT Std,0.46351537
+Packet Length Variance,0.44999886
+Total Length of Fwd Packets,0.41030523
+Fwd Packet Length Max,0.4004301
+port_category_well_known,0.3492143
+service_Other,0.31891352
+Fwd Packet Length Mean,0.31518316
+service_SSH,0.27911636
+service_FTP,0.2749192
+Bwd IAT Mean,0.27402413
+duration_bucket_micro,0.18553203
+Active Mean,0.1219181
+service_DNS,0.115982816
+service_HTTPS,0.08553286
+duration_bucket_short,0.08000702
+duration_bucket_medium,0.06556308
+duration_bucket_long,0.05784769
+service_HTTP-Alt,0.04817281
+port_category_registered,0.026798682
+port_category_ephemeral,0.026447214
+service_SMTP,2.0512594e-05
+service_POP3,1.7690198e-05
+service_IMAP,1.6610578e-05
+service_IMAPS,1.5163331e-05
+service_Telnet,9.348544e-06
+service_MySQL,4.968761e-06
+service_RDP,1.1799814e-06
+service_PostgreSQL,7.2064785e-07

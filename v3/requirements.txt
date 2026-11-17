@@ -1,0 +1,26 @@
+# torch is installed separately by setup_env.sh (CUDA 12.4 build)
+pandas>=2.0
+numpy>=1.24
+scipy>=1.11
+scikit-learn>=1.4
+xgboost>=2.0
+imbalanced-learn>=0.12
+pyarrow>=14.0
+joblib>=1.3
+tqdm>=4.66
+requests>=2.31
+psutil
+packaging
+transformers>=4.43,<5
+accelerate>=0.33
+bitsandbytes>=0.43
+huggingface_hub>=0.23
+sentence-transformers>=3,<5
+faiss-cpu>=1.7
+shap>=0.44
+matplotlib>=3.8
+seaborn>=0.13
+kagglehub
+jupyterlab
+ipykernel
+nbconvert

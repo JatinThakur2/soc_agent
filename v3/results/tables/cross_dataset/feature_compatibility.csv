@@ -1,0 +1,33 @@
+feature,available_in_target
+Active Mean,True
+Bwd IAT Mean,True
+Flow Bytes/s,True
+Fwd IAT Std,True
+Fwd Packet Length Max,True
+Fwd Packet Length Mean,True
+Init_Win_bytes_backward,True
+Packet Length Variance,True
+Total Fwd Packets,True
+Total Length of Fwd Packets,True
+duration_bucket_long,True
+duration_bucket_medium,True
+duration_bucket_micro,True
+duration_bucket_short,True
+port_category_ephemeral,True
+port_category_registered,True
+port_category_well_known,True
+service_DNS,True
+service_FTP,True
+service_HTTP,True
+service_HTTP-Alt,True
+service_HTTPS,True
+service_IMAP,True
+service_IMAPS,True
+service_MySQL,True
+service_Other,True
+service_POP3,True
+service_PostgreSQL,True
+service_RDP,True
+service_SMTP,True
+service_SSH,True
+service_Telnet,True

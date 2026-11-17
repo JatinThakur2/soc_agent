@@ -1,0 +1,17 @@
+,raw,after removing NaN/Inf rows,after removing exact duplicates
+rows,2830743,2827876,2497980
+BENIGN,2273097,2271320,2072254
+DoS Hulk,231073,230124,172846
+PortScan,158930,158804,90694
+DDoS,128027,128025,128014
+DoS GoldenEye,10293,10293,10282
+FTP-Patator,7938,7935,5931
+SSH-Patator,5897,5897,3219
+DoS slowloris,5796,5796,5374
+DoS Slowhttptest,5499,5499,5228
+Bot,1966,1956,1948
+Web Attack - Brute Force,1507,1507,1470
+Web Attack - XSS,652,652,652
+Infiltration,36,36,36
+Web Attack - Sql Injection,21,21,21
+Heartbleed,11,11,11

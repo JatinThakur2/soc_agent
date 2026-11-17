@@ -1,0 +1,8 @@
+comparison,only_SOC-Agent_correct,only_other_correct,p_value_exact_mcnemar
+SOC-Agent vs Threshold-IDS,4,2,0.6875
+SOC-Agent vs ML-Only,4,2,0.6875
+SOC-Agent vs Triage-only,0,0,1.0
+SOC-Agent vs No-Coordinator,0,0,1.0
+SOC-Agent vs No-Investigation,0,0,1.0
+SOC-Agent vs No-RAG,0,0,1.0
+SOC-Agent vs No-SHAP,7,80,0.0

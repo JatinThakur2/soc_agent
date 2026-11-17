@@ -1,0 +1,14 @@
+,XGBoost,Random Forest
+BENIGN,181475,180197
+Bot,6897,57
+DDoS,2136,14441
+DoS GoldenEye,17690,17688
+DoS Hulk,39,41
+DoS Slowhttptest,6330,7123
+DoS slowloris,4676,535
+FTP-Patator,92,92
+Infiltration,406,3
+PortScan,121,101
+SSH-Patator,226,188
+Web Attack - Brute Force,123,1
+Web Attack - XSS,21006,20750

@@ -1,0 +1,13 @@
+comparison,what,only_first_correct,only_second_correct,p_mcnemar,dF1,dF1_95ci,dF1_95ci_episode,dRecall,dRecall_95ci,dFPR,dFPR_95ci,p_holm,significant_holm_0.05
+pred vs raw,detector output added to raw measurements,89,4,6.167247409177618e-22,59.14,"[52.6, 65.2]","[52.9, 65.6]",42.79,"[36.5, 49.0]",1.33,"[0.3, 2.7]",0.0,True
+pred_shap vs pred,genuine SHAP added,33,76,4.655578894552281e-05,0.38,"[-4.0, 5.7]","[-4.6, 5.4]",15.87,"[11.5, 21.2]",25.33,"[21.0, 30.0]",0.00028,True
+pred_shuffled vs pred,uninformative (shuffled) attributions added,15,43,0.000306947015546566,-10.67,"[-17.5, -4.6]","[-16.9, -4.7]",-8.65,"[-14.9, -2.9]",3.33,"[1.0, 6.0]",0.00153,True
+pred_shap vs pred_shuffled,genuine vs shuffled attributions,52,67,0.19915839818564512,11.05,"[5.5, 17.3]","[5.0, 17.6]",24.52,"[19.2, 30.3]",22.0,"[17.7, 26.7]",0.55522,False
+pred_shap_explicit vs pred_shap,explicit SHAP wording,31,14,0.016094360031274842,-0.11,"[-3.5, 2.8]","[-3.5, 2.8]",-6.25,"[-9.6, -2.9]",-10.0,"[-13.3, -7.0]",0.06438,False
+flipped vs pred,detector decision inverted,11,93,2.4866245084256097e-17,-52.74,"[-59.8, -45.5]","[-60.4, -44.9]",-39.42,"[-46.2, -32.7]",0.0,"[-1.7, 1.7]",0.0,True
+raw vs Threshold-IDS,vs. Threshold-IDS,199,175,0.23427806342234386,-60.14,"[-60.6, -59.5]","[-61.9, -58.6]",-84.13,"[-84.6, -82.7]",-66.33,"[-66.7, -65.7]",0.55522,False
+pred vs Threshold-IDS,vs. Threshold-IDS,195,86,6.818080912840049e-11,-1.0,"[-7.5, 4.9]","[-7.3, 5.5]",-41.35,"[-47.6, -35.1]",-65.0,"[-66.3, -63.7]",0.0,True
+pred_shap vs Threshold-IDS,vs. Threshold-IDS,119,53,5.277501979327408e-07,-0.63,"[-5.3, 3.7]","[-5.7, 4.3]",-25.48,"[-31.7, -20.2]",-39.67,"[-44.3, -35.3]",0.0,True
+pred_shuffled vs Threshold-IDS,vs. Threshold-IDS,185,104,2.1862113406582136e-06,-11.67,"[-18.3, -5.3]","[-18.8, -4.5]",-50.0,"[-56.2, -44.2]",-61.67,"[-64.0, -59.0]",2e-05,True
+pred_shap_explicit vs Threshold-IDS,vs. Threshold-IDS,149,66,1.4987738571341915e-08,-0.74,"[-5.9, 4.2]","[-6.4, 4.8]",-31.73,"[-37.5, -26.0]",-49.67,"[-53.7, -45.3]",0.0,True
+flipped vs Threshold-IDS,vs. Threshold-IDS,206,179,0.18507202107288473,-53.74,"[-57.6, -50.1]","[-58.2, -48.7]",-80.77,"[-83.2, -78.4]",-65.0,"[-66.3, -63.3]",0.55522,False

@@ -1,0 +1,6 @@
+system,block_recommended_on_benign_%,block_recommended_on_attacks_%,benign_escalated_%
+No-Coordinator,59.67,82.21,66.67
+No-Investigation,35.67,75.96,66.67
+No-RAG,59.33,84.13,66.67
+No-SHAP,33.0,76.92,40.0
+SOC-Agent,59.67,82.21,66.67
