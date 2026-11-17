@@ -19,13 +19,66 @@ the models can be compared directly.
 | `results/logs/` | Alerts, cohort, the exact prompts, and `run_manifest.json` (run settings) |
 | `results/agent_runs.tar.gz` | Every raw LLM answer for every alert, model and condition (JSON) |
 
+## Experiment design
+
+### Pipeline
+1. **Data.** CIC-IDS2017: 2,830,743 flows → 2,497,980 after removing NaN/Inf rows and exact duplicates.
+   Leaky columns (IPs, ports, flow ID, timestamp) and always-null columns are dropped.
+2. **Features.** Mutual-information top 30 + XGBoost top 25, plus engineered service, port-category and
+   duration features. The correlation threshold is 0.95.
+3. **Detector.** XGBoost, Random Forest and a DNN, trained on an 80/20 stratified random split. Benign rows
+   are capped at 500k and SMOTE (k = 5) is used. XGBoost is the detector the LLMs see.
+4. **Explanations.** TreeSHAP on XGBoost. Each alert carries its top-5 SHAP attributions.
+5. **LLM triage.** Each LLM reads one alert and returns JSON:
+   `{"severity": "Critical|High|Medium|Low|Informational", "escalate": true|false, "reasoning": "2-3 sentences"}`.
+   `escalate = true` counts as "attack" for scoring.
+
+### Alert cohort (508 alerts, identical for every model)
+
+| Stratum | Alerts | Meaning |
+|---|---|---|
+| S1 attack flagged | 176 | Real attacks the detector caught (up to 15 per attack class) |
+| S2 detector false positive | 200 | Benign flows the detector wrongly flagged |
+| S3 hard benign | 100 | Benign flows with attack probability ≥ 0.05 |
+| S4 detector miss | 32 | Every attack the detector missed in the test set |
+
+Ground truth: 300 benign and 208 attacks across 14 classes: DoS Hulk 26, DDoS 22, Bot 22,
+Web Brute Force 17, PortScan 16, slowloris 16, XSS 16, FTP-Patator 15, GoldenEye 15, Slowhttptest 15,
+SSH-Patator 15, Infiltration 7, SQL Injection 4, Heartbleed 2.
+
+The cohort is deliberately hard: 60% of it is benign traffic that looks suspicious. The scores therefore
+measure whether an LLM can *correct* the detector, not raw detection accuracy.
+
+### Conditions, prompts and seeds
+- **6 conditions:** `raw`, `pred`, `pred_shap`, `pred_shap_explicit`, `pred_shuffled`, `flipped`
+  (defined under the results table below).
+- **2 prompt wordings:** P1 ("Tier-1 SOC Triage Analyst … the detector can be wrong") and P2 (a
+  reworded version that treats the verdict "as a hint that may be mistaken"). P2 is run for `raw`,
+  `pred` and `pred_shap`. Each model therefore has 9 condition×prompt settings. The exact prompt
+  text is in `results/logs/prompts_v3.json` and `serialized_prompts_v3.md`.
+- **3 seeds** (42, 43, 44) per setting. Temperature is 0.01 and top-p 0.95.
+- **Statistics:** paired bootstrap 95% CIs, and McNemar tests with Holm correction across models.
+
+### Metrics
+- **Recall:** share of the 208 attacks escalated.
+- **FPR:** share of the 300 benign alerts escalated.
+- **F1:** on the escalate decision.
+- **Same-as-detector %:** how often the LLM agrees with the detector.
+- **Override rate / precision:** how often it disagrees with the detector, and how often it is right when it does.
+- **Detector FPs closed %:** S2 alerts the LLM correctly closed.
+- **Misses caught %:** S4 alerts the LLM correctly escalated.
+
 ## Running on a PBS cluster
 
+The scripts expect to sit in the same folder as the notebook, so first copy them there:
+
 ```bash
-bash cluster/setup_env_cluster.sh          # builds ~/soc-agent-env from a Python 3.11 env, torch cu121
-echo auto > gpu_choice                     # or a GPU index 0-7 to force one GPU
-bash cluster/submit_all.sh                 # chains one PBS job per model (afterany dependencies)
-bash cluster/submit_big.sh <last_job_id>   # Mistral-24B, Qwen2.5-72B, Llama-3.3-70B
+mkdir -p ~/soc_agent_v3 && cp SOC_Agent_Local_v3.ipynb requirements.txt cluster/* ~/soc_agent_v3/
+cd ~/soc_agent_v3 && mkdir -p logs
+bash setup_env_cluster.sh            # builds ~/soc-agent-env from a Python 3.11 env, torch cu121
+echo auto > gpu_choice               # or a GPU index 0-7 to force one GPU
+bash submit_all.sh                   # chains one PBS job per model (afterany dependencies)
+bash submit_big.sh <last_job_id>     # Mistral-24B, Qwen2.5-72B, Llama-3.3-70B
 ```
 
 Notes:
@@ -46,6 +99,20 @@ Notes:
 | XGBoost | 98.16 | 98.88 | 71.17 [65.56, 74.35] |
 | Random Forest | 98.27 | 98.95 | 72.68 [67.30, 75.85] |
 | DNN | 91.46 | 93.27 | 57.70 [54.24, 61.18] |
+
+### Detector robustness
+
+| Test | Result |
+|---|---|
+| Temporal split (train on earlier days, test on later ones) | Macro F1 73.87 (random split: 71.17) |
+| Cross-dataset (train CIC-IDS2017 → test CIC-IDS2018) | Accuracy 66.5% (XGB) / 69.1% (RF), macro F1 ≈ 21–23. It does not transfer. |
+| Leave-one-day-out (attack classes never seen in training) | Attack recall 0.01–4.2%. Unseen attack types are almost never detected. |
+
+Top SHAP features: `Init_Win_bytes_backward`, `service_HTTP`, `Flow Bytes/s`, `Total Fwd Packets`,
+`Fwd IAT Std`.
+
+These results are why an LLM second opinion is studied at all: the detector looks excellent on
+in-distribution data (98% accuracy) but fails on shifted or new traffic.
 
 ### LLM triage: F1 (%) per model and condition, prompt P1, same 508 alerts
 
@@ -96,6 +163,25 @@ all answers valid JSON). This is real model behaviour, not a parsing error: it r
 | Llama-3.3-70B-Instruct | +0.38 [-5.0, 5.2] | +25.33 [21.3, 30.0] | 0.000 |
 | Qwen2.5-72B-Instruct | +2.69 [-0.3, 5.3] | -12.00 [-16.0, -8.7] | 0.002 |
 
+### How models override the detector (condition `pred_shap`, P1)
+
+| Model | Same as detector % | Override rate % | Override precision % | Detector FPs closed % | Misses caught % |
+|---|---|---|---|---|---|
+| Qwen2.5-3B | 73.6 | 26.4 | 24.6 | 0.0 | 100.0 |
+| Phi-4-mini | 98.4 | 1.6 | 25.0 | 0.5 | 0.0 |
+| Qwen2.5-7B | 81.7 | 18.3 | 84.9 | 39.5 | 0.0 |
+| Llama-3.1-8B | 82.7 | 17.3 | 81.8 | 31.0 | 28.1 |
+| Qwen2.5-14B | 76.4 | 23.6 | 78.3 | 47.0 | 3.1 |
+| phi-4 | 76.6 | 23.4 | 63.0 | 26.0 | 68.8 |
+| Mistral-Small-24B | 76.0 | 24.0 | 68.0 | 34.0 | 50.0 |
+| Qwen2.5-32B | 85.6 | 14.4 | 82.2 | 29.5 | 3.1 |
+| Llama-3.3-70B | 66.1 | 33.9 | 69.2 | 60.0 | 0.0 |
+| Qwen2.5-72B | 74.2 | 25.8 | 80.9 | 52.5 | 0.0 |
+
+Larger models close more of the detector's false alarms (Llama-3.3-70B 60%, Qwen2.5-72B 52.5%) but
+catch almost none of its misses. phi-4 and Mistral-Small are the only models that do some of both.
+Qwen2.5-3B "catches" all misses only because it escalates nearly everything.
+
 ### Main findings
 
 1. **The detector's verdict drives the LLM.** Adding it raises mean F1 from 49.6 to 64.0, but roughly
@@ -106,3 +192,54 @@ all answers valid JSON). This is real model behaviour, not a parsing error: it r
    Mistral-Small (28.6) resist a wrong verdict best.
 4. **Size is not decisive.** Llama-3.1-8B alone (raw F1 75.0) beats both 70B-class models, and
    Qwen2.5-32B has the lowest raw false-positive rate (3.3%).
+5. **The detector itself does not generalise** to unseen attack types or to CIC-IDS2018, and the LLMs
+   catch almost none of its misses. An LLM layer reduces alert fatigue (closing false positives) more
+   than it improves detection.
+
+## Compute log
+
+| Model | Hugging Face ID | Run time (1× A100 80 GB, 4-bit) |
+|---|---|---|
+| Qwen2.5-3B | `Qwen/Qwen2.5-3B-Instruct` | 1.1 h |
+| Phi-4-mini | `microsoft/Phi-4-mini-instruct` | 2.6 h |
+| Qwen2.5-7B | `Qwen/Qwen2.5-7B-Instruct` | 1.2 h |
+| Llama-3.1-8B | `meta-llama/Llama-3.1-8B-Instruct` | 4.6 h |
+| Qwen2.5-14B | `Qwen/Qwen2.5-14B-Instruct` | 8.6 h (also built the detector and cohort) |
+| phi-4 | `microsoft/phi-4` | 2.9 h |
+| Mistral-Small-24B | `mistralai/Mistral-Small-24B-Instruct-2501` | 5.9 h |
+| Qwen2.5-32B | `Qwen/Qwen2.5-32B-Instruct` | ~8 h (over 3 attempts, resumed from cache) |
+| Llama-3.3-70B | `meta-llama/Llama-3.3-70B-Instruct` | 22.6 h |
+| Qwen2.5-72B | `Qwen/Qwen2.5-72B-Instruct` | 20 h |
+
+Llama models are gated: accept the licence on Hugging Face and set `HF_TOKEN` before running.
+
+Software: Python 3.11, PyTorch 2.5.1+cu121 (NVIDIA driver 525), transformers 4.57.6,
+sentence-transformers 4.1.0, bitsandbytes (NF4 4-bit), papermill 2.7.0.
+
+## Known issues and fixes
+
+| Problem | Fix |
+|---|---|
+| `NameError: name 'nn' is not defined` while importing sentence-transformers | transformers 5.x is incompatible: pin `transformers<5`, `sentence-transformers<5` |
+| The LLM worker landed on another user's GPU | PBS does not set `CUDA_VISIBLE_DEVICES`. `soc_job.pbs` picks a GPU, and the notebook maps the worker to it |
+| `#PBS` directive error | PBS does not allow comments at the end of `#PBS` lines |
+| CUDA out of memory on a shared GPU | Set `gpu_choice` to `auto` (picks the least-used GPU) and resubmit. Finished conditions are cached |
+| `OSError: [Errno 70] Communication error on send` | Transient network-filesystem error. Resubmit: the run resumes from the cache |
+| Llama-3.3-70B raw F1 = 0 | Real behaviour: it never escalates from raw features (see results) |
+
+## Reproducing one model
+
+```bash
+cd ~/soc_agent_v3                    # the folder prepared above
+qsub -N soc_qwen7b -v MODEL=Qwen/Qwen2.5-7B-Instruct,V3ONLY=1,BATCH=16 soc_job.pbs
+# or interactively on a GPU node:
+SOC_LLM_MODEL=Qwen/Qwen2.5-7B-Instruct SOC_V3_ONLY=1 bash run_notebook.sh
+```
+`V3ONLY=1` skips detector training when it is already cached, so run one model with `V3ONLY=0` first.
+Progress: `tail -f ~/SOC_Agent/workers/worker_0.log`.
+
+## Datasets
+
+- CIC-IDS2017 and CSE-CIC-IDS2018, Canadian Institute for Cybersecurity, University of New Brunswick
+  (https://www.unb.ca/cic/datasets/).
+- MITRE ATT&CK Enterprise v17.1 (used for retrieval in the full agent pipeline).

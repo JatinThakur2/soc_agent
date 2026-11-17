@@ -4,6 +4,40 @@ End-to-end implementation for intrusion detection and LLM-powered alert triage u
 
 ---
 
+## 🆕 v3: 10-LLM triage experiments on an HPC cluster → [`v3/`](v3/README.md)
+
+The latest version runs the full experiment with **10 open-weight LLMs (3B–72B)** on A100 GPUs (PBS Pro).
+Every model triages the **same 508 hard alerts** under 6 conditions × 2 prompts × 3 seeds:
+
+- **Conditions:** features only; plus the detector verdict; plus SHAP; a SHAP placebo; and a deliberately wrong verdict.
+- **Models:** Qwen2.5 3B/7B/14B/32B/72B, Phi-4-mini, phi-4, Llama-3.1-8B, Llama-3.3-70B and Mistral-Small-24B.
+
+| | |
+|---|---|
+| Detector (XGBoost, CIC-IDS2017) | 98.2% accuracy, macro F1 71.2; does **not** transfer to CIC-IDS2018 or to unseen attack types |
+| Best LLM, features only | Llama-3.1-8B, F1 75.0 |
+| Best LLM with detector + SHAP | Qwen2.5-72B, F1 68.5 |
+| Effect of SHAP explanations | No F1 gain on average (63.5 vs 64.0); usually more false positives |
+| Wrong detector verdict | F1 collapses to about 18%: LLMs mostly follow the detector |
+
+The [`v3/README.md`](v3/README.md) covers:
+- the full experiment design, every results table, and the main findings;
+- run times, the known issues with their fixes, and how to reproduce a run on a PBS cluster.
+
+The v3 folder also holds:
+- **executed notebooks** for all 10 models, with every cell's output;
+- **all tables and figures**;
+- **every raw LLM answer**: `v3/results/agent_runs.tar.gz`.
+
+### Repository layout
+
+| Path | Version |
+|---|---|
+| `src/`, `scripts/`, `configs/`, `jobs/`, `results/`, `knowledge_base/` | v1/v2: script pipeline with a multi-agent Claude/Ollama backend (documented below and in [SETUP.md](SETUP.md)) |
+| `v3/` | v3: single notebook, local Hugging Face LLMs in 4-bit, multi-model comparison on PBS |
+
+---
+
 ## Prerequisites (One-time manual setup)
 
 Before running anything, complete these two steps:
